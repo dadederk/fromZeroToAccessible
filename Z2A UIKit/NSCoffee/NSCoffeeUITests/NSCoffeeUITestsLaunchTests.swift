@@ -1,13 +1,13 @@
 //
-//  Z2A_UIKitUITestsLaunchTests.swift
-//  Z2A UIKitUITests
+//  NSCoffeeUITestsLaunchTests.swift
+//  NSCoffeeUITests
 //
-//  Created by Dani on 19/01/2025.
+//  Created by Dani on 28/02/2025.
 //
 
 import XCTest
 
-final class Z2A_UIKitUITestsLaunchTests: XCTestCase {
+final class NSCoffeeUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

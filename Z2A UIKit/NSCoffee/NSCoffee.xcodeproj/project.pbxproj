@@ -7,75 +7,75 @@
 	objects = {
 
 /* Begin PBXContainerItemProxy section */
-		21FEF8622D3DA83F0093FFBE /* PBXContainerItemProxy */ = {
+		2160225F2D71F33600C9711E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 21FEF8402D3DA83D0093FFBE /* Project object */;
+			containerPortal = 2160223D2D71F33500C9711E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 21FEF8472D3DA83D0093FFBE;
-			remoteInfo = "Z2A UIKit";
+			remoteGlobalIDString = 216022442D71F33500C9711E;
+			remoteInfo = NSCoffee;
 		};
-		21FEF86C2D3DA83F0093FFBE /* PBXContainerItemProxy */ = {
+		216022692D71F33600C9711E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 21FEF8402D3DA83D0093FFBE /* Project object */;
+			containerPortal = 2160223D2D71F33500C9711E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 21FEF8472D3DA83D0093FFBE;
-			remoteInfo = "Z2A UIKit";
+			remoteGlobalIDString = 216022442D71F33500C9711E;
+			remoteInfo = NSCoffee;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		21FEF8482D3DA83E0093FFBE /* Z2A UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Z2A UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		21FEF8612D3DA83F0093FFBE /* Z2A UIKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Z2A UIKitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		21FEF86B2D3DA83F0093FFBE /* Z2A UIKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Z2A UIKitUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		216022452D71F33500C9711E /* NSCoffee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSCoffee.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2160225E2D71F33600C9711E /* NSCoffeeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NSCoffeeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		216022682D71F33600C9711E /* NSCoffeeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NSCoffeeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		21FEF8732D3DA83F0093FFBE /* Exceptions for "Z2A UIKit" folder in "Z2A UIKit" target */ = {
+		216022702D71F33600C9711E /* Exceptions for "NSCoffee" folder in "NSCoffee" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 21FEF8472D3DA83D0093FFBE /* Z2A UIKit */;
+			target = 216022442D71F33500C9711E /* NSCoffee */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		21FEF84A2D3DA83E0093FFBE /* Z2A UIKit */ = {
+		216022472D71F33500C9711E /* NSCoffee */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				21FEF8732D3DA83F0093FFBE /* Exceptions for "Z2A UIKit" folder in "Z2A UIKit" target */,
+				216022702D71F33600C9711E /* Exceptions for "NSCoffee" folder in "NSCoffee" target */,
 			);
-			path = "Z2A UIKit";
+			path = NSCoffee;
 			sourceTree = "<group>";
 		};
-		21FEF8642D3DA83F0093FFBE /* Z2A UIKitTests */ = {
+		216022612D71F33600C9711E /* NSCoffeeTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Z2A UIKitTests";
+			path = NSCoffeeTests;
 			sourceTree = "<group>";
 		};
-		21FEF86E2D3DA83F0093FFBE /* Z2A UIKitUITests */ = {
+		2160226B2D71F33600C9711E /* NSCoffeeUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Z2A UIKitUITests";
+			path = NSCoffeeUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		21FEF8452D3DA83D0093FFBE /* Frameworks */ = {
+		216022422D71F33500C9711E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		21FEF85E2D3DA83F0093FFBE /* Frameworks */ = {
+		2160225B2D71F33600C9711E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		21FEF8682D3DA83F0093FFBE /* Frameworks */ = {
+		216022652D71F33600C9711E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -85,22 +85,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		21FEF83F2D3DA83D0093FFBE = {
+		2160223C2D71F33500C9711E = {
 			isa = PBXGroup;
 			children = (
-				21FEF84A2D3DA83E0093FFBE /* Z2A UIKit */,
-				21FEF8642D3DA83F0093FFBE /* Z2A UIKitTests */,
-				21FEF86E2D3DA83F0093FFBE /* Z2A UIKitUITests */,
-				21FEF8492D3DA83E0093FFBE /* Products */,
+				216022472D71F33500C9711E /* NSCoffee */,
+				216022612D71F33600C9711E /* NSCoffeeTests */,
+				2160226B2D71F33600C9711E /* NSCoffeeUITests */,
+				216022462D71F33500C9711E /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		21FEF8492D3DA83E0093FFBE /* Products */ = {
+		216022462D71F33500C9711E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				21FEF8482D3DA83E0093FFBE /* Z2A UIKit.app */,
-				21FEF8612D3DA83F0093FFBE /* Z2A UIKitTests.xctest */,
-				21FEF86B2D3DA83F0093FFBE /* Z2A UIKitUITests.xctest */,
+				216022452D71F33500C9711E /* NSCoffee.app */,
+				2160225E2D71F33600C9711E /* NSCoffeeTests.xctest */,
+				216022682D71F33600C9711E /* NSCoffeeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,134 +108,134 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		21FEF8472D3DA83D0093FFBE /* Z2A UIKit */ = {
+		216022442D71F33500C9711E /* NSCoffee */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 21FEF8742D3DA83F0093FFBE /* Build configuration list for PBXNativeTarget "Z2A UIKit" */;
+			buildConfigurationList = 216022712D71F33600C9711E /* Build configuration list for PBXNativeTarget "NSCoffee" */;
 			buildPhases = (
-				21FEF8442D3DA83D0093FFBE /* Sources */,
-				21FEF8452D3DA83D0093FFBE /* Frameworks */,
-				21FEF8462D3DA83D0093FFBE /* Resources */,
+				216022412D71F33500C9711E /* Sources */,
+				216022422D71F33500C9711E /* Frameworks */,
+				216022432D71F33500C9711E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				21FEF84A2D3DA83E0093FFBE /* Z2A UIKit */,
+				216022472D71F33500C9711E /* NSCoffee */,
 			);
-			name = "Z2A UIKit";
+			name = NSCoffee;
 			packageProductDependencies = (
 			);
-			productName = "Z2A UIKit";
-			productReference = 21FEF8482D3DA83E0093FFBE /* Z2A UIKit.app */;
+			productName = NSCoffee;
+			productReference = 216022452D71F33500C9711E /* NSCoffee.app */;
 			productType = "com.apple.product-type.application";
 		};
-		21FEF8602D3DA83F0093FFBE /* Z2A UIKitTests */ = {
+		2160225D2D71F33600C9711E /* NSCoffeeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 21FEF8792D3DA83F0093FFBE /* Build configuration list for PBXNativeTarget "Z2A UIKitTests" */;
+			buildConfigurationList = 216022762D71F33600C9711E /* Build configuration list for PBXNativeTarget "NSCoffeeTests" */;
 			buildPhases = (
-				21FEF85D2D3DA83F0093FFBE /* Sources */,
-				21FEF85E2D3DA83F0093FFBE /* Frameworks */,
-				21FEF85F2D3DA83F0093FFBE /* Resources */,
+				2160225A2D71F33600C9711E /* Sources */,
+				2160225B2D71F33600C9711E /* Frameworks */,
+				2160225C2D71F33600C9711E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				21FEF8632D3DA83F0093FFBE /* PBXTargetDependency */,
+				216022602D71F33600C9711E /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				21FEF8642D3DA83F0093FFBE /* Z2A UIKitTests */,
+				216022612D71F33600C9711E /* NSCoffeeTests */,
 			);
-			name = "Z2A UIKitTests";
+			name = NSCoffeeTests;
 			packageProductDependencies = (
 			);
-			productName = "Z2A UIKitTests";
-			productReference = 21FEF8612D3DA83F0093FFBE /* Z2A UIKitTests.xctest */;
+			productName = NSCoffeeTests;
+			productReference = 2160225E2D71F33600C9711E /* NSCoffeeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		21FEF86A2D3DA83F0093FFBE /* Z2A UIKitUITests */ = {
+		216022672D71F33600C9711E /* NSCoffeeUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 21FEF87C2D3DA83F0093FFBE /* Build configuration list for PBXNativeTarget "Z2A UIKitUITests" */;
+			buildConfigurationList = 216022792D71F33600C9711E /* Build configuration list for PBXNativeTarget "NSCoffeeUITests" */;
 			buildPhases = (
-				21FEF8672D3DA83F0093FFBE /* Sources */,
-				21FEF8682D3DA83F0093FFBE /* Frameworks */,
-				21FEF8692D3DA83F0093FFBE /* Resources */,
+				216022642D71F33600C9711E /* Sources */,
+				216022652D71F33600C9711E /* Frameworks */,
+				216022662D71F33600C9711E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				21FEF86D2D3DA83F0093FFBE /* PBXTargetDependency */,
+				2160226A2D71F33600C9711E /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				21FEF86E2D3DA83F0093FFBE /* Z2A UIKitUITests */,
+				2160226B2D71F33600C9711E /* NSCoffeeUITests */,
 			);
-			name = "Z2A UIKitUITests";
+			name = NSCoffeeUITests;
 			packageProductDependencies = (
 			);
-			productName = "Z2A UIKitUITests";
-			productReference = 21FEF86B2D3DA83F0093FFBE /* Z2A UIKitUITests.xctest */;
+			productName = NSCoffeeUITests;
+			productReference = 216022682D71F33600C9711E /* NSCoffeeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		21FEF8402D3DA83D0093FFBE /* Project object */ = {
+		2160223D2D71F33500C9711E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
-					21FEF8472D3DA83D0093FFBE = {
+					216022442D71F33500C9711E = {
 						CreatedOnToolsVersion = 16.2;
 					};
-					21FEF8602D3DA83F0093FFBE = {
+					2160225D2D71F33600C9711E = {
 						CreatedOnToolsVersion = 16.2;
-						TestTargetID = 21FEF8472D3DA83D0093FFBE;
+						TestTargetID = 216022442D71F33500C9711E;
 					};
-					21FEF86A2D3DA83F0093FFBE = {
+					216022672D71F33600C9711E = {
 						CreatedOnToolsVersion = 16.2;
-						TestTargetID = 21FEF8472D3DA83D0093FFBE;
+						TestTargetID = 216022442D71F33500C9711E;
 					};
 				};
 			};
-			buildConfigurationList = 21FEF8432D3DA83D0093FFBE /* Build configuration list for PBXProject "Z2A UIKit" */;
+			buildConfigurationList = 216022402D71F33500C9711E /* Build configuration list for PBXProject "NSCoffee" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 21FEF83F2D3DA83D0093FFBE;
+			mainGroup = 2160223C2D71F33500C9711E;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 21FEF8492D3DA83E0093FFBE /* Products */;
+			productRefGroup = 216022462D71F33500C9711E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				21FEF8472D3DA83D0093FFBE /* Z2A UIKit */,
-				21FEF8602D3DA83F0093FFBE /* Z2A UIKitTests */,
-				21FEF86A2D3DA83F0093FFBE /* Z2A UIKitUITests */,
+				216022442D71F33500C9711E /* NSCoffee */,
+				2160225D2D71F33600C9711E /* NSCoffeeTests */,
+				216022672D71F33600C9711E /* NSCoffeeUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		21FEF8462D3DA83D0093FFBE /* Resources */ = {
+		216022432D71F33500C9711E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		21FEF85F2D3DA83F0093FFBE /* Resources */ = {
+		2160225C2D71F33600C9711E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		21FEF8692D3DA83F0093FFBE /* Resources */ = {
+		216022662D71F33600C9711E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -245,21 +245,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		21FEF8442D3DA83D0093FFBE /* Sources */ = {
+		216022412D71F33500C9711E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		21FEF85D2D3DA83F0093FFBE /* Sources */ = {
+		2160225A2D71F33600C9711E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		21FEF8672D3DA83F0093FFBE /* Sources */ = {
+		216022642D71F33600C9711E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -269,20 +269,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		21FEF8632D3DA83F0093FFBE /* PBXTargetDependency */ = {
+		216022602D71F33600C9711E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 21FEF8472D3DA83D0093FFBE /* Z2A UIKit */;
-			targetProxy = 21FEF8622D3DA83F0093FFBE /* PBXContainerItemProxy */;
+			target = 216022442D71F33500C9711E /* NSCoffee */;
+			targetProxy = 2160225F2D71F33600C9711E /* PBXContainerItemProxy */;
 		};
-		21FEF86D2D3DA83F0093FFBE /* PBXTargetDependency */ = {
+		2160226A2D71F33600C9711E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 21FEF8472D3DA83D0093FFBE /* Z2A UIKit */;
-			targetProxy = 21FEF86C2D3DA83F0093FFBE /* PBXContainerItemProxy */;
+			target = 216022442D71F33500C9711E /* NSCoffee */;
+			targetProxy = 216022692D71F33600C9711E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		21FEF8752D3DA83F0093FFBE /* Debug */ = {
+		216022722D71F33600C9711E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -291,18 +291,19 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L8P3SDVYVX;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Z2A UIKit/Info.plist";
+				INFOPLIST_FILE = NSCoffee/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "fromZeroToAccessible.com.Z2A-UIKit";
+				PRODUCT_BUNDLE_IDENTIFIER = dadederk.NSCoffee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -310,7 +311,7 @@
 			};
 			name = Debug;
 		};
-		21FEF8762D3DA83F0093FFBE /* Release */ = {
+		216022732D71F33600C9711E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -319,18 +320,19 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L8P3SDVYVX;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Z2A UIKit/Info.plist";
+				INFOPLIST_FILE = NSCoffee/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "fromZeroToAccessible.com.Z2A-UIKit";
+				PRODUCT_BUNDLE_IDENTIFIER = dadederk.NSCoffee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -338,7 +340,7 @@
 			};
 			name = Release;
 		};
-		21FEF8772D3DA83F0093FFBE /* Debug */ = {
+		216022742D71F33600C9711E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -401,7 +403,7 @@
 			};
 			name = Debug;
 		};
-		21FEF8782D3DA83F0093FFBE /* Release */ = {
+		216022752D71F33600C9711E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -457,7 +459,7 @@
 			};
 			name = Release;
 		};
-		21FEF87A2D3DA83F0093FFBE /* Debug */ = {
+		216022772D71F33600C9711E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -467,16 +469,16 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "fromZeroToAccessible.com.Z2A-UIKitTests";
+				PRODUCT_BUNDLE_IDENTIFIER = dadederk.NSCoffeeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Z2A UIKit.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Z2A UIKit";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NSCoffee.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NSCoffee";
 			};
 			name = Debug;
 		};
-		21FEF87B2D3DA83F0093FFBE /* Release */ = {
+		216022782D71F33600C9711E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -486,16 +488,16 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "fromZeroToAccessible.com.Z2A-UIKitTests";
+				PRODUCT_BUNDLE_IDENTIFIER = dadederk.NSCoffeeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Z2A UIKit.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Z2A UIKit";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NSCoffee.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NSCoffee";
 			};
 			name = Release;
 		};
-		21FEF87D2D3DA83F0093FFBE /* Debug */ = {
+		2160227A2D71F33600C9711E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -503,16 +505,16 @@
 				DEVELOPMENT_TEAM = L8P3SDVYVX;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "fromZeroToAccessible.com.Z2A-UIKitUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = dadederk.NSCoffeeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Z2A UIKit";
+				TEST_TARGET_NAME = NSCoffee;
 			};
 			name = Debug;
 		};
-		21FEF87E2D3DA83F0093FFBE /* Release */ = {
+		2160227B2D71F33600C9711E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -520,55 +522,55 @@
 				DEVELOPMENT_TEAM = L8P3SDVYVX;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "fromZeroToAccessible.com.Z2A-UIKitUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = dadederk.NSCoffeeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Z2A UIKit";
+				TEST_TARGET_NAME = NSCoffee;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		21FEF8432D3DA83D0093FFBE /* Build configuration list for PBXProject "Z2A UIKit" */ = {
+		216022402D71F33500C9711E /* Build configuration list for PBXProject "NSCoffee" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				21FEF8772D3DA83F0093FFBE /* Debug */,
-				21FEF8782D3DA83F0093FFBE /* Release */,
+				216022742D71F33600C9711E /* Debug */,
+				216022752D71F33600C9711E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		21FEF8742D3DA83F0093FFBE /* Build configuration list for PBXNativeTarget "Z2A UIKit" */ = {
+		216022712D71F33600C9711E /* Build configuration list for PBXNativeTarget "NSCoffee" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				21FEF8752D3DA83F0093FFBE /* Debug */,
-				21FEF8762D3DA83F0093FFBE /* Release */,
+				216022722D71F33600C9711E /* Debug */,
+				216022732D71F33600C9711E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		21FEF8792D3DA83F0093FFBE /* Build configuration list for PBXNativeTarget "Z2A UIKitTests" */ = {
+		216022762D71F33600C9711E /* Build configuration list for PBXNativeTarget "NSCoffeeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				21FEF87A2D3DA83F0093FFBE /* Debug */,
-				21FEF87B2D3DA83F0093FFBE /* Release */,
+				216022772D71F33600C9711E /* Debug */,
+				216022782D71F33600C9711E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		21FEF87C2D3DA83F0093FFBE /* Build configuration list for PBXNativeTarget "Z2A UIKitUITests" */ = {
+		216022792D71F33600C9711E /* Build configuration list for PBXNativeTarget "NSCoffeeUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				21FEF87D2D3DA83F0093FFBE /* Debug */,
-				21FEF87E2D3DA83F0093FFBE /* Release */,
+				2160227A2D71F33600C9711E /* Debug */,
+				2160227B2D71F33600C9711E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 21FEF8402D3DA83D0093FFBE /* Project object */;
+	rootObject = 2160223D2D71F33500C9711E /* Project object */;
 }

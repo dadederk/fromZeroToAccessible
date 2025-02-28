@@ -1,13 +1,13 @@
 //
-//  Z2A_UIKitUITests.swift
-//  Z2A UIKitUITests
+//  NSCoffeeUITests.swift
+//  NSCoffeeUITests
 //
-//  Created by Dani on 19/01/2025.
+//  Created by Dani on 28/02/2025.
 //
 
 import XCTest
 
-final class Z2A_UIKitUITests: XCTestCase {
+final class NSCoffeeUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

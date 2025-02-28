@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  Z2A UIKit
+//  NSCoffee
 //
-//  Created by Dani on 19/01/2025.
+//  Created by Dani on 28/02/2025.
 //
 
 import UIKit

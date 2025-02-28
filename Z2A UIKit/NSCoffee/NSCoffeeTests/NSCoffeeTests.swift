@@ -1,14 +1,14 @@
 //
-//  Z2A_UIKitTests.swift
-//  Z2A UIKitTests
+//  NSCoffeeTests.swift
+//  NSCoffeeTests
 //
-//  Created by Dani on 19/01/2025.
+//  Created by Dani on 28/02/2025.
 //
 
 import Testing
-@testable import Z2A_UIKit
+@testable import NSCoffee
 
-struct Z2A_UIKitTests {
+struct NSCoffeeTests {
 
     @Test func example() async throws {
         // Write your test here and use APIs like `#expect(...)` to check expected conditions.

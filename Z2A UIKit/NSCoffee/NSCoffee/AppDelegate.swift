@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Z2A UIKit
+//  NSCoffee
 //
-//  Created by Dani on 19/01/2025.
+//  Created by Dani on 28/02/2025.
 //
 
 import UIKit
@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
-        let container = NSPersistentContainer(name: "Z2A_UIKit")
+        let container = NSPersistentContainer(name: "NSCoffee")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
