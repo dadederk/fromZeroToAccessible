@@ -14,6 +14,7 @@ protocol DrinkTableViewCellDelegate: AnyObject {
 final class DrinkTableViewCell: UITableViewCell {
     static let identifier = String(describing: DrinkTableViewCell.self)
     
+    @IBOutlet weak var outerStackView: UIStackView!
     @IBOutlet private weak var drinkImageView: UIImageView!
     @IBOutlet private weak var drinkNameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
@@ -28,7 +29,26 @@ final class DrinkTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         buyButton.addTarget(self, action: #selector(buyDrink), for: .touchUpInside)
+//        updateLayout()
     }
+    
+//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+//        if previousTraitCollection?.preferredContentSizeCategory != traitCollection.preferredContentSizeCategory {
+//            updateLayout()
+//        }
+//    }
+//    
+//    private func updateLayout() {
+//        if traitCollection.preferredContentSizeCategory.isAccessibilityCategory {
+//            outerStackView.axis = .vertical
+//            outerStackView.alignment = .leading
+//            outerStackView.distribution = .equalSpacing
+//        } else {
+//            outerStackView.axis = .horizontal
+//            outerStackView.alignment = .center
+//            outerStackView.distribution = .fillProportionally
+//        }
+//    }
     
     @objc
     private func buyDrink(_ sender: UIButton) {
