@@ -16,6 +16,7 @@ final class DrinkTableViewCell: UITableViewCell {
     
     @IBOutlet private weak var drinkImageView: UIImageView!
     @IBOutlet private weak var drinkNameLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet private weak var disclosureIndicatorImageView: UIImageView!
     @IBOutlet weak var buyButton: UIButton!
     
@@ -41,7 +42,7 @@ final class DrinkTableViewCell: UITableViewCell {
         self.drink = drink
         
         drinkNameLabel.text = drink.name
-        
+        priceLabel.text = CurrencyFormatter.format(drink.basePrice)
         buyButton.setTitle(String(localized: "buy"), for: .normal)
         
         if let imageName = drink.imageName {

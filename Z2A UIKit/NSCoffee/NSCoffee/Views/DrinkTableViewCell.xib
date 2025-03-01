@@ -9,11 +9,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DrinkTableViewCell" rowHeight="120" id="KGk-i7-Jjw" customClass="DrinkTableViewCell" customModule="NSCoffee" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="439" height="120"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DrinkTableViewCell" rowHeight="141" id="KGk-i7-Jjw" customClass="DrinkTableViewCell" customModule="NSCoffee" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="439" height="141"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="439" height="120"/>
+                <rect key="frame" x="0.0" y="0.0" width="439" height="141"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cup.and.heat.waves.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="EBQ-sa-VdG">
@@ -32,28 +32,38 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greaterthan" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vI2-KS-OcC">
-                        <rect key="frame" x="398.66666666666669" y="53.666666666666657" width="20.333333333333314" height="13.333333333333343"/>
+                        <rect key="frame" x="398.66666666666669" y="64" width="20.333333333333314" height="13.333333333333343"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="vI2-KS-OcC" secondAttribute="height" multiplier="1:1" id="Lvj-Ng-exp"/>
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVX-ks-Q7c">
-                        <rect key="frame" x="108" y="49" width="75" height="35"/>
+                        <rect key="frame" x="108" y="78" width="75" height="43"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="filled" title="Button"/>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9W-cU-fS8">
+                        <rect key="frame" x="108" y="49" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="R6Y-Bs-Fbb" firstAttribute="leading" secondItem="EBQ-sa-VdG" secondAttribute="trailing" constant="8" symbolic="YES" id="1VH-Hh-NhS"/>
-                    <constraint firstItem="xVX-ks-Q7c" firstAttribute="top" secondItem="R6Y-Bs-Fbb" secondAttribute="bottom" constant="8" symbolic="YES" id="3Mt-CY-lWm"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="xVX-ks-Q7c" secondAttribute="bottom" constant="20" symbolic="YES" id="6rd-Fk-hub"/>
-                    <constraint firstItem="R6Y-Bs-Fbb" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" symbolic="YES" id="KTO-jV-x3J"/>
-                    <constraint firstAttribute="bottom" secondItem="EBQ-sa-VdG" secondAttribute="bottom" constant="20" symbolic="YES" id="KYb-0t-zaT"/>
+                    <constraint firstAttribute="bottom" secondItem="xVX-ks-Q7c" secondAttribute="bottom" constant="20" symbolic="YES" id="6rd-Fk-hub"/>
+                    <constraint firstItem="R6Y-Bs-Fbb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" symbolic="YES" id="KTO-jV-x3J"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="EBQ-sa-VdG" secondAttribute="bottom" constant="20" symbolic="YES" id="KYb-0t-zaT"/>
+                    <constraint firstItem="vI2-KS-OcC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="d9W-cU-fS8" secondAttribute="trailing" constant="8" symbolic="YES" id="KcN-ah-mys"/>
+                    <constraint firstItem="d9W-cU-fS8" firstAttribute="leading" secondItem="R6Y-Bs-Fbb" secondAttribute="leading" id="OQY-n1-9zQ"/>
+                    <constraint firstItem="vI2-KS-OcC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xVX-ks-Q7c" secondAttribute="trailing" constant="8" symbolic="YES" id="P5O-re-TTh"/>
                     <constraint firstItem="vI2-KS-OcC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="R6Y-Bs-Fbb" secondAttribute="trailing" constant="8" symbolic="YES" id="TyU-X0-lLl"/>
                     <constraint firstAttribute="trailing" secondItem="vI2-KS-OcC" secondAttribute="trailing" constant="20" symbolic="YES" id="Uhe-Oi-DqR"/>
                     <constraint firstItem="R6Y-Bs-Fbb" firstAttribute="top" secondItem="EBQ-sa-VdG" secondAttribute="top" id="Y9B-5v-z7T"/>
                     <constraint firstItem="xVX-ks-Q7c" firstAttribute="leading" secondItem="R6Y-Bs-Fbb" secondAttribute="leading" id="Ytf-bo-HIw"/>
                     <constraint firstItem="vI2-KS-OcC" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="aQO-F8-Obk"/>
+                    <constraint firstItem="xVX-ks-Q7c" firstAttribute="top" secondItem="d9W-cU-fS8" secondAttribute="bottom" constant="8" symbolic="YES" id="tW3-HE-rIk"/>
+                    <constraint firstItem="d9W-cU-fS8" firstAttribute="top" secondItem="R6Y-Bs-Fbb" secondAttribute="bottom" constant="8" symbolic="YES" id="u6J-Id-wh1"/>
                     <constraint firstItem="EBQ-sa-VdG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" symbolic="YES" id="zIc-xN-BSd"/>
                     <constraint firstItem="EBQ-sa-VdG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="znl-9Q-1Oq"/>
                 </constraints>
@@ -64,8 +74,9 @@
                 <outlet property="disclosureIndicatorImageView" destination="vI2-KS-OcC" id="jg1-WI-8xX"/>
                 <outlet property="drinkImageView" destination="EBQ-sa-VdG" id="5d8-pA-sGp"/>
                 <outlet property="drinkNameLabel" destination="R6Y-Bs-Fbb" id="gJi-wp-5kq"/>
+                <outlet property="priceLabel" destination="d9W-cU-fS8" id="crF-El-ckk"/>
             </connections>
-            <point key="canvasLocation" x="14.503816793893129" y="46.478873239436624"/>
+            <point key="canvasLocation" x="14.503816793893129" y="53.87323943661972"/>
         </tableViewCell>
     </objects>
     <resources>

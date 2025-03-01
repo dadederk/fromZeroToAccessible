@@ -15,6 +15,7 @@ final class DrinksHeaderView: UITableViewCell, NibLoadable {
     override func awakeFromNib() {
         super.awakeFromNib()
         headerTitleLabel.textColor = .darkGray
+        backgroundColor = .lightGray
     }
     
     func configure(withTitle title: String) {

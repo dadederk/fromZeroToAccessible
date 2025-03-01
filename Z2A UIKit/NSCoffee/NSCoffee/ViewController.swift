@@ -64,6 +64,11 @@ extension ViewController: UITableViewDataSource {
 }
 
 extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        guard indexPath.row - 1 >= 0 else { return nil }
+        return indexPath
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let drinkType = DrinkType.allCases[indexPath.section]
         let drink = drinks.drinks(for: drinkType)[indexPath.row - 1]
