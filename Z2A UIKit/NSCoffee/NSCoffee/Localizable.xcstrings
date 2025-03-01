@@ -151,6 +151,16 @@
       }
     },
     "spanishLatteDescription" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Coffee drink made with espresso, milk, and sweetened condensed milk."
+          }
+        }
+      }
+    },
+    "thumbsUp.%lld" : {
 
     }
   },

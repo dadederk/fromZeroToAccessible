@@ -21,36 +21,149 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2hw-wQ-wOt">
-                    <rect key="frame" x="0.0" y="-20" width="393" height="294.33333333333337"/>
-                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxj-3M-tA6">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2hw-wQ-wOt">
+                            <rect key="frame" x="20" y="0.0" width="393" height="294.33333333333337"/>
+                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="2hw-wQ-wOt" secondAttribute="height" multiplier="4:3" id="Yvt-ve-eMV"/>
+                            </constraints>
+                            <imageReference key="image" image="cup.and.heat.waves.fill" catalog="system" symbolScale="default" renderingMode="template"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A cortado is a Spanish beverage consisting of espresso mixed with a roughly equal amount of warm milk to reduce the acidity." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSp-vV-3Kh">
+                            <rect key="frame" x="28" y="227" width="362" height="61"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v7f-S2-x6x">
+                            <rect key="frame" x="20" y="294.66666666666669" width="393" height="60.333333333333314"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extra Shots" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HG4-3n-Sfc">
+                                    <rect key="frame" x="8" y="20" width="87" height="20.333333333333329"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HG4-3n-Sfc" secondAttribute="trailing" constant="20" symbolic="YES" id="bnc-5J-uAd"/>
+                                <constraint firstItem="HG4-3n-Sfc" firstAttribute="leading" secondItem="v7f-S2-x6x" secondAttribute="leading" constant="8" id="dOo-l0-Ody"/>
+                                <constraint firstItem="HG4-3n-Sfc" firstAttribute="top" secondItem="v7f-S2-x6x" secondAttribute="top" constant="20" symbolic="YES" id="qkn-Uc-hIP"/>
+                                <constraint firstItem="HG4-3n-Sfc" firstAttribute="centerY" secondItem="v7f-S2-x6x" secondAttribute="centerY" id="sqw-sH-6Uo"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f5j-C8-wU5">
+                            <rect key="frame" x="20" y="406" width="393" height="60.333333333333314"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate your drink" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hh-C7-JnG">
+                                    <rect key="frame" x="8" y="20" width="115" height="20.333333333333329"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="8hh-C7-JnG" firstAttribute="leading" secondItem="f5j-C8-wU5" secondAttribute="leading" constant="8" id="0gE-Bc-WbG"/>
+                                <constraint firstItem="8hh-C7-JnG" firstAttribute="centerY" secondItem="f5j-C8-wU5" secondAttribute="centerY" id="PLY-Yh-SI6"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8hh-C7-JnG" secondAttribute="trailing" constant="20" symbolic="YES" id="l7g-Qx-mLp"/>
+                                <constraint firstItem="8hh-C7-JnG" firstAttribute="top" secondItem="f5j-C8-wU5" secondAttribute="top" constant="20" symbolic="YES" id="s1u-WF-efT"/>
+                            </constraints>
+                        </view>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Eaz-Hd-3Mt">
+                            <rect key="frame" x="40" y="363" width="353" height="35"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VEl-GY-tt6">
+                                    <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="VEl-GY-tt6" secondAttribute="height" multiplier="1:1" id="TYa-Jc-egf"/>
+                                        <constraint firstAttribute="width" constant="35" id="jl1-Ol-2DL"/>
+                                    </constraints>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="gray">
+                                        <imageReference key="image" image="minus.circle" catalog="system" symbolScale="large"/>
+                                    </buttonConfiguration>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 shot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWh-AP-o4e">
+                                    <rect key="frame" x="55" y="0.0" width="63" height="35"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hue-8C-2IB">
+                                    <rect key="frame" x="138" y="0.0" width="35" height="35"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="hue-8C-2IB" secondAttribute="height" multiplier="1:1" id="EhA-AO-ztM"/>
+                                    </constraints>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="gray">
+                                        <imageReference key="image" image="plus.circle" catalog="system" symbolScale="large"/>
+                                    </buttonConfiguration>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ £0.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2eI-Pt-drU">
+                                    <rect key="frame" x="193" y="0.0" width="160" height="35"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="hue-8C-2IB" firstAttribute="width" secondItem="VEl-GY-tt6" secondAttribute="width" id="IG2-cP-n5p"/>
+                            </constraints>
+                        </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qw9-CN-gVr" customClass="RaterView" customModule="NSCoffee" customModuleProvider="target">
+                            <rect key="frame" x="20" y="474.33333333333326" width="393" height="128"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="128" placeholder="YES" id="5qI-Si-0CA"/>
+                            </constraints>
+                        </view>
+                    </subviews>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="2hw-wQ-wOt" secondAttribute="height" multiplier="4:3" id="Yvt-ve-eMV"/>
+                        <constraint firstAttribute="trailing" secondItem="2hw-wQ-wOt" secondAttribute="trailing" id="2vd-r7-DAv"/>
+                        <constraint firstItem="NPp-dD-tzl" firstAttribute="trailing" secondItem="2hw-wQ-wOt" secondAttribute="trailing" id="4Tj-KA-cmq"/>
+                        <constraint firstItem="NPp-dD-tzl" firstAttribute="trailing" secondItem="f5j-C8-wU5" secondAttribute="trailing" id="5Kw-BZ-Jg5"/>
+                        <constraint firstItem="NPp-dD-tzl" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aSp-vV-3Kh" secondAttribute="trailing" constant="8" id="8qC-f1-kw9"/>
+                        <constraint firstItem="2hw-wQ-wOt" firstAttribute="top" secondItem="bxj-3M-tA6" secondAttribute="top" id="AQx-Wc-Qcp"/>
+                        <constraint firstItem="NPp-dD-tzl" firstAttribute="trailing" secondItem="v7f-S2-x6x" secondAttribute="trailing" id="EG7-ek-3nl"/>
+                        <constraint firstItem="2hw-wQ-wOt" firstAttribute="bottom" secondItem="aSp-vV-3Kh" secondAttribute="baseline" constant="10.666666666666666" symbolType="layoutAnchor" id="Jwf-te-Shw"/>
+                        <constraint firstItem="aSp-vV-3Kh" firstAttribute="leading" secondItem="NPp-dD-tzl" secondAttribute="leading" constant="8" id="NTU-wq-HDc"/>
+                        <constraint firstItem="NPp-dD-tzl" firstAttribute="trailing" secondItem="Eaz-Hd-3Mt" secondAttribute="trailing" constant="20" id="Rts-FO-ipO"/>
+                        <constraint firstItem="qw9-CN-gVr" firstAttribute="top" secondItem="f5j-C8-wU5" secondAttribute="bottom" constant="8" symbolic="YES" id="VbD-mN-EfU"/>
+                        <constraint firstItem="qw9-CN-gVr" firstAttribute="leading" secondItem="NPp-dD-tzl" secondAttribute="leading" id="WTy-32-xT6"/>
+                        <constraint firstItem="f5j-C8-wU5" firstAttribute="top" secondItem="Eaz-Hd-3Mt" secondAttribute="bottom" constant="8" symbolic="YES" id="amE-Jb-zwA"/>
+                        <constraint firstItem="v7f-S2-x6x" firstAttribute="top" secondItem="2hw-wQ-wOt" secondAttribute="bottom" id="fOc-L8-5yo"/>
+                        <constraint firstItem="2hw-wQ-wOt" firstAttribute="leading" secondItem="NPp-dD-tzl" secondAttribute="leading" id="ggl-Qw-IBf"/>
+                        <constraint firstItem="f5j-C8-wU5" firstAttribute="leading" secondItem="NPp-dD-tzl" secondAttribute="leading" id="gk8-ih-37Q"/>
+                        <constraint firstItem="qw9-CN-gVr" firstAttribute="bottom" secondItem="HnW-iS-Aew" secondAttribute="bottom" id="lmK-zu-Y2k"/>
+                        <constraint firstItem="Eaz-Hd-3Mt" firstAttribute="leading" secondItem="NPp-dD-tzl" secondAttribute="leading" constant="20" id="oCp-3k-goQ"/>
+                        <constraint firstItem="v7f-S2-x6x" firstAttribute="leading" secondItem="NPp-dD-tzl" secondAttribute="leading" id="poc-u1-iH1"/>
+                        <constraint firstItem="NPp-dD-tzl" firstAttribute="trailing" secondItem="qw9-CN-gVr" secondAttribute="trailing" id="ta7-r4-ox1"/>
+                        <constraint firstItem="Eaz-Hd-3Mt" firstAttribute="top" secondItem="v7f-S2-x6x" secondAttribute="bottom" constant="8" symbolic="YES" id="xYw-wp-B9G"/>
                     </constraints>
-                    <imageReference key="image" image="cup.and.heat.waves.fill" catalog="system" symbolScale="default" renderingMode="template"/>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A cortado is a Spanish beverage consisting of espresso mixed with a roughly equal amount of warm milk to reduce the acidity." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSp-vV-3Kh">
-                    <rect key="frame" x="20" y="207" width="351" height="61"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                    <viewLayoutGuide key="contentLayoutGuide" id="HnW-iS-Aew"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="NPp-dD-tzl"/>
+                </scrollView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2hw-wQ-wOt" secondAttribute="trailing" id="3ZD-EX-8g5"/>
-                <constraint firstItem="aSp-vV-3Kh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" symbolic="YES" id="9b6-Cc-jcF"/>
-                <constraint firstItem="2hw-wQ-wOt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="CWp-SV-r5x"/>
-                <constraint firstAttribute="top" secondItem="2hw-wQ-wOt" secondAttribute="top" constant="20" symbolic="YES" id="Yny-cp-a36"/>
-                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aSp-vV-3Kh" secondAttribute="trailing" constant="20" symbolic="YES" id="ekf-3n-KCe"/>
-                <constraint firstItem="2hw-wQ-wOt" firstAttribute="bottom" secondItem="aSp-vV-3Kh" secondAttribute="baseline" constant="10.666666666666666" symbolType="layoutAnchor" id="vZQ-n7-yjS"/>
+                <constraint firstAttribute="bottom" secondItem="bxj-3M-tA6" secondAttribute="bottom" id="FK9-Gf-vtO"/>
+                <constraint firstItem="2hw-wQ-wOt" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="SlI-P5-qod"/>
+                <constraint firstItem="bxj-3M-tA6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gGq-Pr-j8m"/>
+                <constraint firstItem="bxj-3M-tA6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uzf-Tj-Mqy"/>
             </constraints>
             <point key="canvasLocation" x="136.64122137404578" y="19.718309859154932"/>
         </view>
     </objects>
     <resources>
         <image name="cup.and.heat.waves.fill" catalog="system" width="128" height="118"/>
+        <image name="minus.circle" catalog="system" width="128" height="123"/>
+        <image name="plus.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
