@@ -43,7 +43,7 @@ final class DrinkTableViewCell: UITableViewCell {
         
         drinkNameLabel.text = drink.name
         priceLabel.text = CurrencyFormatter.format(drink.basePrice)
-        buyButton.setTitle(String(localized: "buy"), for: .normal)
+        buyButton.setTitle(String(localized: "addToCart"), for: .normal)
         
         if let imageName = drink.imageName {
             drinkImageView.image = UIImage(named: imageName)

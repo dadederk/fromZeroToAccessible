@@ -12,6 +12,7 @@ final class ViewController: UIViewController {
     
     private let drinks = Drinks()
     private let orderButtonView = OrderButtonView.loadFromNib()
+    private let basketView = BasketView.loadFromNib()
     
     private var basket = Basket()
     
@@ -29,6 +30,27 @@ final class ViewController: UIViewController {
         title = String(localized: "appName")
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = customRightBarButtonItem
+        
+        if let basketView = basketView {
+            view.addSubview(basketView)
+            basketView.alpha = 0.0
+            basketView.translatesAutoresizingMaskIntoConstraints = false
+            
+            NSLayoutConstraint.activate([
+                basketView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                basketView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            ])
+        }
+        
+        if let orderButtonView = orderButtonView {
+            orderButtonView.buttonPressed = {
+                if self.basketView?.alpha == 0.0 {
+                    self.basketView?.present()
+                } else {
+                    self.basketView?.dismiss()
+                }
+            }
+        }
     }
 }
 
@@ -75,6 +97,14 @@ extension ViewController: UITableViewDelegate {
         
         navigationController?.pushViewController(DrinkDetailsViewViewController(drink: drink), animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        basketView?.dismiss()
+    }
+}
+
+extension ViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        basketView?.dismiss(withAnimation: false)
     }
 }
 
@@ -86,6 +116,7 @@ extension ViewController: DrinkTableViewCellDelegate {
             basket.orders.append(Order(drink: drink))
         }
         
-        orderButtonView?.configureWith(numberOfItems: UInt(basket.orders.count))
+        orderButtonView?.configureWith(numberOfItems: UInt(basket.orders.reduce(into: 0) { $0 += $1.quantity }))
+        basketView?.configure(withBasket: basket)
     }
 }

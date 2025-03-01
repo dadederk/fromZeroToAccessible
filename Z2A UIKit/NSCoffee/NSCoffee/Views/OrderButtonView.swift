@@ -11,6 +11,8 @@ final class OrderButtonView: UIView, NibLoadable {
     @IBOutlet private weak var orderButton: UIButton!
     @IBOutlet private weak var numberOfItemsLabel: UILabel!
     
+    var buttonPressed: (() -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -19,6 +21,13 @@ final class OrderButtonView: UIView, NibLoadable {
         
         numberOfItemsLabel.layer.cornerRadius = numberOfItemsLabel.frame.height / 2
         numberOfItemsLabel.layer.backgroundColor = UIColor.red.cgColor
+        
+        orderButton.addTarget(self, action: #selector(handleOrderButtonPressed), for: .touchUpInside)
+    }
+    
+    @objc
+    private func handleOrderButtonPressed() {
+        buttonPressed?()
     }
     
     func configureWith(numberOfItems: UInt) {
