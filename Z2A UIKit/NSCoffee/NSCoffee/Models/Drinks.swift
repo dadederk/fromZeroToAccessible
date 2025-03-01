@@ -71,7 +71,7 @@ struct Drinks {
                   imageName: "Orxata")
     ]
     
-    func drinks(for drinkType: DrinkType) -> [Drink] {
+    func drinks(for drinkType: DrinkType) -> [any Drink] {
         switch drinkType {
         case .coffee: coffees
         case .hotDrink: hotDrinks

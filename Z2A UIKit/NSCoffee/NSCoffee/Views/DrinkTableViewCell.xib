@@ -17,16 +17,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cup.and.heat.waves.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="EBQ-sa-VdG">
-                        <rect key="frame" x="20.000000000000007" y="19.999999999999993" width="106.66666666666669" height="79.666666666666657"/>
+                        <rect key="frame" x="20" y="19.999999999999993" width="80" height="79.666666666666657"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="EBQ-sa-VdG" secondAttribute="height" multiplier="4:3" id="oZJ-ad-78h"/>
+                            <constraint firstAttribute="width" secondItem="EBQ-sa-VdG" secondAttribute="height" multiplier="1:1" id="oZJ-ad-78h"/>
                             <constraint firstAttribute="height" constant="80" id="q3T-C6-5oK"/>
                         </constraints>
                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6Y-Bs-Fbb">
-                        <rect key="frame" x="134.66666666666666" y="49.666666666666664" width="42" height="20.999999999999993"/>
+                        <rect key="frame" x="108" y="20" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -37,14 +37,22 @@
                             <constraint firstAttribute="width" secondItem="vI2-KS-OcC" secondAttribute="height" multiplier="1:1" id="Lvj-Ng-exp"/>
                         </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVX-ks-Q7c">
+                        <rect key="frame" x="108" y="49" width="75" height="35"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="R6Y-Bs-Fbb" firstAttribute="leading" secondItem="EBQ-sa-VdG" secondAttribute="trailing" constant="8" symbolic="YES" id="1VH-Hh-NhS"/>
+                    <constraint firstItem="xVX-ks-Q7c" firstAttribute="top" secondItem="R6Y-Bs-Fbb" secondAttribute="bottom" constant="8" symbolic="YES" id="3Mt-CY-lWm"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="xVX-ks-Q7c" secondAttribute="bottom" constant="20" symbolic="YES" id="6rd-Fk-hub"/>
                     <constraint firstItem="R6Y-Bs-Fbb" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" symbolic="YES" id="KTO-jV-x3J"/>
                     <constraint firstAttribute="bottom" secondItem="EBQ-sa-VdG" secondAttribute="bottom" constant="20" symbolic="YES" id="KYb-0t-zaT"/>
                     <constraint firstItem="vI2-KS-OcC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="R6Y-Bs-Fbb" secondAttribute="trailing" constant="8" symbolic="YES" id="TyU-X0-lLl"/>
                     <constraint firstAttribute="trailing" secondItem="vI2-KS-OcC" secondAttribute="trailing" constant="20" symbolic="YES" id="Uhe-Oi-DqR"/>
-                    <constraint firstItem="R6Y-Bs-Fbb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="VWu-RA-ePJ"/>
+                    <constraint firstItem="R6Y-Bs-Fbb" firstAttribute="top" secondItem="EBQ-sa-VdG" secondAttribute="top" id="Y9B-5v-z7T"/>
+                    <constraint firstItem="xVX-ks-Q7c" firstAttribute="leading" secondItem="R6Y-Bs-Fbb" secondAttribute="leading" id="Ytf-bo-HIw"/>
                     <constraint firstItem="vI2-KS-OcC" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="aQO-F8-Obk"/>
                     <constraint firstItem="EBQ-sa-VdG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" symbolic="YES" id="zIc-xN-BSd"/>
                     <constraint firstItem="EBQ-sa-VdG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="znl-9Q-1Oq"/>
@@ -52,6 +60,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="buyButton" destination="xVX-ks-Q7c" id="t2Y-x3-2dS"/>
                 <outlet property="disclosureIndicatorImageView" destination="vI2-KS-OcC" id="jg1-WI-8xX"/>
                 <outlet property="drinkImageView" destination="EBQ-sa-VdG" id="5d8-pA-sGp"/>
                 <outlet property="drinkNameLabel" destination="R6Y-Bs-Fbb" id="gJi-wp-5kq"/>

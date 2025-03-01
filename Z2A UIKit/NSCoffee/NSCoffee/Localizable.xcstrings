@@ -12,6 +12,17 @@
         }
       }
     },
+    "buy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add to Cart"
+          }
+        }
+      }
+    },
     "chaiDescription" : {
       "localizations" : {
         "en" : {
