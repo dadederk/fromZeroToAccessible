@@ -20,5 +20,13 @@ final class DrinkTableViewCell: UITableViewCell {
     
     func configure(with drink: Drink) {
         drinkNameLabel.text = drink.name
+        
+        if let imageName = drink.imageName {
+            drinkImageView.image = UIImage(named: imageName)
+            drinkImageView.contentMode = .scaleAspectFill
+        } else {
+            drinkImageView.image = UIImage(systemName: "cup.and.heat.waves.fill")
+            drinkImageView.contentMode = .scaleAspectFit
+        }
     }
 }

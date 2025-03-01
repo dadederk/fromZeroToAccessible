@@ -27,5 +27,10 @@ final class DrinkDetailsViewViewController: UIViewController {
         
         title = drink.name
         drinkDescriptionLabel.text = drink.description
+        
+        if let imageName = drink.imageName {
+            drinkImageView.image = UIImage(named: imageName)
+            drinkImageView.contentMode = .scaleAspectFill
+        }
     }
 }
