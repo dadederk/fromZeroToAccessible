@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OrderButtonView: UIView, NibLoadable {
+final class OrderButtonView: UIView, NibLoadable {
     @IBOutlet private weak var orderButton: UIButton!
     @IBOutlet private weak var numberOfItemsLabel: UILabel!
     

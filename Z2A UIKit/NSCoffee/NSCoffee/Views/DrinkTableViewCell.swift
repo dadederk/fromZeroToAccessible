@@ -7,15 +7,18 @@
 
 import UIKit
 
-class DrinkTableViewCell: UITableViewCell {
+final class DrinkTableViewCell: UITableViewCell {
     static let identifier = String(describing: DrinkTableViewCell.self)
     
-    @IBOutlet weak var drinkImageView: UIImageView!
-    @IBOutlet weak var drinkNameLabel: UILabel!
-    @IBOutlet weak var disclosureIndicatorImageView: UIImageView!
+    @IBOutlet private weak var drinkImageView: UIImageView!
+    @IBOutlet private weak var drinkNameLabel: UILabel!
+    @IBOutlet private weak var disclosureIndicatorImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        drinkNameLabel.text = "Flat White"
+    }
+    
+    func configure(with drink: Drink) {
+        drinkNameLabel.text = drink.name
     }
 }

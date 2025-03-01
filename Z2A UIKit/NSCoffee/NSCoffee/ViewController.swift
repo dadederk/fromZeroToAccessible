@@ -7,38 +7,67 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
+final class ViewController: UIViewController {
+    @IBOutlet private weak var tableView: UITableView!
+    
+    private let drinks = Drinks()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let nib = UINib(nibName: DrinkTableViewCell.identifier, bundle: nil)
+        let drinkNib = UINib(nibName: DrinkTableViewCell.identifier, bundle: nil)
+        let headerNib = UINib(nibName: DrinksHeaderView.identifier, bundle: nil)
         let orderButtonView = OrderButtonView.loadFromNib()
         let customRightBarButtonItem = UIBarButtonItem(customView: orderButtonView ?? UIView())
         
-        tableView.register(nib, forCellReuseIdentifier: DrinkTableViewCell.identifier)
+        tableView.register(drinkNib, forCellReuseIdentifier: DrinkTableViewCell.identifier)
+        tableView.register(headerNib, forCellReuseIdentifier: DrinksHeaderView.identifier)
+        tableView.estimatedRowHeight = UITableView.automaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         
         orderButtonView?.configureWith(numberOfItems: 1)
         
+        title = String(localized: "appName")
+        navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = customRightBarButtonItem
-        
-        title = "NSCoffee"
     }
 }
 
 extension ViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return DrinkType.allCases.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        let drinkType = DrinkType.allCases[section]
+        return drinks.drinks(for: drinkType).count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: "DrinkTableViewCell", for: indexPath)
+        if indexPath.row == 0 {
+            let cell =  tableView.dequeueReusableCell(withIdentifier: DrinksHeaderView.identifier, for: indexPath) as? DrinksHeaderView
+            let drinkType = DrinkType.allCases[indexPath.section]
+            
+            cell?.configure(withTitle: drinkType.localizedName())
+            
+            return cell ?? UITableViewCell()
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: DrinkTableViewCell.identifier, for: indexPath) as? DrinkTableViewCell
+            let drinkType = DrinkType.allCases[indexPath.section]
+            let drink = drinks.drinks(for: drinkType)[indexPath.row - 1]
+            
+            cell?.configure(with: drink)
+            
+            return cell ?? UITableViewCell()
+        }
     }
 }
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigationController?.pushViewController(DrinkDetailsViewViewController(), animated: true)
+        let drinkType = DrinkType.allCases[indexPath.section]
+        let drink = drinks.drinks(for: drinkType)[indexPath.row - 1]
+        
+        navigationController?.pushViewController(DrinkDetailsViewViewController(drink: drink), animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

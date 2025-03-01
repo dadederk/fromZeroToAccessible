@@ -7,23 +7,25 @@
 
 import UIKit
 
-class DrinkDetailsViewViewController: UIViewController {
-
+final class DrinkDetailsViewViewController: UIViewController {
+    @IBOutlet private weak var drinkImageView: UIImageView!
+    @IBOutlet private weak var drinkDescriptionLabel: UILabel!
+    
+    let drink: Drink
+    
+    init(drink: Drink) {
+        self.drink = drink
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        title = drink.name
+        drinkDescriptionLabel.text = drink.description
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
