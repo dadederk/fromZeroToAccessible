@@ -33,6 +33,8 @@ final class BasketView: UIView, NibLoadable {
         
         buyButton.setTitle(String(localized: "buy"), for: .normal)
         buyButton.addTarget(self, action: #selector(handleTapBuyButton), for: .touchUpInside)
+        buyButton.alpha = 0.5
+        buyButton.isUserInteractionEnabled = false
         
         heightConstraint = heightAnchor.constraint(equalToConstant: 0.0)
         widthConstraint = widthAnchor.constraint(equalToConstant: 0.0)
@@ -50,6 +52,17 @@ final class BasketView: UIView, NibLoadable {
     
     func configure(withBasket basket: Basket) {
         self.basket = basket
+        
+        if !basket.orders.isEmpty {
+            buyButton.alpha = 1.0
+            buyButton.isUserInteractionEnabled = true
+            
+            let totalPrice = basket.orders.reduce(into: 0.0) { $0 += (Double($1.quantity) * $1.drink.basePrice) }
+            
+            buyButton.setTitle("\(CurrencyFormatter.format(totalPrice)) \(String(localized: "buy"))", for: .normal)
+        } else {
+            buyButton.setTitle(String(localized: "buy"), for: .normal)
+        }
     }
     
     func present() {
