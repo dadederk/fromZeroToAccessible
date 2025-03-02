@@ -94,8 +94,13 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let drinkType = DrinkType.allCases[indexPath.section]
         let drink = drinks.drinks(for: drinkType)[indexPath.row - 1]
+        let drinkDetailsViewController = DrinkDetailsViewViewController(drink: drink)
         
-        navigationController?.pushViewController(DrinkDetailsViewViewController(drink: drink), animated: true)
+        drinkDetailsViewController.addDrinkToCart = { drink in
+            self.addDrinkToCart(drink: drink)
+        }
+        
+        navigationController?.pushViewController(drinkDetailsViewController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
         
         basketView?.dismiss()

@@ -7,14 +7,14 @@
 
 import UIKit
 
-class PickerOptionView: UIView, NibLoadable {
+final class PickerOptionView: UIView, NibLoadable {
     @IBOutlet private weak var selectionIconImageView: UIImageView!
     @IBOutlet private weak var optionLabel: UILabel!
     
     private var state: Bool = false {
         didSet {
             if state {
-                selectionIconImageView.image = UIImage(systemName: "checkmark.circle")
+                selectionIconImageView.image = UIImage(systemName: "checkmark.circle.fill")
             } else {
                 selectionIconImageView.image = UIImage(systemName: "circle")
             }

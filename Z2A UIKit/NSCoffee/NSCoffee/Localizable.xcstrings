@@ -1,6 +1,16 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "addedToCart.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ added to cart"
+          }
+        }
+      }
+    },
     "addToCart" : {
       "extractionState" : "manual",
       "localizations" : {

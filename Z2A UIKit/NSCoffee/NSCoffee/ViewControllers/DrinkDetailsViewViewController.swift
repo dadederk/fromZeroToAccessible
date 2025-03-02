@@ -9,23 +9,27 @@ import UIKit
 
 final class DrinkDetailsViewViewController: UIViewController {
     @IBOutlet private weak var drinkImageView: UIImageView!
-    @IBOutlet weak var extraShotStackView: UIStackView!
-    @IBOutlet weak var removeShotButton: UIButton!
-    @IBOutlet weak var addShotButton: UIButton!
-    @IBOutlet weak var numberOfShotsLabel: UILabel!
-    @IBOutlet weak var extraPriceLabel: UILabel!
+    @IBOutlet private weak var extraShotStackView: UIStackView!
+    @IBOutlet private weak var removeShotButton: UIButton!
+    @IBOutlet private weak var addShotButton: UIButton!
+    @IBOutlet private weak var numberOfShotsLabel: UILabel!
+    @IBOutlet private weak var extraPriceLabel: UILabel!
     @IBOutlet private weak var typeOfMilkStackView: UIStackView!
     @IBOutlet private weak var typeOfMilkView: UIView!
     @IBOutlet private weak var typeOfMilkLabel: UILabel!
     @IBOutlet private weak var typeOfMilkIcon: UIImageView!
     @IBOutlet private weak var drinkDescriptionLabel: UILabel!
     
+    private let toastView = ToastView.loadFromNib()
+    private let buyButton = UIButton(type: .system)
     private let drink: Drink
     private var numberOfShots: Int = 1 {
         didSet {
             numberOfShotsLabel.text = String(localized: "numberShots.\(numberOfShots)")
         }
     }
+    
+    var addDrinkToCart: ((Drink) -> Void)?
     
     init(drink: Drink) {
         self.drink = drink
@@ -42,6 +46,15 @@ final class DrinkDetailsViewViewController: UIViewController {
         title = drink.name
         drinkDescriptionLabel.text = drink.description
         typeOfMilkLabel.text = String(localized: "typeOfMilk")
+        
+        var buyButtonConfiguration = UIButton.Configuration.borderedProminent()
+        buyButtonConfiguration.title = String(localized: "buy")
+        buyButtonConfiguration.subtitle = CurrencyFormatter.format(drink.basePrice)
+        buyButtonConfiguration.image = UIImage(systemName: "cart.fill")
+        buyButton.configuration = buyButtonConfiguration
+        buyButton.addTarget(self, action: #selector(buyDrink), for: .touchUpInside)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: buyButton)
         
         if let imageName = drink.imageName {
             drinkImageView.image = UIImage(named: imageName)
@@ -62,6 +75,8 @@ final class DrinkDetailsViewViewController: UIViewController {
             view.isHidden = true
             view.alpha = 0
         }
+        
+        toastView?.configureWithTitle(String(localized: "addedToCart.\(drink.name)"))
     }
     
     @objc private func toggleTypesOfMilk() {
@@ -83,6 +98,20 @@ final class DrinkDetailsViewViewController: UIViewController {
             for view in self.typeOfMilkStackView.arrangedSubviews.dropFirst() {
                 view.alpha = isExpanded ? 1 : 0
             }
+        }
+    }
+    
+    @objc
+    private func buyDrink() {
+        var configuration = buyButton.configuration!
+        configuration.showsActivityIndicator = true
+        buyButton.configuration = configuration
+        
+        Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { timer in
+            configuration.showsActivityIndicator = false
+            self.buyButton.configuration = configuration
+            self.addDrinkToCart?(self.drink)
+            self.toastView?.present(inView: self.view)
         }
     }
     
