@@ -11,31 +11,42 @@ struct DrinkTableRow: View {
     let drink: any Drink
 
     var body: some View {
-        HStack {
-            DrinkTableImage(imageName: drink.imageName)
-                .padding(.trailing, 10)
+        ZStack {
 
-            VStack(alignment: .leading) {
-                Text(drink.name)
-                    .lineLimit(1)
+            HStack {
+                DrinkTableImage(imageName: drink.imageName)
+                    .padding(.trailing, 10)
 
-                Text(CurrencyFormatter.format(drink.basePrice))
-                    .font(.system(size: 17.0))
+                VStack(alignment: .leading) {
+                    Text(drink.name)
+                        .lineLimit(1)
 
-                Text("Add to cart")
-                    .bold()
-                    .padding(8)
-                    .background(.blue)
-                    .clipShape(.capsule)
-                    .onTapGesture {
-                        print("Added")
-                    }
+                    Text(CurrencyFormatter.format(drink.basePrice))
+                        .font(.system(size: 17.0))
+
+                    Text("Add to cart")
+                        .bold()
+                        .padding(8)
+                        .background(.blue)
+                        .clipShape(.capsule)
+                        .onTapGesture {
+                            print("Added")
+                        }
+                }
+
+                Spacer()
+
+                Image(systemName: "chevron.right")
+                    .foregroundStyle(.tint)
             }
 
-            Spacer()
+            NavigationLink {
+                DrinkDetail(drink: drink)
 
-            Image(systemName: "chevron.right")
-                .foregroundStyle(.tint)
+            } label: {
+                EmptyView()
+            }
+            .opacity(0)
         }
     }
 }
