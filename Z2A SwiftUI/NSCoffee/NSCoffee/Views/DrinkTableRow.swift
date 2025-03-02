@@ -21,6 +21,7 @@ struct DrinkTableRow: View {
 
                 Text(CurrencyFormatter.format(drink.basePrice))
                     .font(.system(size: 17.0))
+                    .foregroundStyle(Color(UIColor.darkGray))
 
                 Text("Add to cart")
                     .bold()
