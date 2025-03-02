@@ -1,5 +1,5 @@
 //
-//  DrinkImage.swift
+//  DrinkTableImage.swift
 //  NSCoffee
 //
 //  Created by Rob Whitaker on 02/03/2025.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DrinkImage: View {
+struct DrinkTableImage: View {
     let imageName: String?
 
     var body: some View {
@@ -23,6 +23,6 @@ struct DrinkImage: View {
                     .aspectRatio(contentMode: .fit)
             }
         }
-        .containerRelativeFrame(.horizontal, count: 3, span: 1, spacing: 10)
+        .containerRelativeFrame(.horizontal, count: 4, span: 1, spacing: 10)
     }
 }

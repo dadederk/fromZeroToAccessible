@@ -12,28 +12,25 @@ struct ContentView: View {
 
     var body: some View {
         NavigationStack {
-            List(drinks.coffees) { drink in
-                HStack {
-                    DrinkImage(imageName: drink.imageName)
-                        .padding(.trailing, 10)
-
-                    VStack(alignment: .leading) {
-                        Text(drink.name)
-                            .lineLimit(1)
-
-                        Text(CurrencyFormatter.format(drink.basePrice))
-                            .font(.system(size: 17.0))
-
-                        Text("Add to cart")
-                            .bold()
-                            .padding(8)
-                            .background(.blue)
-                            .clipShape(.capsule)
-                            .onTapGesture {
-                                print("Added")
-                            }
+            List {
+                Section("Coffees") {
+                    ForEach(drinks.coffees) { coffee in
+                        DrinkTableRow(drink: coffee)
                     }
                 }
+
+                Section("Hot Drinks") {
+                    ForEach(drinks.hotDrinks) { drink in
+                        DrinkTableRow(drink: drink)
+                    }
+                }
+
+                Section("Cold Drinks") {
+                    ForEach(drinks.coldDrinks) { drink in
+                        DrinkTableRow(drink: drink)
+                    }
+                }
+
             }
             .navigationTitle("NSCoffee")
         }
