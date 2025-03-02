@@ -7,6 +7,14 @@
 
 import Foundation
 
+enum MilkOptions: String, CaseIterable {
+    case dairy = "Dairy"
+    case oat = "Oat"
+    case soy = "Soy"
+    case coconut = "Coconut"
+    case almond = "Almond"
+}
+
 enum DrinkType: String.LocalizationValue, CaseIterable {
     case coffee
     case hotDrink

@@ -11,8 +11,17 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DrinkDetailsViewViewController" customModule="NSCoffee" customModuleProvider="target">
             <connections>
+                <outlet property="addShotButton" destination="hue-8C-2IB" id="PlP-9D-3ry"/>
                 <outlet property="drinkDescriptionLabel" destination="aSp-vV-3Kh" id="SeX-Pr-u5U"/>
                 <outlet property="drinkImageView" destination="2hw-wQ-wOt" id="Cfa-q2-pFx"/>
+                <outlet property="extraPriceLabel" destination="2eI-Pt-drU" id="AhS-hX-6fq"/>
+                <outlet property="extraShotStackView" destination="Eaz-Hd-3Mt" id="gRd-bh-cwh"/>
+                <outlet property="numberOfShotsLabel" destination="XWh-AP-o4e" id="c22-F2-Sb6"/>
+                <outlet property="removeShotButton" destination="VEl-GY-tt6" id="IXy-pM-hNf"/>
+                <outlet property="typeOfMilkIcon" destination="Vgf-qm-Se5" id="bRd-ej-yNq"/>
+                <outlet property="typeOfMilkLabel" destination="LVU-dq-ugF" id="Ata-Bi-e5e"/>
+                <outlet property="typeOfMilkStackView" destination="acF-cY-ipz" id="EIb-pf-MR0"/>
+                <outlet property="typeOfMilkView" destination="zwQ-Ed-Pxu" id="vbC-MP-V9z"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,7 +34,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2hw-wQ-wOt">
-                            <rect key="frame" x="20" y="0.0" width="393" height="294.33333333333337"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="294.33333333333337"/>
                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="2hw-wQ-wOt" secondAttribute="height" multiplier="4:3" id="Yvt-ve-eMV"/>
@@ -33,13 +42,13 @@
                             <imageReference key="image" image="cup.and.heat.waves.fill" catalog="system" symbolScale="default" renderingMode="template"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A cortado is a Spanish beverage consisting of espresso mixed with a roughly equal amount of warm milk to reduce the acidity." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSp-vV-3Kh">
-                            <rect key="frame" x="28" y="227" width="362" height="61"/>
+                            <rect key="frame" x="8" y="227" width="362" height="61"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v7f-S2-x6x">
-                            <rect key="frame" x="20" y="294.66666666666669" width="393" height="60.333333333333314"/>
+                            <rect key="frame" x="0.0" y="294.66666666666669" width="393" height="60.333333333333314"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extra Shots" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HG4-3n-Sfc">
                                     <rect key="frame" x="8" y="20" width="87" height="20.333333333333329"/>
@@ -57,7 +66,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f5j-C8-wU5">
-                            <rect key="frame" x="20" y="406" width="393" height="60.333333333333314"/>
+                            <rect key="frame" x="0.0" y="406" width="393" height="60.333333333333314"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate your drink" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hh-C7-JnG">
                                     <rect key="frame" x="8" y="20" width="115" height="20.333333333333329"/>
@@ -75,7 +84,7 @@
                             </constraints>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Eaz-Hd-3Mt">
-                            <rect key="frame" x="40" y="363" width="353" height="35"/>
+                            <rect key="frame" x="20" y="363" width="353" height="35"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VEl-GY-tt6">
                                     <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
@@ -87,6 +96,9 @@
                                     <buttonConfiguration key="configuration" style="gray">
                                         <imageReference key="image" image="minus.circle" catalog="system" symbolScale="large"/>
                                     </buttonConfiguration>
+                                    <connections>
+                                        <action selector="removeShotPressed:" destination="-1" eventType="touchUpInside" id="gyo-Pe-SeN"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 shot" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWh-AP-o4e">
                                     <rect key="frame" x="55" y="0.0" width="63" height="35"/>
@@ -103,6 +115,9 @@
                                     <buttonConfiguration key="configuration" style="gray">
                                         <imageReference key="image" image="plus.circle" catalog="system" symbolScale="large"/>
                                     </buttonConfiguration>
+                                    <connections>
+                                        <action selector="addShotPressed:" destination="-1" eventType="touchUpInside" id="DoW-Ks-06l"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ £0.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2eI-Pt-drU">
                                     <rect key="frame" x="193" y="0.0" width="160" height="35"/>
@@ -116,12 +131,46 @@
                             </constraints>
                         </stackView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qw9-CN-gVr" customClass="RaterView" customModule="NSCoffee" customModuleProvider="target">
-                            <rect key="frame" x="20" y="474.33333333333326" width="393" height="128"/>
+                            <rect key="frame" x="0.0" y="474.33333333333326" width="393" height="128"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="128" placeholder="YES" id="5qI-Si-0CA"/>
                             </constraints>
                         </view>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="acF-cY-ipz">
+                            <rect key="frame" x="0.0" y="610.33333333333337" width="393" height="70"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zwQ-Ed-Pxu">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type of Milk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVU-dq-ugF">
+                                            <rect key="frame" x="8" y="20" width="92.333333333333329" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greaterthan.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Vgf-qm-Se5">
+                                            <rect key="frame" x="343" y="22.333333333333332" width="30" height="25.333333333333339"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="I0U-A1-Xjk"/>
+                                                <constraint firstAttribute="width" secondItem="Vgf-qm-Se5" secondAttribute="height" multiplier="1:1" id="yXa-KW-V8u"/>
+                                            </constraints>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="Vgf-qm-Se5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LVU-dq-ugF" secondAttribute="trailing" constant="8" symbolic="YES" id="5b3-oP-3Fl"/>
+                                        <constraint firstItem="Vgf-qm-Se5" firstAttribute="top" secondItem="zwQ-Ed-Pxu" secondAttribute="top" constant="20" symbolic="YES" id="NOc-bQ-GRM"/>
+                                        <constraint firstAttribute="trailing" secondItem="Vgf-qm-Se5" secondAttribute="trailing" constant="20" symbolic="YES" id="Wfo-lW-lhp"/>
+                                        <constraint firstItem="LVU-dq-ugF" firstAttribute="leading" secondItem="zwQ-Ed-Pxu" secondAttribute="leading" constant="8" id="cha-wV-mwN"/>
+                                        <constraint firstAttribute="bottom" secondItem="LVU-dq-ugF" secondAttribute="bottom" constant="20" symbolic="YES" id="gAp-HC-dvx"/>
+                                        <constraint firstItem="LVU-dq-ugF" firstAttribute="top" secondItem="zwQ-Ed-Pxu" secondAttribute="top" constant="20" symbolic="YES" id="mSd-fT-haT"/>
+                                        <constraint firstItem="Vgf-qm-Se5" firstAttribute="centerY" secondItem="zwQ-Ed-Pxu" secondAttribute="centerY" id="uB3-Z3-foc"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="2hw-wQ-wOt" secondAttribute="trailing" id="2vd-r7-DAv"/>
@@ -129,6 +178,7 @@
                         <constraint firstItem="NPp-dD-tzl" firstAttribute="trailing" secondItem="f5j-C8-wU5" secondAttribute="trailing" id="5Kw-BZ-Jg5"/>
                         <constraint firstItem="NPp-dD-tzl" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aSp-vV-3Kh" secondAttribute="trailing" constant="8" id="8qC-f1-kw9"/>
                         <constraint firstItem="2hw-wQ-wOt" firstAttribute="top" secondItem="bxj-3M-tA6" secondAttribute="top" id="AQx-Wc-Qcp"/>
+                        <constraint firstItem="acF-cY-ipz" firstAttribute="top" secondItem="qw9-CN-gVr" secondAttribute="bottom" constant="8" symbolic="YES" id="AdV-5e-y3w"/>
                         <constraint firstItem="NPp-dD-tzl" firstAttribute="trailing" secondItem="v7f-S2-x6x" secondAttribute="trailing" id="EG7-ek-3nl"/>
                         <constraint firstItem="2hw-wQ-wOt" firstAttribute="bottom" secondItem="aSp-vV-3Kh" secondAttribute="baseline" constant="10.666666666666666" symbolType="layoutAnchor" id="Jwf-te-Shw"/>
                         <constraint firstItem="aSp-vV-3Kh" firstAttribute="leading" secondItem="NPp-dD-tzl" secondAttribute="leading" constant="8" id="NTU-wq-HDc"/>
@@ -136,12 +186,14 @@
                         <constraint firstItem="qw9-CN-gVr" firstAttribute="top" secondItem="f5j-C8-wU5" secondAttribute="bottom" constant="8" symbolic="YES" id="VbD-mN-EfU"/>
                         <constraint firstItem="qw9-CN-gVr" firstAttribute="leading" secondItem="NPp-dD-tzl" secondAttribute="leading" id="WTy-32-xT6"/>
                         <constraint firstItem="f5j-C8-wU5" firstAttribute="top" secondItem="Eaz-Hd-3Mt" secondAttribute="bottom" constant="8" symbolic="YES" id="amE-Jb-zwA"/>
+                        <constraint firstItem="NPp-dD-tzl" firstAttribute="trailing" secondItem="acF-cY-ipz" secondAttribute="trailing" id="eU9-Lq-dR0"/>
                         <constraint firstItem="v7f-S2-x6x" firstAttribute="top" secondItem="2hw-wQ-wOt" secondAttribute="bottom" id="fOc-L8-5yo"/>
                         <constraint firstItem="2hw-wQ-wOt" firstAttribute="leading" secondItem="NPp-dD-tzl" secondAttribute="leading" id="ggl-Qw-IBf"/>
                         <constraint firstItem="f5j-C8-wU5" firstAttribute="leading" secondItem="NPp-dD-tzl" secondAttribute="leading" id="gk8-ih-37Q"/>
-                        <constraint firstItem="qw9-CN-gVr" firstAttribute="bottom" secondItem="HnW-iS-Aew" secondAttribute="bottom" id="lmK-zu-Y2k"/>
+                        <constraint firstItem="acF-cY-ipz" firstAttribute="leading" secondItem="NPp-dD-tzl" secondAttribute="leading" id="jYw-CH-Ohu"/>
                         <constraint firstItem="Eaz-Hd-3Mt" firstAttribute="leading" secondItem="NPp-dD-tzl" secondAttribute="leading" constant="20" id="oCp-3k-goQ"/>
                         <constraint firstItem="v7f-S2-x6x" firstAttribute="leading" secondItem="NPp-dD-tzl" secondAttribute="leading" id="poc-u1-iH1"/>
+                        <constraint firstItem="acF-cY-ipz" firstAttribute="bottom" secondItem="HnW-iS-Aew" secondAttribute="bottom" id="rUA-zs-uF5"/>
                         <constraint firstItem="NPp-dD-tzl" firstAttribute="trailing" secondItem="qw9-CN-gVr" secondAttribute="trailing" id="ta7-r4-ox1"/>
                         <constraint firstItem="Eaz-Hd-3Mt" firstAttribute="top" secondItem="v7f-S2-x6x" secondAttribute="bottom" constant="8" symbolic="YES" id="xYw-wp-B9G"/>
                     </constraints>
@@ -162,6 +214,7 @@
     </objects>
     <resources>
         <image name="cup.and.heat.waves.fill" catalog="system" width="128" height="118"/>
+        <image name="greaterthan.circle" catalog="system" width="128" height="123"/>
         <image name="minus.circle" catalog="system" width="128" height="123"/>
         <image name="plus.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">

@@ -161,6 +161,29 @@
         }
       }
     },
+    "numberShots.%lld" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld shot"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld shots"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "orxataDescription" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -183,7 +206,37 @@
       }
     },
     "thumbsUp.%lld" : {
-
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld thumb up"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld thumbs up"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "typeOfMilk" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Type of Milk"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

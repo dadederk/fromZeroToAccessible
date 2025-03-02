@@ -2,10 +2,10 @@ import UIKit
 
 class RaterView: UIView {
     private let stackView = UIStackView()
-//    private var icon = UIImage(systemName: "hand.thumbsup")
-//    private var iconSelected = UIImage(systemName: "hand.thumbsup.fill")
-    private var icon = UIImage(systemName: "hand.thumbsup", withConfiguration: UIImage.SymbolConfiguration(textStyle: .body))
-    private var iconSelected = UIImage(systemName: "hand.thumbsup.fill", withConfiguration: UIImage.SymbolConfiguration(textStyle: .body))
+    private var icon = UIImage(systemName: "hand.thumbsup")
+    private var iconSelected = UIImage(systemName: "hand.thumbsup.fill")
+//    private var icon = UIImage(systemName: "hand.thumbsup", withConfiguration: UIImage.SymbolConfiguration(textStyle: .body))
+//    private var iconSelected = UIImage(systemName: "hand.thumbsup.fill", withConfiguration: UIImage.SymbolConfiguration(textStyle: .body))
     private var maxRate: UInt = 5
 
     var rating: Int = 0 {
