@@ -13,16 +13,7 @@ struct DrinkDetail: View {
     var body: some View {
         List {
             ZStack {
-                if let imageName = drink.imageName {
-                    Image(imageName)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-
-                } else {
-                    Image(systemName: "cup.and.heat.waves.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                }
+                DrinkTableImage(imageName: drink.imageName)
 
                 VStack {
                     Spacer()

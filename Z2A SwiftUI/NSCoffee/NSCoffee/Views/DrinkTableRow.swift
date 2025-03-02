@@ -12,18 +12,18 @@ struct DrinkTableRow: View {
 
     var body: some View {
         ZStack {
-
             HStack {
                 DrinkTableImage(imageName: drink.imageName)
+                    .containerRelativeFrame(.horizontal, count: 4, span: 1, spacing: 10)
                     .padding(.trailing, 10)
 
                 VStack(alignment: .leading) {
                     Text(drink.name)
                         .lineLimit(1)
 
-                Text(CurrencyFormatter.format(drink.basePrice))
-                    .font(.system(size: 17.0))
-                    .foregroundStyle(Color(UIColor.darkGray))
+                    Text(CurrencyFormatter.format(drink.basePrice))
+                        .font(.system(size: 17.0))
+                        .foregroundStyle(Color(UIColor.darkGray))
 
                     Text("Add to cart")
                         .bold()
@@ -34,7 +34,7 @@ struct DrinkTableRow: View {
                             print("Added")
                         }
                 }
-
+                
                 Spacer()
 
                 Image(systemName: "chevron.right")

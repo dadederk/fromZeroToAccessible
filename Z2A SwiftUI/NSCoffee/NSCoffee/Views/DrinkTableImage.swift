@@ -23,6 +23,5 @@ struct DrinkTableImage: View {
                     .aspectRatio(contentMode: .fit)
             }
         }
-        .containerRelativeFrame(.horizontal, count: 4, span: 1, spacing: 10)
     }
 }
