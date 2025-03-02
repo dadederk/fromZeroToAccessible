@@ -11,7 +11,6 @@ struct DrinkDetail: View {
     let drink: any Drink
     @State private var milkExpanded = false
     @State private var selectedMilk = MilkOptions.dairy
-    @State private var rating = 1
 
     var body: some View {
         List {
@@ -40,20 +39,7 @@ struct DrinkDetail: View {
             }
 
             Section("Rate your drink") {
-                HStack {
-                    ForEach(1..<6) { value in
-                        Button {
-                            rating = value
-
-                        } label: {
-                            Image(systemName: value <= rating ? "hand.thumbsup.fill" : "hand.thumbsup")
-                                .containerRelativeFrame(.horizontal, count: 12, span: 2, spacing: 10)
-                                .foregroundStyle(.tint)
-                        }
-                        .buttonStyle(.plain)
-                    }
-                }
-                .padding(.horizontal)
+                RatingView()
             }
 
             Section {
