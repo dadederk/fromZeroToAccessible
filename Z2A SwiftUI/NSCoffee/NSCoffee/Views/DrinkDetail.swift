@@ -35,7 +35,7 @@ struct DrinkDetail: View {
             }
 
             Section("Extra Shots") {
-                Text("numberShots.1")
+                ExtraShotsView(shotPrice: drink.shotPrice)
             }
 
             Section("Rate your drink") {

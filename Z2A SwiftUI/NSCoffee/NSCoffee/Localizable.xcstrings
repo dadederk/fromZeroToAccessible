@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "+ %@" : {
+
+    },
     "Add to cart" : {
 
     },
@@ -201,9 +204,6 @@
           }
         }
       }
-    },
-    "numberShots.1" : {
-
     },
     "orxataDescription" : {
       "extractionState" : "manual",
