@@ -11,32 +11,43 @@ struct DrinkTableRow: View {
     let drink: any Drink
 
     var body: some View {
-        HStack {
-            DrinkTableImage(imageName: drink.imageName)
-                .padding(.trailing, 10)
+        ZStack {
+            HStack {
+                DrinkTableImage(imageName: drink.imageName)
+                    .containerRelativeFrame(.horizontal, count: 4, span: 1, spacing: 10)
+                    .padding(.trailing, 10)
 
-            VStack(alignment: .leading) {
-                Text(drink.name)
-                    .lineLimit(1)
+                VStack(alignment: .leading) {
+                    Text(drink.name)
+                        .lineLimit(1)
 
-                Text(CurrencyFormatter.format(drink.basePrice))
-                    .font(.system(size: 17.0))
-                    .foregroundStyle(Color(UIColor.darkGray))
+                    Text(CurrencyFormatter.format(drink.basePrice))
+                        .font(.system(size: 17.0))
+                        .foregroundStyle(Color(UIColor.darkGray))
 
-                Text("Add to cart")
-                    .bold()
-                    .padding(8)
-                    .background(.blue)
-                    .clipShape(.capsule)
-                    .onTapGesture {
-                        print("Added")
-                    }
+                    Text("Add to cart")
+                        .bold()
+                        .padding(8)
+                        .background(.blue)
+                        .clipShape(.capsule)
+                        .onTapGesture {
+                            print("Added")
+                        }
+                }
+                
+                Spacer()
+
+                Image(systemName: "chevron.right")
+                    .foregroundStyle(.tint)
             }
 
-            Spacer()
+            NavigationLink {
+                DrinkDetail(drink: drink)
 
-            Image(systemName: "chevron.right")
-                .foregroundStyle(.tint)
+            } label: {
+                EmptyView()
+            }
+            .opacity(0)
         }
     }
 }
