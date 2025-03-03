@@ -8,7 +8,7 @@
 import UIKit
 
 protocol DrinkTableViewCellDelegate: AnyObject {
-    func addDrinkToCart(drink: Drink)
+    func addDrinkToCart(drink: any Drink, extras: Extras?)
 }
 
 final class DrinkTableViewCell: UITableViewCell {
@@ -21,7 +21,7 @@ final class DrinkTableViewCell: UITableViewCell {
     @IBOutlet private weak var disclosureIndicatorImageView: UIImageView!
     @IBOutlet weak var buyButton: UIButton!
     
-    private var drink: Drink?
+    private var drink: (any Drink)?
     
     weak var delegate: DrinkTableViewCellDelegate?
     
@@ -55,10 +55,10 @@ final class DrinkTableViewCell: UITableViewCell {
         guard let drink = drink else { return }
         guard let delegate = delegate else { return }
         
-        delegate.addDrinkToCart(drink: drink)
+        delegate.addDrinkToCart(drink: drink, extras: nil)
     }
     
-    func configure(with drink: Drink) {
+    func configure(with drink: any Drink) {
         self.drink = drink
         
         drinkNameLabel.text = drink.name

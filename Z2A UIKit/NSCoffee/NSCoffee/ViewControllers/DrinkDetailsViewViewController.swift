@@ -22,17 +22,19 @@ final class DrinkDetailsViewViewController: UIViewController {
     
     private let toastView = ToastView.loadFromNib()
     private let buyButton = UIButton(type: .system)
-    private let drink: Drink
-    private var numberOfShots: Int = 1 {
+    private let drink: any Drink
+    private var extraPrice: Double = 0.0
+    private var numberOfShots: Int = 0 {
         didSet {
-            numberOfShotsLabel.text = String(localized: "numberShots.\(numberOfShots)")
+            updateExtraPrice()
         }
     }
     
-    var addDrinkToCart: ((Drink) -> Void)?
+    var addDrinkToCart: ((any Drink, Extras?) -> Void)?
     
-    init(drink: Drink) {
+    init(drink: any Drink) {
         self.drink = drink
+        numberOfShots = 0
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -77,6 +79,8 @@ final class DrinkDetailsViewViewController: UIViewController {
         }
         
         toastView?.configureWithTitle(String(localized: "addedToCart.\(drink.name)"))
+        
+        updateExtraPrice()
     }
     
     @objc private func toggleTypesOfMilk() {
@@ -108,20 +112,35 @@ final class DrinkDetailsViewViewController: UIViewController {
         buyButton.configuration = configuration
         
         Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { timer in
+            let numberOfShotsText = self.numberOfShotsText(self.numberOfShots)
+            
             configuration.showsActivityIndicator = false
             self.buyButton.configuration = configuration
-            self.addDrinkToCart?(self.drink)
+            self.addDrinkToCart?(self.drink, [(numberOfShotsText, self.extraPrice)])
             self.toastView?.present(inView: self.view)
         }
     }
     
     @IBAction func removeShotPressed(_ sender: Any) {
-        guard numberOfShots > 1 else { return }
+        guard numberOfShots > 0 else { return }
         numberOfShots -= 1
     }
     
     @IBAction func addShotPressed(_ sender: Any) {
-        guard numberOfShots < 5 else { return }
+        guard numberOfShots < 4 else { return }
         numberOfShots += 1
+    }
+    
+    private func updateExtraPrice() {
+        var buttonConfiguration = buyButton.configuration
+        extraPrice = drink.shotPrice * Double(numberOfShots)
+        numberOfShotsLabel.text = numberOfShotsText(numberOfShots)
+        extraPriceLabel.text = "+ \(CurrencyFormatter.format(extraPrice))"
+        buttonConfiguration?.subtitle = CurrencyFormatter.format(drink.basePrice + extraPrice)
+        buyButton.configuration = buttonConfiguration
+    }
+    
+    private func numberOfShotsText(_ numberOfShots: Int) -> String {
+        return String(localized: "numberShots.\(numberOfShots)")
     }
 }
