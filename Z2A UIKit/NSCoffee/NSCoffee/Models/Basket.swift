@@ -17,8 +17,20 @@ final class Order {
         self.quantity = quantity
         self.extras = extras
     }
+    
+    func totalPrice() -> Double {
+        return Double(quantity) * drink.basePrice + totalExtrasPrice()
+    }
+    
+    func totalExtrasPrice() -> Double {
+        return extras?.reduce(into: 0.0) { $0 += $1.price } ?? 0.0
+    }
 }
 
 struct Basket {
     var orders: [Order] = []
+    
+    func totalPrice() -> Double {
+        return orders.reduce(into: 0.0) { $0 += $1.totalPrice() }
+    }
 }

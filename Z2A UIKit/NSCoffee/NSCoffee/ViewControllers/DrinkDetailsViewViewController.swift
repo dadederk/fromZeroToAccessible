@@ -30,7 +30,7 @@ final class DrinkDetailsViewViewController: UIViewController {
         }
     }
     
-    var addDrinkToCart: ((any Drink, (Extras)?) -> Void)?
+    var addDrinkToCart: ((any Drink, Extras?) -> Void)?
     
     init(drink: any Drink) {
         self.drink = drink

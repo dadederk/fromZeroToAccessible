@@ -55,14 +55,7 @@ final class BasketView: UIView, NibLoadable {
         if !basket.orders.isEmpty {
             buyButton.alpha = 1.0
             buyButton.isUserInteractionEnabled = true
-            
-            let totalBasePrice = basket.orders.reduce(into: 0.0) { $0 += (Double($1.quantity) * $1.drink.basePrice) }
-            var totalExtrasPrice: Double = 0.0
-            
-            totalExtrasPrice = basket.orders.compactMap(\.extras)
-                .reduce(into: 0.0) { $0 += $1.reduce(into: 0.0) { $0 += $1.price } }
-            
-            buyButton.setTitle("\(CurrencyFormatter.format(totalBasePrice + totalExtrasPrice)) \(String(localized: "buy"))", for: .normal)
+            buyButton.setTitle("\(CurrencyFormatter.format(basket.totalPrice())) \(String(localized: "buy"))", for: .normal)
         } else {
             buyButton.setTitle(String(localized: "buy"), for: .normal)
         }
