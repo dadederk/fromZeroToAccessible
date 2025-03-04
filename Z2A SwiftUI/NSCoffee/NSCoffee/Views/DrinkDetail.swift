@@ -48,7 +48,7 @@ struct DrinkDetail: View {
         .navigationTitle(drink.name)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                Button{
+                Button {
                     if let order = order {
                         basket.add(order)
 
@@ -61,12 +61,13 @@ struct DrinkDetail: View {
                 } label: {
                     HStack {
                         Image(systemName: "cart.fill.badge.plus")
+
                         VStack {
                             Text("Add")
 
                             if let order = order {
                                 Text(CurrencyFormatter.format(order.perDrinkPrice))
-                                
+
                             } else {
                                 Text(CurrencyFormatter.format(drink.basePrice))
                             }
