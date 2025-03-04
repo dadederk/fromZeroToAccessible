@@ -5,16 +5,33 @@
 //  Created by Dani on 01/03/2025.
 //
 
-final class Order {
-    let drink: any Drink
-    var quantity: Int
-    
-    init(drink: any Drink, quantity: Int = 1) {
-        self.drink = drink
-        self.quantity = quantity
-    }
-}
+import SwiftUI
 
-struct Basket {
-    var orders: [Order] = []
+class Basket: ObservableObject {
+    @Published var orders: [Order] = []
+
+    var isEmpty: Bool {
+        orders.isEmpty
+    }
+
+    var orderCount: Int {
+        orders.reduce(into: 0) { $0 += $1.quantity }
+    }
+
+    var totalPrice: Double {
+        orders.reduce(into: 0.0) { $0 += $1.totalPrice }
+    }
+
+    func add(_ drink: any Drink) {
+        if let orderIndex = orders.firstIndex(where: { $0.drink.name == drink.name }) {
+
+            let order = orders[orderIndex]
+            let updatedOrder = Order(drink: order.drink, quantity: order.quantity + 1, extras: order.extras)
+
+            orders[orderIndex] = updatedOrder
+
+        } else {
+            orders.append(Order(drink: drink))
+        }
+    }
 }

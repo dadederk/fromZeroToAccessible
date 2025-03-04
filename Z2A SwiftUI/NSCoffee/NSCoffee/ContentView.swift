@@ -9,30 +9,40 @@ import SwiftUI
 
 struct ContentView: View {
     private var drinks = Drinks()
+    @ObservedObject private var basket = Basket()
+    @State private var showBasket = false
 
     var body: some View {
         NavigationStack {
-            List {
-                Section("Coffees") {
-                    ForEach(drinks.coffees, id: \.self) { coffee in
-                        DrinkTableRow(drink: coffee)
+            ZStack(alignment: .topTrailing) {
+                List {
+                    Section("Coffees") {
+                        ForEach(drinks.coffees, id: \.self) { coffee in
+                            DrinkTableRow(drink: coffee, basket: basket)
+                        }
+                    }
+
+                    Section("Hot Drinks") {
+                        ForEach(drinks.hotDrinks, id: \.self) { drink in
+                            DrinkTableRow(drink: drink, basket: basket)
+                        }
+                    }
+
+                    Section("Cold Drinks") {
+                        ForEach(drinks.coldDrinks, id: \.self) { drink in
+                            DrinkTableRow(drink: drink, basket: basket)
+                        }
                     }
                 }
 
-                Section("Hot Drinks") {
-                    ForEach(drinks.hotDrinks, id: \.self) { drink in
-                        DrinkTableRow(drink: drink)
-                    }
-                }
-
-                Section("Cold Drinks") {
-                    ForEach(drinks.coldDrinks, id: \.self) { drink in
-                        DrinkTableRow(drink: drink)
-                    }
-                }
-
+                BasketOverlay(showBasket: $showBasket, basket: basket)
             }
             .navigationTitle("NSCoffee")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    BasketButton(showBasket: $showBasket, basket: basket)
+                }
+            }
         }
     }
 }

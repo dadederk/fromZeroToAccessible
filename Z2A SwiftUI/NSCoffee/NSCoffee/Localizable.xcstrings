@@ -1,6 +1,12 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%@ Buy" : {
+
+    },
+    "%lld" : {
+
+    },
     "+ %@" : {
 
     },
@@ -28,6 +34,9 @@
           }
         }
       }
+    },
+    "Basket empty" : {
+
     },
     "buy" : {
       "extractionState" : "manual",
