@@ -92,8 +92,7 @@ struct Drinks {
     ]
 }
 
-protocol Drink: Identifiable {
-    var id: UUID { get }
+protocol Drink: Hashable {
     var name: String { get }
     var description: String { get }
     var basePrice: Double { get }
@@ -102,7 +101,6 @@ protocol Drink: Identifiable {
 }
 
 struct Coffee: Drink {
-    let id = UUID()
     let name: String
     let description: String
     let basePrice: Double
@@ -111,7 +109,6 @@ struct Coffee: Drink {
 }
 
 struct HotDrink: Drink {
-    let id = UUID()
     let name: String
     let description: String
     let basePrice: Double
@@ -120,7 +117,6 @@ struct HotDrink: Drink {
 }
 
 struct ColdDrink: Drink {
-    let id = UUID()
     let name: String
     let description: String
     let basePrice: Double
