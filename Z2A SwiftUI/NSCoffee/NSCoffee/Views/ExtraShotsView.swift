@@ -9,17 +9,17 @@ import SwiftUI
 
 struct ExtraShotsView: View {
     let shotPrice: Double
-    @State private var shots = 1
+    @State private var shots = 0
 
     private var extraShotPrice: Double {
-        (shotPrice * (Double(shots) - 1.0))
+        shotPrice * Double(shots)
     }
 
     var body: some View {
         HStack {
             Image(systemName: "minus.circle")
                 .onTapGesture {
-                    guard shots > 1 else { return }
+                    guard shots > 0 else { return }
                     shots -= 1
                 }
                 .foregroundStyle(.tint)
@@ -28,7 +28,7 @@ struct ExtraShotsView: View {
 
             Image(systemName: "plus.circle")
                 .onTapGesture {
-                    guard shots < 5 else { return }
+                    guard shots < 4 else { return }
                     shots += 1
                 }
                 .foregroundStyle(.tint)

@@ -18,7 +18,14 @@ class OrderTableViewCell: UITableViewCell {
     }
     
     func configure(withOrder order: Order) {
+        let totalPriceText = CurrencyFormatter.format(order.totalPrice())
+        let basePriceText = CurrencyFormatter.format(order.drink.basePrice)
+        var extrasText = order.extras?
+            .compactMap({ "\($0) \(CurrencyFormatter.format($1))"})
+            .joined(separator: " + ") ?? ""
+        
+        extrasText = "(\(extrasText))"
         drinkLabel.text = order.drink.name
-        extrasLabel.text = "\(order.quantity) x \(order.drink.basePrice) = \(CurrencyFormatter.format(order.drink.basePrice * Double(order.quantity)))"
+        extrasLabel.text = "\(order.quantity) x \(basePriceText) + \(extrasText) = \(totalPriceText)"
     }
 }
