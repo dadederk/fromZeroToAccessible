@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DrinkTableRow: View {
     let drink: any Drink
+    @ObservedObject var basket: Basket
 
     var body: some View {
         ZStack {
@@ -31,7 +32,7 @@ struct DrinkTableRow: View {
                         .background(.blue)
                         .clipShape(.capsule)
                         .onTapGesture {
-                            print("Added")
+                            basket.add(drink)
                         }
                 }
                 

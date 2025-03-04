@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     private var drinks = Drinks()
+    @ObservedObject private var basket = Basket()
     @State private var showBasket = false
 
     var body: some View {
@@ -17,19 +18,19 @@ struct ContentView: View {
                 List {
                     Section("Coffees") {
                         ForEach(drinks.coffees) { coffee in
-                            DrinkTableRow(drink: coffee)
+                            DrinkTableRow(drink: coffee, basket: basket)
                         }
                     }
 
                     Section("Hot Drinks") {
                         ForEach(drinks.hotDrinks) { drink in
-                            DrinkTableRow(drink: drink)
+                            DrinkTableRow(drink: drink, basket: basket)
                         }
                     }
 
                     Section("Cold Drinks") {
                         ForEach(drinks.coldDrinks) { drink in
-                            DrinkTableRow(drink: drink)
+                            DrinkTableRow(drink: drink, basket: basket)
                         }
                     }
                 }
@@ -39,7 +40,7 @@ struct ContentView: View {
             .navigationTitle("NSCoffee")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    BasketButton(showBasket: $showBasket)
+                    BasketButton(showBasket: $showBasket, basket: basket)
                 }
             }
         }

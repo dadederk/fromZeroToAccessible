@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BasketButton: View {
     @Binding var showBasket: Bool
+    @ObservedObject var basket: Basket
 
     var body: some View {
             Button {
@@ -18,15 +19,18 @@ struct BasketButton: View {
             } label: {
                 ZStack(alignment: .topTrailing) {
                     Image(systemName: "basket.fill")
-                    HStack(spacing: 0) {
-                        Text("1")
-                            .foregroundStyle(.white)
+                    
+                    if basket.orderCount > 0 {
+                        HStack(spacing: 0) {
+                            Text("\(basket.orderCount)")
+                                .foregroundStyle(.white)
+                        }
+                        .padding(.horizontal, 5)
+                        .padding(.vertical, 5)
+                        .background(.red)
+                        .frame(height: 19)
+                        .clipShape(Capsule())
                     }
-                    .padding(.horizontal, 5)
-                    .padding(.vertical, 5)
-                    .background(.red)
-                    .frame(height: 19)
-                    .clipShape(Capsule())
                 }
             }
     }
