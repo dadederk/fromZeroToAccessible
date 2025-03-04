@@ -22,16 +22,18 @@ class Basket: ObservableObject {
         orders.reduce(into: 0.0) { $0 += $1.totalPrice }
     }
 
-    func add(_ drink: any Drink) {
-        if let orderIndex = orders.firstIndex(where: { $0.drink.name == drink.name }) {
+    func add(_ order: Order) {
+        if let orderIndex = orders.firstIndex(where: {
+            $0.drink.name == order.drink.name &&
+            $0.extras == order.extras
+        }) {
+            let existingOrder = orders[orderIndex]
+            order.quantity = existingOrder.quantity + 1
 
-            let order = orders[orderIndex]
-            let updatedOrder = Order(drink: order.drink, quantity: order.quantity + 1, extras: order.extras)
-
-            orders[orderIndex] = updatedOrder
+            orders[orderIndex] = order
 
         } else {
-            orders.append(Order(drink: drink))
+            orders.append(order)
         }
     }
 }

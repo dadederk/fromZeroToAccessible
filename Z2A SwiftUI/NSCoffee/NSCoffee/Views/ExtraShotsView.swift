@@ -10,6 +10,7 @@ import SwiftUI
 struct ExtraShotsView: View {
     let shotPrice: Double
     @State private var shots = 0
+    @Binding var extras: [Extra]
 
     private var extraShotPrice: Double {
         shotPrice * Double(shots)
@@ -20,7 +21,14 @@ struct ExtraShotsView: View {
             Image(systemName: "minus.circle")
                 .onTapGesture {
                     guard shots > 0 else { return }
+
                     shots -= 1
+
+                    if shots == 0 {
+                        extras = []
+                    } else {
+                        extras = [Extra(description: "Extra shot", price: shotPrice, quantity: shots)]
+                    }
                 }
                 .foregroundStyle(.tint)
 
@@ -29,7 +37,9 @@ struct ExtraShotsView: View {
             Image(systemName: "plus.circle")
                 .onTapGesture {
                     guard shots < 4 else { return }
+
                     shots += 1
+                    extras = [Extra(description: "Extra shot", price: shotPrice, quantity: shots)]
                 }
                 .foregroundStyle(.tint)
 

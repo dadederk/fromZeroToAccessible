@@ -32,7 +32,7 @@ struct DrinkTableRow: View {
                         .background(.blue)
                         .clipShape(.capsule)
                         .onTapGesture {
-                            basket.add(drink)
+                            basket.add(Order(drink: drink))
                         }
                 }
                 
@@ -43,7 +43,7 @@ struct DrinkTableRow: View {
             }
 
             NavigationLink {
-                DrinkDetail(drink: drink)
+                DrinkDetail(drink: drink, basket: basket)
 
             } label: {
                 EmptyView()
