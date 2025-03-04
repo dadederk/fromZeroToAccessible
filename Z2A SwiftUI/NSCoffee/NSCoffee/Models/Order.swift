@@ -7,24 +7,6 @@
 
 import Foundation
 
-class Extra: Equatable {
-    static func == (lhs: Extra, rhs: Extra) -> Bool {
-        lhs.description == rhs.description &&
-        lhs.price == rhs.price &&
-        lhs.quantity == rhs.quantity
-    }
-
-    let description: String
-    let price: Double
-    let quantity: Int
-
-    init(description: String, price: Double, quantity: Int) {
-        self.description = description
-        self.price = price
-        self.quantity = quantity
-    }
-}
-
 class Order: ObservableObject, Hashable {
     static func == (lhs: Order, rhs: Order) -> Bool {
         lhs.drink.name == rhs.drink.name &&
