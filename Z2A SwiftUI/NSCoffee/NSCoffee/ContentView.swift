@@ -35,7 +35,7 @@ struct ContentView: View {
                     }
                 }
 
-                BasketOverlay(showBasket: $showBasket)
+                BasketOverlay(showBasket: $showBasket, basket: basket)
             }
             .navigationTitle("NSCoffee")
             .toolbar {

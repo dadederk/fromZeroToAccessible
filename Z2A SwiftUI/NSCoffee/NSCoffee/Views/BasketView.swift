@@ -8,15 +8,19 @@
 import SwiftUI
 
 struct BasketView: View {
+    @ObservedObject var basket: Basket
+    
     var body: some View {
         VStack(alignment: .leading) {
             Group {
                 VStack {
-                    VStack(alignment: .leading) {
-                        Text("Flat White")
+                    if basket.isEmpty {
+                        Text("Basket empty")
                             .foregroundStyle(.white)
-                        Text("1 x 3.7 = £3.70")
-                            .foregroundStyle(.white.secondary)
+                    }
+
+                    ForEach(basket.orders, id: \.self) {
+                        BasketRow(order: $0)
                     }
                 }
 
@@ -26,10 +30,11 @@ struct BasketView: View {
                     // do something
 
                 } label: {
-                    Text("£3.70 Buy")
+                    Text("\(CurrencyFormatter.format(basket.totalPrice)) Buy")
                         .frame(maxWidth: .infinity)
                 }
                 .buttonStyle(.borderedProminent)
+                .disabled(basket.isEmpty)
 
             }
             .padding()

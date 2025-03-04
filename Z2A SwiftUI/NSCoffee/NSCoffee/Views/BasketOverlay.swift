@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BasketOverlay: View {
     @Binding var showBasket: Bool
+    @ObservedObject var basket: Basket
 
     var body: some View {
         if showBasket {
@@ -30,7 +31,7 @@ struct BasketOverlay: View {
         }
 
         if showBasket {
-            BasketView()
+            BasketView(basket: basket)
         }
     }
 }
