@@ -14,19 +14,19 @@ struct ContentView: View {
         NavigationStack {
             List {
                 Section("Coffees") {
-                    ForEach(drinks.coffees) { coffee in
+                    ForEach(drinks.coffees, id: \.self) { coffee in
                         DrinkTableRow(drink: coffee)
                     }
                 }
 
                 Section("Hot Drinks") {
-                    ForEach(drinks.hotDrinks) { drink in
+                    ForEach(drinks.hotDrinks, id: \.self) { drink in
                         DrinkTableRow(drink: drink)
                     }
                 }
 
                 Section("Cold Drinks") {
-                    ForEach(drinks.coldDrinks) { drink in
+                    ForEach(drinks.coldDrinks, id: \.self) { drink in
                         DrinkTableRow(drink: drink)
                     }
                 }
