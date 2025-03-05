@@ -58,24 +58,24 @@ struct ToastView: View {
             .opacity(0.90)
             .opacity(opacity)
             .padding(.bottom)
-            .onChange(of: message) { oldValue, newValue in
+            .onChange(of: message) { _, newValue in
                 guard newValue != nil else { return }
 
-                if visibleMessage != nil {
-                    toastDelay?.cancel()
+                toastDelay?.cancel()
 
-                    animateToast(.animateOut) {
-                        visibleMessage = newValue
-                        animateToast(.animateIn)
-                        toastDelay = removeAfterDelay
-                    }
-                } else {
-
-                    toastDelay?.cancel()
+                let animateInNewToast = {
                     visibleMessage = newValue
                     animateToast(.animateIn)
-
                     toastDelay = removeAfterDelay
+                }
+
+                if visibleMessage != nil {
+                    animateToast(.animateOut) {
+                        animateInNewToast()
+                    }
+
+                } else {
+                    animateInNewToast()
                 }
 
                 message = nil
