@@ -10,6 +10,7 @@ import SwiftUI
 struct BasketOverlay: View {
     @Binding var showBasket: Bool
     @ObservedObject var basket: Basket
+    @Binding var toastMessage: String?
 
     var body: some View {
         if showBasket {
@@ -31,7 +32,7 @@ struct BasketOverlay: View {
         }
 
         if showBasket {
-            BasketView(basket: basket)
+            BasketView(basket: basket, toastMessage: $toastMessage)
         }
     }
 }

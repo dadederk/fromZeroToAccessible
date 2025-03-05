@@ -9,7 +9,8 @@ import SwiftUI
 
 struct BasketView: View {
     @ObservedObject var basket: Basket
-    
+    @Binding var toastMessage: String?
+
     var body: some View {
         VStack(alignment: .leading) {
             ScrollView {
@@ -28,8 +29,13 @@ struct BasketView: View {
 
                 Spacer()
 
-                Button{
-                   // TODO: Something
+                Button {
+                    if basket.placeOrder() {
+                        toastMessage = "Order placed"
+                        
+                    } else {
+                        toastMessage = "Error placing order"
+                    }
 
                 } label: {
                     Text("\(CurrencyFormatter.format(basket.totalPrice)) Buy")

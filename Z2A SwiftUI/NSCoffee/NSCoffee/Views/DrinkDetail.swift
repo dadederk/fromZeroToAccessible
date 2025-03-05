@@ -12,6 +12,7 @@ struct DrinkDetail: View {
     @State var order: Order?
     @ObservedObject var basket: Basket
     @State var extras = [Extra]()
+    @Binding var toastMessage: String?
 
     var body: some View {
         List {
@@ -56,7 +57,7 @@ struct DrinkDetail: View {
                         basket.add(Order(drink: drink))
                     }
 
-                    // TODO: Add toast
+                    toastMessage = "\(drink.name) added to cart"
 
                 } label: {
                     HStack {

@@ -10,6 +10,7 @@ import SwiftUI
 struct DrinkTableRow: View {
     let drink: any Drink
     @ObservedObject var basket: Basket
+    @Binding var toastMessage: String?
 
     var body: some View {
         ZStack {
@@ -28,12 +29,13 @@ struct DrinkTableRow: View {
 
                     Button {
                         basket.add(Order(drink: drink))
+                        toastMessage = "\(drink.name) added to cart"
                     } label: {
                         Text("Add to cart")
                     }
                     .buttonStyle(.borderedProminent)
                 }
-                
+
                 Spacer()
 
                 Image(systemName: "chevron.right")
@@ -41,7 +43,7 @@ struct DrinkTableRow: View {
             }
 
             NavigationLink {
-                DrinkDetail(drink: drink, basket: basket)
+                DrinkDetail(drink: drink, basket: basket, toastMessage: $toastMessage)
 
             } label: {
                 EmptyView()
