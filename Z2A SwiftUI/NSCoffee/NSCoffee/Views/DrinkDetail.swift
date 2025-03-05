@@ -15,69 +15,67 @@ struct DrinkDetail: View {
     @Binding var toastMessage: String?
 
     var body: some View {
-        ZStack {
-            List {
-                ZStack {
-                    DrinkTableImage(imageName: drink.imageName)
+        List {
+            ZStack {
+                DrinkTableImage(imageName: drink.imageName)
 
-                    VStack {
-                        Spacer()
+                VStack {
+                    Spacer()
 
-                        Text(drink.description)
-                            .padding()
+                    Text(drink.description)
+                        .padding()
+                }
+            }
+
+            Section("Extra Shots") {
+                ExtraShotsView(shotPrice: drink.shotPrice, extras: $extras)
+            }
+
+            Section("Rate your drink") {
+                RatingView()
+            }
+
+            MilkTypeView()
+        }
+        .listStyle(.grouped)
+        .onChange(of: extras) { oldValue, newValue in
+            if newValue.count > 0 {
+                order = nil
+                order = Order(drink: drink, extras: extras)
+            } else {
+                order = nil
+            }
+        }
+        .navigationTitle(drink.name)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    if let order = order {
+                        basket.add(order)
+
+                    } else {
+                        basket.add(Order(drink: drink))
                     }
-                }
 
-                Section("Extra Shots") {
-                    ExtraShotsView(shotPrice: drink.shotPrice, extras: $extras)
-                }
+                    toastMessage = "\(drink.name) added to cart"
 
-                Section("Rate your drink") {
-                    RatingView()
-                }
+                } label: {
+                    HStack {
+                        Image(systemName: "cart.fill.badge.plus")
 
-                MilkTypeView()
-            }
-            .listStyle(.grouped)
-            .onChange(of: extras) { oldValue, newValue in
-                if newValue.count > 0 {
-                    order = nil
-                    order = Order(drink: drink, extras: extras)
-                } else {
-                    order = nil
-                }
-            }
-            .navigationTitle(drink.name)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        if let order = order {
-                            basket.add(order)
+                        VStack {
+                            Text("Add")
 
-                        } else {
-                            basket.add(Order(drink: drink))
-                        }
+                            if let order = order {
+                                Text(CurrencyFormatter.format(order.perDrinkPrice))
 
-                        toastMessage = "\(drink.name) added to cart"
-
-                    } label: {
-                        HStack {
-                            Image(systemName: "cart.fill.badge.plus")
-
-                            VStack {
-                                Text("Add")
-
-                                if let order = order {
-                                    Text(CurrencyFormatter.format(order.perDrinkPrice))
-
-                                } else {
-                                    Text(CurrencyFormatter.format(drink.basePrice))
-                                }
+                            } else {
+                                Text(CurrencyFormatter.format(drink.basePrice))
                             }
                         }
                     }
-                    .buttonStyle(.borderedProminent)
                 }
+                .buttonStyle(.borderedProminent)
             }
         }
     }
