@@ -12,7 +12,7 @@ struct BasketView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Group {
+            ScrollView {
                 VStack {
                     if basket.isEmpty {
                         Text("Basket empty")
@@ -23,11 +23,13 @@ struct BasketView: View {
                         BasketRow(order: $0)
                     }
                 }
+            }
+            .padding(.bottom, 4)
 
                 Spacer()
 
                 Button{
-                    // do something
+                   // TODO: Something
 
                 } label: {
                     Text("\(CurrencyFormatter.format(basket.totalPrice)) Buy")
@@ -35,10 +37,8 @@ struct BasketView: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .disabled(basket.isEmpty)
-
-            }
-            .padding()
         }
+        .padding()
         .containerRelativeFrame(.horizontal, count: 4, span: 3, spacing: 0)
         .containerRelativeFrame(.vertical, count: 3, span: 2, spacing: 0)
         .background(

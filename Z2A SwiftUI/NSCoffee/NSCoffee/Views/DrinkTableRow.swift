@@ -27,7 +27,7 @@ struct DrinkTableRow: View {
                         .foregroundStyle(Color(UIColor.darkGray))
 
                     Button {
-                        basket.add(drink)
+                        basket.add(Order(drink: drink))
                     } label: {
                         Text("Add to cart")
                     }
@@ -41,7 +41,7 @@ struct DrinkTableRow: View {
             }
 
             NavigationLink {
-                DrinkDetail(drink: drink)
+                DrinkDetail(drink: drink, basket: basket)
 
             } label: {
                 EmptyView()
