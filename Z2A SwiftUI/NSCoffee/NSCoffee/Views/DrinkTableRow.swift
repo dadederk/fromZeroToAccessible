@@ -26,14 +26,12 @@ struct DrinkTableRow: View {
                         .font(.system(size: 17.0))
                         .foregroundStyle(Color(UIColor.darkGray))
 
-                    Text("Add to cart")
-                        .bold()
-                        .padding(8)
-                        .background(.blue)
-                        .clipShape(.capsule)
-                        .onTapGesture {
-                            basket.add(Order(drink: drink))
-                        }
+                    Button {
+                        basket.add(Order(drink: drink))
+                    } label: {
+                        Text("Add to cart")
+                    }
+                    .buttonStyle(.borderedProminent)
                 }
                 
                 Spacer()
