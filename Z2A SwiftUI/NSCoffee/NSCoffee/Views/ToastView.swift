@@ -22,7 +22,7 @@ struct ToastView: View {
                 }
                 .background(.gray)
                 .cornerRadius(20)
-                .opacity(0.75)
+                .opacity(0.90)
                 .opacity(opacity)
                 .padding(.bottom)
                 .onAppear {

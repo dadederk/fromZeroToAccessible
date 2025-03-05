@@ -22,6 +22,11 @@ class Basket: ObservableObject {
         orders.reduce(into: 0.0) { $0 += $1.totalPrice }
     }
 
+    func placeOrder() -> Bool {
+        orders.removeAll()
+        return true
+    }
+
     func add(_ order: Order) {
         if let orderIndex = orders.firstIndex(where: {
             $0.drink.name == order.drink.name &&
