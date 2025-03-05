@@ -10,6 +10,7 @@ import SwiftUI
 struct DrinkTableRow: View {
     let drink: any Drink
     @ObservedObject var basket: Basket
+    @Binding var toastMessage: String?
 
     var body: some View {
         ZStack {
@@ -33,6 +34,7 @@ struct DrinkTableRow: View {
                         .clipShape(.capsule)
                         .onTapGesture {
                             basket.add(Order(drink: drink))
+                            toastMessage = "\(drink.name) added to cart"
                         }
                 }
                 

@@ -20,26 +20,26 @@ struct ContentView: View {
                     List {
                         Section("Coffees") {
                             ForEach(drinks.coffees, id: \.self) { coffee in
-                                DrinkTableRow(drink: coffee, basket: basket)
+                                DrinkTableRow(drink: coffee, basket: basket, toastMessage: $toastMessage)
                             }
                         }
 
                         Section("Hot Drinks") {
                             ForEach(drinks.hotDrinks, id: \.self) { drink in
-                                DrinkTableRow(drink: drink, basket: basket)
+                                DrinkTableRow(drink: drink, basket: basket, toastMessage: $toastMessage)
                             }
                         }
 
                         Section("Cold Drinks") {
                             ForEach(drinks.coldDrinks, id: \.self) { drink in
-                                DrinkTableRow(drink: drink, basket: basket)
+                                DrinkTableRow(drink: drink, basket: basket, toastMessage: $toastMessage)
                             }
                         }
                     }
 
                     BasketOverlay(showBasket: $showBasket, basket: basket, toastMessage: $toastMessage)
                 }
-                
+
                 ToastView(message: $toastMessage)
             }
             .navigationTitle("NSCoffee")
