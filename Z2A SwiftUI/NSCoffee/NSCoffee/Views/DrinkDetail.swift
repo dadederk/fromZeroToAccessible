@@ -12,7 +12,7 @@ struct DrinkDetail: View {
     @State var order: Order?
     @ObservedObject var basket: Basket
     @State var extras = [Extra]()
-    @State var toastMessage: String?
+    @Binding var toastMessage: String?
 
     var body: some View {
         ZStack {
@@ -79,8 +79,6 @@ struct DrinkDetail: View {
                     .buttonStyle(.borderedProminent)
                 }
             }
-
-            ToastView(message: $toastMessage)
         }
     }
 }

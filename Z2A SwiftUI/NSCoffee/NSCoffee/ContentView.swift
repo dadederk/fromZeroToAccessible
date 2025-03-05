@@ -14,8 +14,8 @@ struct ContentView: View {
     @State var toastMessage: String?
 
     var body: some View {
+        ZStack {
         NavigationStack {
-            ZStack {
                 ZStack(alignment: .topTrailing) {
                     List {
                         Section("Coffees") {
@@ -39,15 +39,15 @@ struct ContentView: View {
 
                     BasketOverlay(showBasket: $showBasket, basket: basket, toastMessage: $toastMessage)
                 }
-
-                ToastView(message: $toastMessage)
-            }
             .navigationTitle("NSCoffee")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     BasketButton(showBasket: $showBasket, basket: basket)
                 }
             }
+        }
+
+            ToastView(message: $toastMessage)
         }
     }
 }

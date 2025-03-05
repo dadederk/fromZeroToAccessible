@@ -45,7 +45,7 @@ struct DrinkTableRow: View {
             }
 
             NavigationLink {
-                DrinkDetail(drink: drink, basket: basket)
+                DrinkDetail(drink: drink, basket: basket, toastMessage: $toastMessage)
 
             } label: {
                 EmptyView()
