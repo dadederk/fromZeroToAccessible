@@ -69,9 +69,6 @@ struct ToastView: View {
                         animateToast(.animateIn)
                         toastDelay = removeAfterDelay
                     }
-
-                    message = nil
-
                 } else {
 
                     toastDelay?.cancel()
@@ -79,8 +76,9 @@ struct ToastView: View {
                     animateToast(.animateIn)
 
                     toastDelay = removeAfterDelay
-                    message = nil
                 }
+
+                message = nil
             }
         }
     }
