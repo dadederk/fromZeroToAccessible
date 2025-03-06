@@ -97,7 +97,7 @@ extension ViewController: UITableViewDelegate {
         let drinkDetailsViewController = DrinkDetailsViewViewController(drink: drink)
         
         drinkDetailsViewController.addDrinkToCart = { drink, extras in
-            self.addDrinkToCart(drink: drink, extras: extras)
+            self.addOrderToCart(Order(drink: drink, quantity: 1, extras: extras))
         }
         
         navigationController?.pushViewController(drinkDetailsViewController, animated: true)
@@ -114,12 +114,15 @@ extension ViewController: UIScrollViewDelegate {
 }
 
 extension ViewController: DrinkTableViewCellDelegate {
-    func addDrinkToCart(drink: any Drink, extras: Extras?) {
-        if let order = basket.orders.first(where: { $0.drink.name == drink.name }) {
-            order.extras = extras
-            order.quantity += 1
+    func addOrderToCart(_ order: Order) {
+        if let index = basket.orders.firstIndex(where: {
+            $0.drink.name == order.drink.name &&
+            $0.extras == order.extras }) {
+            let existingOrder = basket.orders[index]
+            order.quantity = existingOrder.quantity + 1
+            basket.orders[index] = order
         } else {
-            basket.orders.append(Order(drink: drink, extras: extras))
+            basket.orders.append(order)
         }
         
         orderButtonView?.configureWith(numberOfItems: UInt(basket.orders.reduce(into: 0) { $0 += $1.quantity }))
