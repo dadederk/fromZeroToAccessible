@@ -51,9 +51,9 @@ struct ToastView: View {
                 Text(visibleMessage ?? "")
                     .padding()
             }
-            .background(.gray)
+            .background(.gray
+                .opacity(0.90))
             .cornerRadius(20)
-            .opacity(0.90)
             .opacity(opacity)
             .padding(.top)
             .onChange(of: message) { _, newValue in
