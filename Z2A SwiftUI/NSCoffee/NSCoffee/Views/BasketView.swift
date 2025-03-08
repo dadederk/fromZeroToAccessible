@@ -9,7 +9,6 @@ import SwiftUI
 
 struct BasketView: View {
     @ObservedObject var basket: Basket
-    @Binding var toastMessage: String?
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -27,24 +26,19 @@ struct BasketView: View {
             }
             .padding(.bottom, 4)
 
-                Spacer()
+            Spacer()
 
-                Button {
-                    if !basket.isEmpty {
-                        if basket.placeOrder() {
-                            toastMessage = "Order placed"
-
-                        } else {
-                            toastMessage = "Error placing order"
-                        }
-                    }
-
-                } label: {
-                    Text("\(CurrencyFormatter.format(basket.totalPrice)) Buy")
-                        .frame(maxWidth: .infinity)
+            Button {
+                if !basket.isEmpty {
+                    basket.placeOrder()
                 }
-                .buttonStyle(.borderedProminent)
-                .opacity(basket.isEmpty ? 0.5 : 1.0)
+
+            } label: {
+                Text("\(CurrencyFormatter.format(basket.totalPrice)) Buy")
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.borderedProminent)
+            .opacity(basket.isEmpty ? 0.5 : 1.0)
         }
         .padding()
         .containerRelativeFrame(.horizontal, count: 4, span: 3, spacing: 0)
