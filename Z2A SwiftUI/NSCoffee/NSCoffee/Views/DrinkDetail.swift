@@ -12,70 +12,78 @@ struct DrinkDetail: View {
     @State var order: Order?
     @ObservedObject var basket: Basket
     @State var extras = [Extra]()
-    @Binding var toastMessage: String?
+    @State var toastMessage: String?
 
     var body: some View {
-        List {
-            ZStack {
-                DrinkTableImage(imageName: drink.imageName)
+        ZStack {
+            List {
+                ZStack {
+                    DrinkTableImage(imageName: drink.imageName)
 
-                VStack {
-                    Spacer()
+                    VStack {
+                        Spacer()
 
-                    Text(drink.description)
-                        .padding()
+                        Text(drink.description)
+                            .padding()
+                    }
+                }
+
+                Section("Extra Shots") {
+                    ExtraShotsView(shotPrice: drink.shotPrice, extras: $extras)
+                }
+
+                Section("Rate your drink") {
+                    RatingView()
+                }
+
+                MilkTypeView()
+            }
+            .listStyle(.grouped)
+            .onChange(of: extras) { oldValue, newValue in
+                if newValue.count > 0 {
+                    order = nil
+                    order = Order(drink: drink, extras: extras)
+                } else {
+                    order = nil
                 }
             }
+            .navigationTitle(drink.name)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        if let order = order {
+                            basket.add(order)
 
-            Section("Extra Shots") {
-                ExtraShotsView(shotPrice: drink.shotPrice, extras: $extras)
-            }
+                        } else {
+                            basket.add(Order(drink: drink))
+                        }
 
-            Section("Rate your drink") {
-                RatingView()
-            }
+                        toastMessage = "\(drink.name) added to cart"
 
-            MilkTypeView()
-        }
-        .listStyle(.grouped)
-        .onChange(of: extras) { oldValue, newValue in
-            if newValue.count > 0 {
-                order = nil
-                order = Order(drink: drink, extras: extras)
-            } else {
-                order = nil
-            }
-        }
-        .navigationTitle(drink.name)
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    if let order = order {
-                        basket.add(order)
+                    } label: {
+                        HStack {
+                            Image(systemName: "cart.fill.badge.plus")
 
-                    } else {
-                        basket.add(Order(drink: drink))
-                    }
+                            VStack {
+                                Text("Add")
 
-                    toastMessage = "\(drink.name) added to cart"
+                                if let order = order {
+                                    Text(CurrencyFormatter.format(order.perDrinkPrice))
 
-                } label: {
-                    HStack {
-                        Image(systemName: "cart.fill.badge.plus")
-
-                        VStack {
-                            Text("Add")
-
-                            if let order = order {
-                                Text(CurrencyFormatter.format(order.perDrinkPrice))
-
-                            } else {
-                                Text(CurrencyFormatter.format(drink.basePrice))
+                                } else {
+                                    Text(CurrencyFormatter.format(drink.basePrice))
+                                }
                             }
                         }
                     }
+                    .buttonStyle(.borderedProminent)
                 }
-                .buttonStyle(.borderedProminent)
+            }
+
+            VStack {
+                ToastView(message: $toastMessage)
+
+                Spacer()
             }
         }
     }

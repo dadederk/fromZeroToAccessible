@@ -22,6 +22,7 @@ class Basket: ObservableObject {
         orders.reduce(into: 0.0) { $0 += $1.totalPrice }
     }
 
+    @discardableResult
     func placeOrder() -> Bool {
         orders.removeAll()
         return true
