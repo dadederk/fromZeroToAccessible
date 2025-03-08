@@ -4,8 +4,7 @@ class RaterView: UIView {
     private let stackView = UIStackView()
     private var icon = UIImage(systemName: "hand.thumbsup")
     private var iconSelected = UIImage(systemName: "hand.thumbsup.fill")
-//    private var icon = UIImage(systemName: "hand.thumbsup", withConfiguration: UIImage.SymbolConfiguration(textStyle: .body))
-//    private var iconSelected = UIImage(systemName: "hand.thumbsup.fill", withConfiguration: UIImage.SymbolConfiguration(textStyle: .body))
+
     private var maxRate: UInt = 5
 
     var rating: Int = 0 {
@@ -44,17 +43,11 @@ class RaterView: UIView {
             ratingButton.setImage(icon, for: .normal)
             ratingButton.setImage(iconSelected, for: .selected)
             ratingButton.addTarget(self, action: #selector(ratingButtonPressed(_:)), for: .touchUpInside)
-//            ratingButton.titleLabel?.adjustsFontForContentSizeCategory = true
-//            ratingButton.imageView?.adjustsImageSizeForAccessibilityContentSizeCategory = true
+
             stackView.addArrangedSubview(ratingButton)
         }
 
         pressButton(at: 0)
-
-//        isAccessibilityElement = true
-//        accessibilityLabel = String(localized: "rating")
-//        accessibilityTraits = UIAccessibilityTraits.adjustable
-//        accessibilityHint = String(localized: "ratingHint")
 
         backgroundColor = .systemBackground
         stackView.backgroundColor = .systemBackground
@@ -79,16 +72,6 @@ class RaterView: UIView {
             }
         }
     }
-
-//    override func accessibilityIncrement() {
-//        guard rating < maxRate - 1 else { return }
-//        pressButton(at: rating + 1)
-//    }
-//
-//    override func accessibilityDecrement() {
-//        guard rating > 0 else { return }
-//        pressButton(at: rating - 1)
-//    }
 
     private func pressButton(at index: Int) {
         guard let button = button(at: index) else { return }

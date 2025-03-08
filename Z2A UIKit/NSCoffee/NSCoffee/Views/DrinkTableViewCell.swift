@@ -8,7 +8,7 @@
 import UIKit
 
 protocol DrinkTableViewCellDelegate: AnyObject {
-    func addDrinkToCart(drink: any Drink, extras: Extras?)
+    func addOrderToCart(_ order: Order)
 }
 
 final class DrinkTableViewCell: UITableViewCell {
@@ -29,33 +29,14 @@ final class DrinkTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         buyButton.addTarget(self, action: #selector(buyDrink), for: .touchUpInside)
-//        updateLayout()
     }
-    
-//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-//        if previousTraitCollection?.preferredContentSizeCategory != traitCollection.preferredContentSizeCategory {
-//            updateLayout()
-//        }
-//    }
-//    
-//    private func updateLayout() {
-//        if traitCollection.preferredContentSizeCategory.isAccessibilityCategory {
-//            outerStackView.axis = .vertical
-//            outerStackView.alignment = .leading
-//            outerStackView.distribution = .equalSpacing
-//        } else {
-//            outerStackView.axis = .horizontal
-//            outerStackView.alignment = .center
-//            outerStackView.distribution = .fillProportionally
-//        }
-//    }
     
     @objc
     private func buyDrink(_ sender: UIButton) {
         guard let drink = drink else { return }
         guard let delegate = delegate else { return }
         
-        delegate.addDrinkToCart(drink: drink, extras: nil)
+        delegate.addOrderToCart(Order(drink: drink))
     }
     
     func configure(with drink: any Drink) {
