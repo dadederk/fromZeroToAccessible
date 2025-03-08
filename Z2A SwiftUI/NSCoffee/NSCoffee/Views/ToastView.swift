@@ -47,17 +47,15 @@ struct ToastView: View {
 
     var body: some View {
         VStack {
-            Spacer()
-
             Group {
                 Text(visibleMessage ?? "")
                     .padding()
             }
-            .background(.gray)
+            .background(.gray
+                .opacity(0.90))
             .cornerRadius(20)
-            .opacity(0.90)
             .opacity(opacity)
-            .padding(.bottom)
+            .padding(.top)
             .onChange(of: message) { _, newValue in
                 guard newValue != nil else { return }
 
@@ -80,6 +78,8 @@ struct ToastView: View {
 
                 message = nil
             }
+
+            Spacer()
         }
     }
 }

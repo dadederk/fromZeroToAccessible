@@ -9,7 +9,6 @@ import SwiftUI
 
 struct BasketView: View {
     @ObservedObject var basket: Basket
-    @Binding var toastMessage: String?
     @State var loading = false
 
     @MainActor
@@ -33,33 +32,33 @@ struct BasketView: View {
             }
             .padding(.bottom, 4)
 
-                Spacer()
+            Spacer()
 
-                Button {
-                    if !basket.isEmpty {
-                        loading = true
-                        Task {
-                            let success = await basket.placeOrder()
-                            purchase(success: success)
-                        }
-                    }
-
-                } label: {
-                    ZStack {
-                        HStack {
-                            if loading {
-                                ProgressView()
-                            }
-
-                            Spacer()
-                        }
-
-                        Text("\(CurrencyFormatter.format(basket.totalPrice)) Buy")
-                            .frame(maxWidth: .infinity)
+            Button {
+                if !basket.isEmpty {
+                    loading = true
+                    Task {
+                        let success = await basket.placeOrder()
+                        purchase(success: success)
                     }
                 }
-                .buttonStyle(.borderedProminent)
-                .opacity(basket.isEmpty || loading ? 0.5 : 1.0)
+
+            } label: {
+                ZStack {
+                    HStack {
+                        if loading {
+                            ProgressView()
+                        }
+
+                        Spacer()
+                    }
+
+                    Text("\(CurrencyFormatter.format(basket.totalPrice)) Buy")
+                        .frame(maxWidth: .infinity)
+                }
+            }
+            .buttonStyle(.borderedProminent)
+            .opacity(basket.isEmpty || loading ? 0.5 : 1.0)
         }
         .padding()
         .containerRelativeFrame(.horizontal, count: 4, span: 3, spacing: 0)
