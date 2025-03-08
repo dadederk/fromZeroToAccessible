@@ -125,7 +125,7 @@ final class DrinkTableViewCell: UITableViewCell {
         set {}
     }
     
-    /* Fix: Listening tot rait collection changes
+    /* Fix: Listening to trait collection changes
      and adapting the layout to better accomodate
      large text sizes.
      */
