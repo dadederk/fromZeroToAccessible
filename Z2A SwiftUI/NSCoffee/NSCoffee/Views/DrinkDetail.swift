@@ -73,7 +73,7 @@ struct DrinkDetail: View {
             .padding(.horizontal)
 
         }
-        .background(Color(UIColor.groupTableViewBackground))
+        .background(Color(UIColor.systemGroupedBackground))
         .onChange(of: extras) { oldValue, newValue in
             if newValue.count > 0 {
                 order = nil
