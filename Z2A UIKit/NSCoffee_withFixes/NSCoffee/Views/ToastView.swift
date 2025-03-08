@@ -59,8 +59,8 @@ final class ToastView: UIView, NibLoadable {
                  */
                 
                 var highPriorityAnnouncement = AttributedString(text)
-                        highPriorityAnnouncement.accessibilitySpeechAnnouncementPriority = .high
-                        AccessibilityNotification.Announcement(highPriorityAnnouncement).post()
+                highPriorityAnnouncement.accessibilitySpeechAnnouncementPriority = .high
+                AccessibilityNotification.Announcement(highPriorityAnnouncement).post()
                 
                 UIView.animate(
                     withDuration: 0.2,
