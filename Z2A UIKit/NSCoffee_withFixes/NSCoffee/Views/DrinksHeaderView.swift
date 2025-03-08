@@ -20,9 +20,7 @@ final class DrinksHeaderView: UITableViewCell, NibLoadable {
          for Dark/Light Mode and Increase Contrast
          for both modes.
          */
-        
-//        headerTitleLabel.textColor = .darkGray
-//        backgroundColor = .lightGray
+
         headerTitleLabel.textColor = .secondaryLabel
         backgroundColor = .secondarySystemBackground
         
