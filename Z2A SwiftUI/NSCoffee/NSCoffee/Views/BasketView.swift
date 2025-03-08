@@ -30,11 +30,13 @@ struct BasketView: View {
                 Spacer()
 
                 Button {
-                    if basket.placeOrder() {
-                        toastMessage = "Order placed"
-                        
-                    } else {
-                        toastMessage = "Error placing order"
+                    if !basket.isEmpty {
+                        if basket.placeOrder() {
+                            toastMessage = "Order placed"
+
+                        } else {
+                            toastMessage = "Error placing order"
+                        }
                     }
 
                 } label: {
@@ -42,7 +44,7 @@ struct BasketView: View {
                         .frame(maxWidth: .infinity)
                 }
                 .buttonStyle(.borderedProminent)
-                .disabled(basket.isEmpty)
+                .opacity(basket.isEmpty ? 0.5 : 1.0)
         }
         .padding()
         .containerRelativeFrame(.horizontal, count: 4, span: 3, spacing: 0)
