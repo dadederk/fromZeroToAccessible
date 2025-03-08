@@ -15,33 +15,69 @@ struct DrinkDetail: View {
     @Binding var toastMessage: String?
 
     var body: some View {
-        List {
-            ZStack {
-                DrinkTableImage(imageName: drink.imageName)
+        VStack(spacing: 0) {
+            List {
+                ZStack {
+                    DrinkTableImage(imageName: drink.imageName)
 
-                VStack {
-                    Spacer()
+                    VStack {
+                        Spacer()
 
-                    Text(drink.description)
-                        .padding()
+                        Text(drink.description)
+                            .padding()
+                    }
                 }
-            }
-            .listRowInsets(.init(top: 0,
-                                 leading: 0,
-                                 bottom: 0,
-                                 trailing: 0))
+                .listRowInsets(.init(top: 0,
+                                     leading: 0,
+                                     bottom: 0,
+                                     trailing: 0))
 
-            Section("Extra Shots") {
-                ExtraShotsView(shotPrice: drink.shotPrice, extras: $extras)
-            }
+                Section("Extra Shots") {
+                    ExtraShotsView(shotPrice: drink.shotPrice, extras: $extras)
+                }
 
-            Section("Rate your drink") {
-                RatingView()
-            }
+                Section("Rate your drink") {
+                    RatingView()
+                }
 
-            MilkTypeView()
+                MilkTypeView()
+            }
+            .listStyle(.grouped)
+
+            Button {
+                if let order = order {
+                    basket.add(order)
+
+                } else {
+                    basket.add(Order(drink: drink))
+                }
+
+                toastMessage = "\(drink.name) added to cart"
+
+            } label: {
+                HStack {
+                    Image(systemName: "cart.fill.badge.plus")
+                        .padding(.trailing, 4)
+
+                    VStack(alignment: .leading) {
+                        Text("Add")
+
+                        if let order = order {
+                            Text(CurrencyFormatter.format(order.perDrinkPrice))
+
+                        } else {
+                            Text(CurrencyFormatter.format(drink.basePrice))
+                        }
+                    }
+                }
+                .frame(maxWidth: .infinity)
+
+            }
+            .buttonStyle(.borderedProminent)
+            .padding(.horizontal)
+
         }
-        .listStyle(.grouped)
+        .background(Color(UIColor.systemGroupedBackground))
         .onChange(of: extras) { oldValue, newValue in
             if newValue.count > 0 {
                 order = nil
@@ -51,36 +87,5 @@ struct DrinkDetail: View {
             }
         }
         .navigationTitle(drink.name)
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    if let order = order {
-                        basket.add(order)
-
-                    } else {
-                        basket.add(Order(drink: drink))
-                    }
-
-                    toastMessage = "\(drink.name) added to cart"
-
-                } label: {
-                    HStack {
-                        Image(systemName: "cart.fill.badge.plus")
-
-                        VStack {
-                            Text("Add")
-
-                            if let order = order {
-                                Text(CurrencyFormatter.format(order.perDrinkPrice))
-
-                            } else {
-                                Text(CurrencyFormatter.format(drink.basePrice))
-                            }
-                        }
-                    }
-                }
-                .buttonStyle(.borderedProminent)
-            }
-        }
     }
 }
