@@ -26,6 +26,10 @@ struct DrinkDetail: View {
                         .padding()
                 }
             }
+            .listRowInsets(.init(top: 0,
+                                 leading: 0,
+                                 bottom: 0,
+                                 trailing: 0))
 
             Section("Extra Shots") {
                 ExtraShotsView(shotPrice: drink.shotPrice, extras: $extras)
