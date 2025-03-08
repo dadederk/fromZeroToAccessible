@@ -53,20 +53,19 @@ struct DrinkDetail: View {
             } label: {
                 HStack {
                     Image(systemName: "cart.fill.badge.plus")
-                        .padding(.horizontal, 4)
+                        .padding(.trailing, 4)
 
-                    Text("Add")
-                        .padding(.leading, 4)
+                    VStack(alignment: .leading) {
+                        Text("Add")
 
-                    if let order = order {
-                        Text(CurrencyFormatter.format(order.perDrinkPrice))
+                        if let order = order {
+                            Text(CurrencyFormatter.format(order.perDrinkPrice))
 
-                    } else {
-                        Text(CurrencyFormatter.format(drink.basePrice))
+                        } else {
+                            Text(CurrencyFormatter.format(drink.basePrice))
+                        }
                     }
-
                 }
-                .padding(.vertical, 4)
                 .frame(maxWidth: .infinity)
 
             }
