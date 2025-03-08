@@ -146,6 +146,16 @@
         }
       }
     },
+    "emptyBasket" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Basket empty"
+          }
+        }
+      }
+    },
     "espressoDescription" : {
       "extractionState" : "manual",
       "localizations" : {

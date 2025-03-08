@@ -24,16 +24,25 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Me-7J-dSu">
+                    <rect key="frame" x="20" y="20" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="QCV-zb-X20" secondAttribute="trailing" id="4Kc-q1-fn0"/>
                 <constraint firstAttribute="bottom" secondItem="hCl-LK-gsg" secondAttribute="bottom" constant="20" symbolic="YES" id="6wD-hp-1SD"/>
+                <constraint firstItem="8Me-7J-dSu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="GJD-dx-HI8"/>
                 <constraint firstItem="hCl-LK-gsg" firstAttribute="top" secondItem="QCV-zb-X20" secondAttribute="bottom" constant="8" symbolic="YES" id="MqC-VI-Z33"/>
                 <constraint firstItem="hCl-LK-gsg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="OHm-6H-Wwi"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8Me-7J-dSu" secondAttribute="trailing" constant="20" symbolic="YES" id="Wa0-GE-rVS"/>
                 <constraint firstAttribute="top" secondItem="QCV-zb-X20" secondAttribute="top" id="Xjh-uX-DQj"/>
                 <constraint firstItem="QCV-zb-X20" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="bbX-Lf-ODD"/>
+                <constraint firstItem="8Me-7J-dSu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" symbolic="YES" id="n7j-dx-uv3"/>
                 <constraint firstItem="hCl-LK-gsg" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="sb3-8C-edg"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
@@ -42,13 +51,14 @@
             <connections>
                 <outlet property="basketTableView" destination="QCV-zb-X20" id="OuJ-qs-eLT"/>
                 <outlet property="buyButton" destination="hCl-LK-gsg" id="pxE-de-uBz"/>
+                <outlet property="messageLabel" destination="8Me-7J-dSu" id="mk7-ls-lgv"/>
             </connections>
             <point key="canvasLocation" x="144.92753623188406" y="51.897321428571423"/>
         </view>
     </objects>
     <resources>
         <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
