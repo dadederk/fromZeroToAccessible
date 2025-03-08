@@ -32,7 +32,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxj-3M-tA6">
-                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2hw-wQ-wOt">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="294.33333333333337"/>
@@ -172,10 +172,6 @@
                                 </view>
                             </subviews>
                         </stackView>
-                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gux-gM-jRE">
-                            <rect key="frame" x="0.0" y="769" width="393" height="49"/>
-                            <items/>
-                        </toolbar>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="2hw-wQ-wOt" secondAttribute="trailing" id="2vd-r7-DAv"/>
@@ -205,17 +201,21 @@
                     <viewLayoutGuide key="contentLayoutGuide" id="HnW-iS-Aew"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="NPp-dD-tzl"/>
                 </scrollView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gux-gM-jRE">
+                    <rect key="frame" x="0.0" y="769" width="393" height="49"/>
+                    <items/>
+                </toolbar>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="bxj-3M-tA6" secondAttribute="bottom" id="FK9-Gf-vtO"/>
-                <constraint firstItem="gux-gM-jRE" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="GAc-Ox-UVU"/>
                 <constraint firstItem="2hw-wQ-wOt" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="SlI-P5-qod"/>
                 <constraint firstItem="bxj-3M-tA6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gGq-Pr-j8m"/>
-                <constraint firstItem="gux-gM-jRE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="m5c-78-DGJ"/>
+                <constraint firstItem="gux-gM-jRE" firstAttribute="top" secondItem="bxj-3M-tA6" secondAttribute="bottom" symbolic="YES" id="hkh-Vg-d5z"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="gux-gM-jRE" secondAttribute="bottom" id="kj0-sv-vD2"/>
+                <constraint firstItem="gux-gM-jRE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="m2K-yJ-3Sb"/>
                 <constraint firstItem="bxj-3M-tA6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uzf-Tj-Mqy"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gux-gM-jRE" secondAttribute="trailing" id="xub-GL-IN7"/>
+                <constraint firstAttribute="trailing" secondItem="gux-gM-jRE" secondAttribute="trailing" id="zPV-QP-QNy"/>
             </constraints>
             <point key="canvasLocation" x="136.64122137404578" y="19.718309859154932"/>
         </view>
