@@ -29,26 +29,7 @@ final class DrinkTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         buyButton.addTarget(self, action: #selector(buyDrink), for: .touchUpInside)
-//        updateLayout()
     }
-    
-//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-//        if previousTraitCollection?.preferredContentSizeCategory != traitCollection.preferredContentSizeCategory {
-//            updateLayout()
-//        }
-//    }
-//    
-//    private func updateLayout() {
-//        if traitCollection.preferredContentSizeCategory.isAccessibilityCategory {
-//            outerStackView.axis = .vertical
-//            outerStackView.alignment = .leading
-//            outerStackView.distribution = .equalSpacing
-//        } else {
-//            outerStackView.axis = .horizontal
-//            outerStackView.alignment = .center
-//            outerStackView.distribution = .fillProportionally
-//        }
-//    }
     
     @objc
     private func buyDrink(_ sender: UIButton) {
