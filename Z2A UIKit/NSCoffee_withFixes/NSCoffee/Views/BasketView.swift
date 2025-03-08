@@ -8,8 +8,9 @@
 import UIKit
 
 final class BasketView: UIView, NibLoadable {
-    @IBOutlet weak var basketTableView: UITableView!
-    @IBOutlet weak var buyButton: UIButton!
+    @IBOutlet private weak var basketTableView: UITableView!
+    @IBOutlet private weak var buyButton: UIButton!
+    @IBOutlet private weak var messageLabel: UILabel!
     
     private var heightConstraint: NSLayoutConstraint!
     private var widthConstraint: NSLayoutConstraint!
@@ -35,6 +36,8 @@ final class BasketView: UIView, NibLoadable {
         buyButton.alpha = 0.5
         buyButton.isUserInteractionEnabled = false
         
+        messageLabel.text = String(localized: "emptyBasket")
+        
         heightConstraint = heightAnchor.constraint(equalToConstant: 0.0)
         widthConstraint = widthAnchor.constraint(equalToConstant: 0.0)
         
@@ -52,12 +55,14 @@ final class BasketView: UIView, NibLoadable {
     func configure(withBasket basket: Basket) {
         self.basket = basket
         
-        if !basket.orders.isEmpty {
+        if basket.orders.isEmpty {
+            messageLabel.isHidden = false
+            buyButton.setTitle(String(localized: "buy"), for: .normal)
+        } else {
+            messageLabel.isHidden = true
             buyButton.alpha = 1.0
             buyButton.isUserInteractionEnabled = true
             buyButton.setTitle("\(CurrencyFormatter.format(basket.totalPrice)) \(String(localized: "buy"))", for: .normal)
-        } else {
-            buyButton.setTitle(String(localized: "buy"), for: .normal)
         }
     }
     
