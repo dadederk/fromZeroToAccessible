@@ -8,7 +8,7 @@
 import UIKit
 
 protocol DrinkTableViewCellDelegate: AnyObject {
-    func addDrinkToCart(drink: any Drink, extras: Extras?)
+    func addOrderToCart(_ order: Order)
 }
 
 final class DrinkTableViewCell: UITableViewCell {
@@ -55,7 +55,7 @@ final class DrinkTableViewCell: UITableViewCell {
         guard let drink = drink else { return }
         guard let delegate = delegate else { return }
         
-        delegate.addDrinkToCart(drink: drink, extras: nil)
+        delegate.addOrderToCart(Order(drink: drink))
     }
     
     func configure(with drink: any Drink) {

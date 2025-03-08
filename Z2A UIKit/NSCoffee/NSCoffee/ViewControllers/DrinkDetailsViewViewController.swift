@@ -30,7 +30,7 @@ final class DrinkDetailsViewViewController: UIViewController {
         }
     }
     
-    var addDrinkToCart: ((any Drink, Extras?) -> Void)?
+    var addDrinkToCart: ((any Drink, [Extra]?) -> Void)?
     
     init(drink: any Drink) {
         self.drink = drink
@@ -52,7 +52,7 @@ final class DrinkDetailsViewViewController: UIViewController {
         var buyButtonConfiguration = UIButton.Configuration.borderedProminent()
         buyButtonConfiguration.title = String(localized: "buy")
         buyButtonConfiguration.subtitle = CurrencyFormatter.format(drink.basePrice)
-        buyButtonConfiguration.image = UIImage(systemName: "cart.fill")
+        buyButtonConfiguration.image = UIImage(systemName: "cart.fill.badge.plus")
         buyButton.configuration = buyButtonConfiguration
         buyButton.addTarget(self, action: #selector(buyDrink), for: .touchUpInside)
         
@@ -116,7 +116,7 @@ final class DrinkDetailsViewViewController: UIViewController {
             
             configuration.showsActivityIndicator = false
             self.buyButton.configuration = configuration
-            self.addDrinkToCart?(self.drink, [(numberOfShotsText, self.extraPrice)])
+            self.addDrinkToCart?(self.drink, [Extra(description: numberOfShotsText, price: self.extraPrice, quantity: self.numberOfShots)])
             self.toastView?.present(inView: self.view)
         }
     }
