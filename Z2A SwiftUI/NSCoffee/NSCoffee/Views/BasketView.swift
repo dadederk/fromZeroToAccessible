@@ -10,6 +10,12 @@ import SwiftUI
 struct BasketView: View {
     @ObservedObject var basket: Basket
     @Binding var toastMessage: String?
+    @State var loading = false
+
+    @MainActor
+    func purchase(success: Bool) {
+        loading = false
+    }
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -31,20 +37,29 @@ struct BasketView: View {
 
                 Button {
                     if !basket.isEmpty {
-                        if basket.placeOrder() {
-                            toastMessage = "Order placed"
-
-                        } else {
-                            toastMessage = "Error placing order"
+                        loading = true
+                        Task {
+                            let success = await basket.placeOrder()
+                            purchase(success: success)
                         }
                     }
 
                 } label: {
-                    Text("\(CurrencyFormatter.format(basket.totalPrice)) Buy")
-                        .frame(maxWidth: .infinity)
+                    ZStack {
+                        HStack {
+                            if loading {
+                                ProgressView()
+                            }
+
+                            Spacer()
+                        }
+
+                        Text("\(CurrencyFormatter.format(basket.totalPrice)) Buy")
+                            .frame(maxWidth: .infinity)
+                    }
                 }
                 .buttonStyle(.borderedProminent)
-                .opacity(basket.isEmpty ? 0.5 : 1.0)
+                .opacity(basket.isEmpty || loading ? 0.5 : 1.0)
         }
         .padding()
         .containerRelativeFrame(.horizontal, count: 4, span: 3, spacing: 0)
