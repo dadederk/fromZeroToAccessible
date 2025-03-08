@@ -23,6 +23,8 @@ final class ToastView: UIView, NibLoadable {
     }
     
     func present(inView view: UIView) {
+        guard let text = toastTitleLabel.text else { return }
+        
         isHidden = false
         translatesAutoresizingMaskIntoConstraints = false
         
@@ -43,6 +45,23 @@ final class ToastView: UIView, NibLoadable {
             options: .curveEaseIn,
             animations: { self.alpha = 1.0 },
             completion: { _ in
+                
+                /* Fix: Because toasts auto dismiss, it
+                 is very unlikely VoiceOver useres will
+                 get to it. One option is to announce
+                 the message in the toast.
+                 
+                 Note: But there are more issues with
+                 this UI pattern. It is very challenging
+                 to make toasts accessible and we'd
+                 encourage you to explore other options
+                 if possible.
+                 */
+                
+                var highPriorityAnnouncement = AttributedString(text)
+                highPriorityAnnouncement.accessibilitySpeechAnnouncementPriority = .high
+                AccessibilityNotification.Announcement(highPriorityAnnouncement).post()
+                
                 UIView.animate(
                     withDuration: 0.2,
                     delay: 3.0,
