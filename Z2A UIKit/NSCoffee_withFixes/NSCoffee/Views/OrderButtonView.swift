@@ -51,7 +51,7 @@ final class OrderButtonView: UIView, NibLoadable {
         numberOfItemsLabel.isAccessibilityElement = false
         
         /* Fix: Because the button doesn't have a title,
-         it also lacks of a meaningful accessibility
+         it is also lacking a meaningful accessibility
          label. In this case we need to configure one
          manually.
          */
