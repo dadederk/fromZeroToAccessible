@@ -19,7 +19,7 @@ final class DrinkDetailsViewViewController: UIViewController {
     @IBOutlet private weak var typeOfMilkLabel: UILabel!
     @IBOutlet private weak var typeOfMilkIcon: UIImageView!
     @IBOutlet private weak var drinkDescriptionLabel: UILabel!
-    @IBOutlet weak var toolBar: UIToolbar!
+    @IBOutlet private weak var toolBar: UIToolbar!
     
     private let toastView = ToastView.loadFromNib()
     private let buyButton = UIButton(type: .system)
