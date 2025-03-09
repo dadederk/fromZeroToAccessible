@@ -11,19 +11,22 @@ struct ExtraShotsView: View {
     let shotPrice: Double
     @State private var shots = Double(0)
     @Binding var extras: [Extra]
+    @Environment(\.dynamicTypeSize.isAccessibilitySize) var accessibilitySize
 
     private var extraShotPrice: Double {
         shotPrice * Double(shots)
     }
 
-    var body: some View {
-        HStack {
+    private var extraShotPriceText: Text {
+        Text("+ \(CurrencyFormatter.format(extraShotPrice))")
+    }
+
+    private var shotControl: some View {
+        Group {
             Image(systemName: "minus.circle")
                 .onTapGesture {
                     guard shots > 0 else { return }
-
                     shots -= 1
-
                     if shots == 0 {
                         extras = []
                     } else {
@@ -42,8 +45,27 @@ struct ExtraShotsView: View {
                     extras = [Extra(description: "Extra shot", price: shotPrice, quantity: Int(shots))]
                 }
                 .foregroundStyle(.tint)
+        }
+    }
 
-            Text("+ \(CurrencyFormatter.format(extraShotPrice))")
+    var body: some View {
+        /* Fix: At larger text sizes moving content
+         stacked horizontally to being stacked
+         vertically allows for improved readability
+         */
+        ViewThatFits {
+            HStack {
+                shotControl
+                extraShotPriceText
+            }
+
+            VStack {
+                HStack {
+                    shotControl
+                }
+
+                extraShotPriceText
+            }
         }
 
         /* Fix: An accessibility representation allows us to provide the
