@@ -15,6 +15,24 @@ struct BasketView: View {
     @MainActor
     func purchase(success: Bool) {
         loading = false
+
+        if success {
+            voiceOverAnnouncement("Order complete")
+        } else {
+            voiceOverAnnouncement("Order failed")
+        }
+    }
+
+    @MainActor
+    func voiceOverAnnouncement(_ message: String) {
+        /* Fix: Because toasts auto dismiss, it
+         is very unlikely VoiceOver users will
+         get to it. One option is to announce
+         the message in the toast.
+         */
+        var highPriorityAnnouncement = AttributedString(message)
+        highPriorityAnnouncement.accessibilitySpeechAnnouncementPriority = .high
+        AccessibilityNotification.Announcement(highPriorityAnnouncement).post()
     }
 
     var body: some View {
@@ -37,6 +55,8 @@ struct BasketView: View {
             Button {
                 if !basket.isEmpty {
                     loading = true
+                    voiceOverAnnouncement("Placing order")
+
                     Task {
                         let success = await basket.placeOrder()
                         purchase(success: success)
