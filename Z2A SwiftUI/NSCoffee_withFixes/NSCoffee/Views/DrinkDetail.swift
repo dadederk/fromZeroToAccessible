@@ -13,6 +13,8 @@ struct DrinkDetail: View {
     @ObservedObject var basket: Basket
     @State var extras = [Extra]()
     @State var toastMessage: String?
+    @Environment(\.accessibilityReduceTransparency) var reduceTransparency
+    @Environment(\.dynamicTypeSize.isAccessibilitySize) var accessibilitySize
 
     var body: some View {
         ZStack {
@@ -24,14 +26,36 @@ struct DrinkDetail: View {
                         VStack {
                             Spacer()
 
-                            Text(drink.description)
-                                .padding()
+                            if !reduceTransparency && !accessibilitySize {
+                                Group {
+                                    Text(drink.description)
+                                        .padding()
+                                }
+                                .frame(maxWidth: .infinity)
+
+                                /* Fix: Adding a background to text can guarantee
+                                 the text will always have suitable contrast against
+                                 the image behind
+                                 */
+                                .background(.background
+                                    .opacity(0.9))
+                            }
                         }
                     }
                     .listRowInsets(.init(top: 0,
                                          leading: 0,
                                          bottom: 0,
                                          trailing: 0))
+
+                    /* Fix: When the user has enabled reduce transparency
+                     move the text from over the image to improve readability.
+                     We're also moving the text at larger text sizes so the
+                     image is not fully covered.
+                     */
+                    if reduceTransparency || accessibilitySize {
+                        Text(drink.description)
+                            .padding()
+                    }
 
                     Section("Extra Shots") {
                         ExtraShotsView(shotPrice: drink.shotPrice, extras: $extras)
