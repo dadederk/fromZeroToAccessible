@@ -8,38 +8,20 @@
 import SwiftUI
 
 struct MilkTypeView: View {
-    @State private var milkExpanded = false
     @State private var selectedMilk = MilkOptions.dairy
-    
+
     var body: some View {
-        Section {
-            if milkExpanded {
-                ForEach(MilkOptions.allCases, id: \.self) { milk in
-
-                    HStack {
-                        Text(milk.rawValue)
-
-                        Spacer()
-
-                        Image(systemName: selectedMilk == milk ? "checkmark.circle" : "circle")
-                            .accessibilityHidden(true)
-                    }
-                    .onTapGesture {
-                        selectedMilk = milk
-                    }
-                }
-            }
-        } header: {
+        ForEach(MilkOptions.allCases, id: \.self) { milk in
             HStack {
-                Text("Type of Milk")
+                Text(milk.rawValue)
 
-                Image(systemName: "chevron.up")
-                    .rotationEffect(.degrees(milkExpanded ? 180 : 0))
+                Spacer()
+
+                Image(systemName: selectedMilk == milk ? "checkmark.circle" : "circle")
+                    .accessibilityHidden(true)
             }
             .onTapGesture {
-                withAnimation {
-                    milkExpanded.toggle()
-                }
+                selectedMilk = milk
             }
         }
     }

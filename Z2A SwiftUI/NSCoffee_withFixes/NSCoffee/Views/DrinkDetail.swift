@@ -13,6 +13,8 @@ struct DrinkDetail: View {
     @ObservedObject var basket: Basket
     @State var extras = [Extra]()
     @State var toastMessage: String?
+    @State private var milkExpanded = false
+
     @Environment(\.accessibilityReduceTransparency) var reduceTransparency
     @Environment(\.dynamicTypeSize.isAccessibilitySize) var accessibilitySize
 
@@ -65,9 +67,16 @@ struct DrinkDetail: View {
                         RatingView()
                     }
 
-                    MilkTypeView()
+                    /* Fix: Use system-provided options where possible.
+                     Here we're using the 'isExpanded' property on a section
+                     to give us the correct behaviour and appearance.
+                     This currently does require the 'sidebar' list style.
+                     */
+                    Section("Type of Milk", isExpanded: $milkExpanded) {
+                        MilkTypeView()
+                    }
                 }
-                .listStyle(.grouped)
+                .listStyle(.sidebar)
 
                 Button {
                     if let order = order {
