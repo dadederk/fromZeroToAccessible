@@ -48,6 +48,28 @@
         }
       }
     },
+    "%lld thumb up" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%lld thumb up"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld thumbs up"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "+ %@" : {
 
     },
@@ -301,6 +323,26 @@
       }
     },
     "Rate your drink" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rate your drink"
+          }
+        }
+      }
+    },
+    "Rates your drink from 1 to 5 thumbs up" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rates your drink from 1 to 5 thumbs up"
+          }
+        }
+      }
+    },
+    "Rating" : {
 
     },
     "spanishLatteDescription" : {
@@ -309,29 +351,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Coffee drink made with espresso, milk, and sweetened condensed milk."
-          }
-        }
-      }
-    },
-    "thumbsUp.%lld" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "%lld thumb up"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "%lld thumbs up"
-                }
-              }
-            }
           }
         }
       }
