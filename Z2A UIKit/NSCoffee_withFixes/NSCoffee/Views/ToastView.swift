@@ -8,8 +8,8 @@
 import UIKit
 
 final class ToastView: UIView, NibLoadable {
-    @IBOutlet weak var toastTitleLabel: UILabel!
-    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet private weak var toastTitleLabel: UILabel!
+    @IBOutlet private weak var backgroundView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

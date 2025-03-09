@@ -14,12 +14,12 @@ protocol DrinkTableViewCellDelegate: AnyObject {
 final class DrinkTableViewCell: UITableViewCell {
     static let identifier = String(describing: DrinkTableViewCell.self)
     
-    @IBOutlet weak var outerStackView: UIStackView!
+    @IBOutlet private weak var outerStackView: UIStackView!
     @IBOutlet private weak var drinkImageView: UIImageView!
     @IBOutlet private weak var drinkNameLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet private weak var priceLabel: UILabel!
     @IBOutlet private weak var disclosureIndicatorImageView: UIImageView!
-    @IBOutlet weak var buyButton: UIButton!
+    @IBOutlet private weak var buyButton: UIButton!
     
     private var drink: (any Drink)?
     
