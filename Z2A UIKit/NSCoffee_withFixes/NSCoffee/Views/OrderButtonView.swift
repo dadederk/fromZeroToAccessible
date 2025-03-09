@@ -43,7 +43,7 @@ final class OrderButtonView: UIView, NibLoadable {
          elements. It makes more sense to express the value in
          the badge, as an accessibility value of the component
          as a whole. In this case, we are making the label not
-         accessible, and configuring the button's accessibilty
+         accessible, and configuring the button's accessibility
          value with the text in the label later when configuring
          the component.
          */

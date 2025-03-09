@@ -41,7 +41,7 @@ final class DrinkTableViewCell: UITableViewCell {
         priceLabel.font = .preferredFont(forTextStyle: .body)
         
         /* Fix: Using semantic colors, instead of
-         specifiying the exact color, will lots
+         specifying the exact color, will lots
          of times make easier to have good color
          contrast ratios. And at the very least, you'll
          get support for Light/Dark modes, and Increase
@@ -120,13 +120,13 @@ final class DrinkTableViewCell: UITableViewCell {
     override var accessibilityUserInputLabels: [String]! {
         get {
             guard let drink = drink else { return [] }
-            return [drink.name]
+            return [drink.name, accessibilityLabel].compactMap{ $0 }
         }
         set {}
     }
     
     /* Fix: Listening to trait collection changes
-     and adapting the layout to better accomodate
+     and adapting the layout to better accommodate
      large text sizes.
      */
     
