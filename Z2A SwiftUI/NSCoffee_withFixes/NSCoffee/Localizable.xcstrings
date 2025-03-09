@@ -204,9 +204,6 @@
         }
       }
     },
-    "Collapsed" : {
-
-    },
     "cortadoDescription" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -228,9 +225,6 @@
           }
         }
       }
-    },
-    "Expanded" : {
-
     },
     "Extra Shots" : {
 

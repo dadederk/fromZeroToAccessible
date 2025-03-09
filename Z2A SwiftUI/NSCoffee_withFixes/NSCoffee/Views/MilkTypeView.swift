@@ -31,6 +31,8 @@ struct MilkTypeView: View {
                         .accessibilityHidden(true)
                 }
             }
+            .buttonStyle(.plain)
+            
             /* Fix: So VoiceOver and Braille users know
              which option is currently selected, we need
              to add the selected trait.

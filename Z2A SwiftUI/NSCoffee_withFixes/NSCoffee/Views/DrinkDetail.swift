@@ -68,22 +68,14 @@ struct DrinkDetail: View {
                     }
 
                     /* Fix: Use system-provided options where possible.
-                     Here we're using the 'isExpanded' property on a section
-                     to give us the correct behaviour and appearance.
-                     This currently does require the 'sidebar' list style.
+                     Here we're using a DisclosureGroup to give us the
+                     correct behaviour and appearance.
                      */
-                    Section(isExpanded: $milkExpanded) {
+                    DisclosureGroup("Type of Milk") {
                         MilkTypeView()
-                    } header: {
-                        Text("Type of Milk")
-                        
-                        /* Fix: We need to provide the current state to assistive
-                         technologies, as SwiftUI won't do this for us.
-                         */
-                            .accessibilityValue(milkExpanded ? "Expanded" : "Collapsed")
                     }
                 }
-                .listStyle(.sidebar)
+                .listStyle(.grouped)
 
                 Button {
                     if let order = order {
