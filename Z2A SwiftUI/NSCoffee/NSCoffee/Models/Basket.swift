@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@MainActor
 class Basket: ObservableObject {
     @Published var orders: [Order] = []
 
@@ -22,8 +23,8 @@ class Basket: ObservableObject {
         orders.reduce(into: 0.0) { $0 += $1.totalPrice }
     }
 
-    @discardableResult
-    func placeOrder() -> Bool {
+    func placeOrder() async -> Bool {
+        try? await Task.sleep(for: .seconds(0.5))
         orders.removeAll()
         return true
     }
