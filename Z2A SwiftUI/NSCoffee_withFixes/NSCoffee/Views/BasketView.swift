@@ -29,11 +29,6 @@ struct BasketView: View {
 
     @MainActor
     func voiceOverAnnouncement(_ message: String) {
-        /* Fix: Because toasts auto dismiss, it
-         is very unlikely VoiceOver users will
-         get to it. One option is to announce
-         the message in the toast.
-         */
         var highPriorityAnnouncement = AttributedString(message)
         highPriorityAnnouncement.accessibilitySpeechAnnouncementPriority = .high
         AccessibilityNotification.Announcement(highPriorityAnnouncement).post()
