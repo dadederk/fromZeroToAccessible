@@ -21,42 +21,50 @@ struct ExtraShotsView: View {
         Text("+ \(CurrencyFormatter.format(extraShotPrice))")
     }
 
-    var body: some View {
-        VStack {
-            HStack {
-                Image(systemName: "minus.circle")
-                    .onTapGesture {
-                        guard shots > 0 else { return }
-                        shots -= 1
-                        if shots == 0 {
-                            extras = []
-                        } else {
-                            extras = [Extra(description: "Extra shot", price: shotPrice, quantity: Int(shots))]
-                        }
-                    }
-                    .foregroundStyle(.tint)
-
-                Text("numberShots.\(Int(shots))")
-
-                Image(systemName: "plus.circle")
-                    .onTapGesture {
-                        guard shots < 4 else { return }
-
-                        shots += 1
+    private var shotControl: some View {
+        Group {
+            Image(systemName: "minus.circle")
+                .onTapGesture {
+                    guard shots > 0 else { return }
+                    shots -= 1
+                    if shots == 0 {
+                        extras = []
+                    } else {
                         extras = [Extra(description: "Extra shot", price: shotPrice, quantity: Int(shots))]
                     }
-                    .foregroundStyle(.tint)
-
-                /* Fix: At larger text sizes moving content
-                 stacked horizontally to being stacked
-                 vertically allows for improved readability
-                 */
-                if !accessibilitySize {
-                    extraShotPriceText
                 }
+                .foregroundStyle(.tint)
+
+            Text("numberShots.\(Int(shots))")
+
+            Image(systemName: "plus.circle")
+                .onTapGesture {
+                    guard shots < 4 else { return }
+
+                    shots += 1
+                    extras = [Extra(description: "Extra shot", price: shotPrice, quantity: Int(shots))]
+                }
+                .foregroundStyle(.tint)
+        }
+    }
+
+    /* Fix: At larger text sizes moving content
+     stacked horizontally to being stacked
+     vertically allows for improved readability
+     */
+
+    var body: some View {
+        ViewThatFits {
+            HStack {
+                shotControl
+                extraShotPriceText
             }
 
-            if accessibilitySize {
+            VStack {
+                HStack {
+                    shotControl
+                }
+
                 extraShotPriceText
             }
         }
