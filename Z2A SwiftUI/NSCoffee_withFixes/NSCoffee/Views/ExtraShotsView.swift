@@ -48,12 +48,11 @@ struct ExtraShotsView: View {
         }
     }
 
-    /* Fix: At larger text sizes moving content
-     stacked horizontally to being stacked
-     vertically allows for improved readability
-     */
-
     var body: some View {
+        /* Fix: At larger text sizes moving content
+         stacked horizontally to being stacked
+         vertically allows for improved readability
+         */
         ViewThatFits {
             HStack {
                 shotControl
