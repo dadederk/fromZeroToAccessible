@@ -82,7 +82,13 @@ struct BasketView: View {
                 }
             }
             .buttonStyle(.borderedProminent)
-            .opacity(basket.isEmpty || loading ? 0.5 : 1.0)
+
+            /* Fix: Marking the button as disabled when
+             it performs no action informs VoiceOver
+             users that it will not perform an action
+             in its current state.
+             */
+            .disabled(basket.isEmpty || loading)
         }
 
         /* Fix: This view will act as a modal view
