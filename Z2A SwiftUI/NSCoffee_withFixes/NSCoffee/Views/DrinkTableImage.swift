@@ -23,5 +23,15 @@ struct DrinkTableImage: View {
                     .aspectRatio(contentMode: .fit)
             }
         }
+
+        /* Fix: The drink image is decorative, so
+         should be hidden from VoiceOver
+         */
+        .accessibilityHidden(true)
+
+        /* Fix: When the user enables Smart Invert Colors,
+         there is no need to invert the images.
+         */
+        .accessibilityIgnoresInvertColors()
     }
 }
