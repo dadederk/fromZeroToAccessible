@@ -11,6 +11,7 @@ struct BasketView: View {
     @ObservedObject var basket: Basket
     @State var loading = false
     @Environment(\.accessibilityReduceTransparency) var reduceTransparency
+    @AccessibilityFocusState var initialFocus
     @Environment(\.accessibilityReduceMotion) var reduceMotion
 
     @MainActor
@@ -40,11 +41,13 @@ struct BasketView: View {
             ScrollView {
                 VStack {
                     if basket.isEmpty {
-                        Text("Basket empty")
+                        Text("Cart empty")
+                            .accessibilityFocused($initialFocus)
                     }
 
                     ForEach(basket.orders, id: \.self) {
                         BasketRow(order: $0)
+                            .accessibilityFocused($initialFocus)
                     }
                 }
             }
@@ -137,5 +140,9 @@ struct BasketView: View {
          but for subviews such as this, it can be acceptable
          */
         .environment(\.colorScheme, .dark)
+
+        .onAppear {
+            initialFocus = true
+        }
     }
 }

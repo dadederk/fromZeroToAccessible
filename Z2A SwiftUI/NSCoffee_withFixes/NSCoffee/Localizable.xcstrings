@@ -101,9 +101,6 @@
         }
       }
     },
-    "Basket empty" : {
-
-    },
     "buy" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -116,6 +113,9 @@
       }
     },
     "Cart" : {
+
+    },
+    "Cart empty" : {
 
     },
     "Cart, %lld item" : {
