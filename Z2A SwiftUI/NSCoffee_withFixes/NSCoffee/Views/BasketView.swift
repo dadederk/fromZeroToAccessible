@@ -11,6 +11,7 @@ struct BasketView: View {
     @ObservedObject var basket: Basket
     @State var loading = false
     @Environment(\.accessibilityReduceTransparency) var reduceTransparency
+    @Environment(\.accessibilityReduceMotion) var reduceMotion
 
     @MainActor
     func purchase(success: Bool) {
@@ -120,7 +121,12 @@ struct BasketView: View {
                 .opacity(reduceTransparency ? 1.0 : 0.90)
         )
         .cornerRadius(10)
-        .transition(.scale(scale: 0, anchor: UnitPoint.topTrailing))
+        .if(reduceMotion) {
+            $0.transition(.opacity)
+        } else: {
+            $0.transition(.scale(scale: 0, anchor: UnitPoint.topTrailing))
+        }
+
 
         /* Fix: Forcing the view's color scheme to dark
          allows us to keep the dark appearance for this
