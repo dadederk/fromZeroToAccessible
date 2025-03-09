@@ -18,7 +18,11 @@ struct BasketRow: View {
             .compactMap({ CurrencyFormatter.format($0.price * Double($0.quantity)) })
             .joined(separator: " + ") ?? "£0.00"
 
-        return "\(quantity) x \(basePrice) + (\(extras)) = \(totalPrice)"
+        /* Fix: Using the correct unicode character here (multiply - ×,
+         rather than the letter x) allows VoiceOver to correctly speak
+         the meaning of this text
+         */
+        return "\(quantity) × \(basePrice) + (\(extras)) = \(totalPrice)"
     }
 
     private var extras: String {
@@ -43,6 +47,13 @@ struct BasketRow: View {
 
             Spacer()
         }
+
+        /* Fix: Combining the views here into a single
+         accessibility element simplifies navigation for
+         VoiceOver users
+         */
+        .accessibilityElement(children: .combine)
+
         .padding(.vertical, 4)
     }
 }
