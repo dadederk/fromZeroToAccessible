@@ -54,6 +54,11 @@ struct BasketView: View {
             Button {
                 if !basket.isEmpty {
                     loading = true
+
+                    /* Fix: VoiceOver users need to be informed of
+                     state changes. Posting an announcement lets
+                     us keep them up to date.
+                     */
                     voiceOverAnnouncement("Placing order")
 
                     Task {
