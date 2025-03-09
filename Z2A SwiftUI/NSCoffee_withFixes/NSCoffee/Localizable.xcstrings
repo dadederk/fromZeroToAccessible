@@ -20,6 +20,34 @@
     "%lld" : {
 
     },
+    "%lld item" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%lld item"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld items"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Empty"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "+ %@" : {
 
     },
@@ -61,6 +89,37 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Buy"
+          }
+        }
+      }
+    },
+    "Cart" : {
+
+    },
+    "Cart, %lld item" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "Cart, %lld item"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Cart, %lld items"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Cart empty"
+                }
+              }
+            }
           }
         }
       }
