@@ -25,9 +25,15 @@ final class BasketView: UIView, NibLoadable {
         super.awakeFromNib()
         let orderNib = UINib(nibName: OrderTableViewCell.identifier, bundle: nil)
         
-        backgroundColor = UIColor.darkGray.withAlphaComponent(0.95)
+        /* Fix: If the user configures Reduce
+         Transparency, we make the view's
+         background opaque.
+         */
+        
+        updateBackground()
+        
         layer.cornerRadius = 10.0
-
+        
         basketTableView.dataSource = self
         basketTableView.register(orderNib, forCellReuseIdentifier: OrderTableViewCell.identifier)
         
@@ -45,6 +51,22 @@ final class BasketView: UIView, NibLoadable {
             heightConstraint,
             widthConstraint
         ])
+        
+        /* Fix: This view will act as a modal view
+         for assistive technologies. It avoids the
+         cursor, or focus, to move to any sibling
+         views.
+         */
+        
+        accessibilityViewIsModal = true
+        
+        /* Fix: We can also listen to changes in
+         accessibility settings, like Reduce
+         Transparency, in case the user changes
+         them while using the app.
+         */
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBackground), name: UIAccessibility.reduceTransparencyStatusDidChangeNotification, object: nil)
     }
     
     @objc
@@ -52,14 +74,22 @@ final class BasketView: UIView, NibLoadable {
         dismiss()
     }
     
+    @objc
+    private func updateBackground() {
+        let opacity = UIAccessibility.isReduceTransparencyEnabled ? 1.0 : 0.95
+        backgroundColor = UIColor.darkGray.withAlphaComponent(opacity)
+    }
+    
     func configure(withBasket basket: Basket) {
         self.basket = basket
         
         if basket.orders.isEmpty {
             messageLabel.isHidden = false
+            basketTableView.isHidden = true
             buyButton.setTitle(String(localized: "buy"), for: .normal)
         } else {
             messageLabel.isHidden = true
+            basketTableView.isHidden = false
             buyButton.alpha = 1.0
             buyButton.isUserInteractionEnabled = true
             buyButton.setTitle("\(CurrencyFormatter.format(basket.totalPrice)) \(String(localized: "buy"))", for: .normal)
@@ -78,10 +108,25 @@ final class BasketView: UIView, NibLoadable {
             options: .curveEaseIn,
             animations: {
                 self.alpha = 1.0
-                self.layoutIfNeeded()
+                
+                /* Fix: In the case that the user has
+                 Reduce Motion enabled and prefers cross-fade
+                 transitions, we change the animation so
+                 the view just fades in.
+                 */
+                
+                if !UIAccessibility.prefersCrossFadeTransitions {
+                    self.layoutIfNeeded()
+                }
             },
             completion: { _ in
-                // Presented
+                /* Fix: Notify assistive tech that the
+                 screen has changed. The cursor will move
+                 to the argument, in this case self, and
+                 VoiceOver users will get a sound indicating
+                 that they've been presented a new screen.
+                 */
+                UIAccessibility.post(notification: .screenChanged, argument: self)
             }
             
         )
@@ -101,8 +146,21 @@ final class BasketView: UIView, NibLoadable {
             completion: { _ in
                 self.heightConstraint?.constant = 0.0
                 self.widthConstraint?.constant = 0.0
+                
+                UIAccessibility.post(notification: .screenChanged, argument: self.superview)
             }
         )
+    }
+    
+    /* Fix: Provides an easy way to "go back"
+     with some assistive technologies. For
+     example, "draw a Z" with two fingers with
+     VoiceOver to execute it.
+     */
+    
+    override func accessibilityPerformEscape() -> Bool {
+        dismiss()
+        return true
     }
 }
 
