@@ -60,6 +60,14 @@ struct BasketView: View {
             .buttonStyle(.borderedProminent)
             .opacity(basket.isEmpty || loading ? 0.5 : 1.0)
         }
+
+        /* Fix: This view will act as a modal view
+         for assistive technologies. It avoids the
+         cursor, or focus, to move to any sibling
+         views.
+         */
+        .accessibilityAddTraits(.isModal)
+
         .padding()
         .containerRelativeFrame(.horizontal, count: 4, span: 3, spacing: 0)
         .containerRelativeFrame(.vertical, count: 3, span: 2, spacing: 0)
