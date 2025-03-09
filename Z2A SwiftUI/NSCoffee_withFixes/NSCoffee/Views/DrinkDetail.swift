@@ -72,8 +72,15 @@ struct DrinkDetail: View {
                      to give us the correct behaviour and appearance.
                      This currently does require the 'sidebar' list style.
                      */
-                    Section("Type of Milk", isExpanded: $milkExpanded) {
+                    Section(isExpanded: $milkExpanded) {
                         MilkTypeView()
+                    } header: {
+                        Text("Type of Milk")
+                        
+                        /* Fix: We need to provide the current state to assistive
+                         technologies, as SwiftUI won't do this for us.
+                         */
+                            .accessibilityValue(milkExpanded ? "Expanded" : "Collapsed")
                     }
                 }
                 .listStyle(.sidebar)
