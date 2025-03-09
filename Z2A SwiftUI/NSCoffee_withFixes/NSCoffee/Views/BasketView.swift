@@ -16,6 +16,10 @@ struct BasketView: View {
     func purchase(success: Bool) {
         loading = false
 
+        /* Fix: VoiceOver users need to be informed of
+         state changes. Posting an announcement lets
+         us keep them up to date.
+         */
         if success {
             voiceOverAnnouncement("Order complete")
         } else {
