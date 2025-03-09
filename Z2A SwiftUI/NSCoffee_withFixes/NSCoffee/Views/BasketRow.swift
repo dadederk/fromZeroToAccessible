@@ -35,11 +35,10 @@ struct BasketRow: View {
 
                 if !(order.extras?.isEmpty ?? true) {
                     Text(extras)
-                        .foregroundStyle(.white)
                 }
 
                 Text(orderDetail)
-                    .foregroundStyle(.white.secondary)
+                    .foregroundStyle(.secondary)
             }
 
             Spacer()
