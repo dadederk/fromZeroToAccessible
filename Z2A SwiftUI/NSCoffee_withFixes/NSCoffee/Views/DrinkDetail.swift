@@ -13,6 +13,8 @@ struct DrinkDetail: View {
     @ObservedObject var basket: Basket
     @State var extras = [Extra]()
     @State var toastMessage: String?
+    @State private var milkExpanded = false
+
     @Environment(\.accessibilityReduceTransparency) var reduceTransparency
     @Environment(\.dynamicTypeSize.isAccessibilitySize) var accessibilitySize
 
@@ -65,7 +67,13 @@ struct DrinkDetail: View {
                         RatingView()
                     }
 
-                    MilkTypeView()
+                    /* Fix: Use system-provided options where possible.
+                     Here we're using a DisclosureGroup to give us the
+                     correct behaviour and appearance.
+                     */
+                    DisclosureGroup("Type of Milk") {
+                        MilkTypeView()
+                    }
                 }
                 .listStyle(.grouped)
 
