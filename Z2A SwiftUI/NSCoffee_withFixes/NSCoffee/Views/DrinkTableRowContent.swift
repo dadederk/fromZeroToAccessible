@@ -53,6 +53,17 @@ struct DrinkTableRowContent: View {
                     basket.add(Order(drink: drink))
                 } label: {
                         Text("Add to cart")
+
+                    /* Fix: At the largest text sizes this button
+                     clips the text label. By restricting the maximum
+                     text size we can make sure this text is always
+                     readable.
+
+                     Note: This should be avoided as much as possible,
+                     but is acceptable here because the same button
+                     exists and scales on the detail screen
+                     */
+                        .dynamicTypeSize(.xSmall ... .accessibility3)
                 }
                 .buttonStyle(.borderedProminent)
             }
