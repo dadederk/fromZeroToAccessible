@@ -12,39 +12,39 @@ struct ContentView: View {
     @ObservedObject private var basket = Basket()
     @State private var showBasket = false
     @AccessibilityFocusState var basketButtonFocus
-
+    
     var body: some View {
         NavigationStack {
-            ZStack(alignment: .topTrailing) {
-                List {
-                    Section("Coffees") {
-                        ForEach(drinks.coffees, id: \.self) { coffee in
-                            DrinkTableRow(drink: coffee, basket: basket)
-                        }
-                    }
-
-                    Section("Hot Drinks") {
-                        ForEach(drinks.hotDrinks, id: \.self) { drink in
-                            DrinkTableRow(drink: drink, basket: basket)
-                        }
-                    }
-
-                    Section("Cold Drinks") {
-                        ForEach(drinks.coldDrinks, id: \.self) { drink in
-                            DrinkTableRow(drink: drink, basket: basket)
-                        }
+            List {
+                Section("Coffees") {
+                    ForEach(drinks.coffees, id: \.self) { coffee in
+                        DrinkTableRow(drink: coffee, basket: basket)
                     }
                 }
-
-                if showBasket {
-                    BasketView(basket: basket)
-                        .accessibilityFocused($basketButtonFocus)
-                        .accessibilityAction(.escape) {
-                            showBasket = false
-                            basketButtonFocus = true
-                        }
+                
+                Section("Hot Drinks") {
+                    ForEach(drinks.hotDrinks, id: \.self) { drink in
+                        DrinkTableRow(drink: drink, basket: basket)
+                    }
+                }
+                
+                Section("Cold Drinks") {
+                    ForEach(drinks.coldDrinks, id: \.self) { drink in
+                        DrinkTableRow(drink: drink, basket: basket)
+                    }
                 }
             }
+            
+            /* Fix: Using the SwiftUI Sheet API allows
+             us to get the expected behaviour when the
+             modal basket appears. It also means we have
+             expected behaviour for transparency and
+             reduce motion.
+             */
+            .sheet(isPresented: $showBasket) {
+                BasketView(basket: basket, showBasket: $showBasket)
+            }
+            
             .navigationTitle("NSCoffee")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
