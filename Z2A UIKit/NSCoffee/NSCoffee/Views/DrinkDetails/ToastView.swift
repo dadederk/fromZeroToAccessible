@@ -8,21 +8,29 @@
 import UIKit
 
 final class ToastView: UIView, NibLoadable {
-    @IBOutlet weak var toastTitleLabel: UILabel!
-    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet private weak var toastTitleLabel: UILabel!
+    @IBOutlet private weak var backgroundView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         translatesAutoresizingMaskIntoConstraints = false
         backgroundView.layer.cornerRadius = 10.0
+        
+        updateBackground()
+    }
+    
+    @objc
+    private func updateBackground() {
+        backgroundView.layer.backgroundColor = UIColor.darkGray.withAlphaComponent(0.9).cgColor
     }
     
     func configureWithTitle(_ title: String) {
         toastTitleLabel.text = title
-        accessibilityLabel = toastTitleLabel.accessibilityLabel
     }
     
     func present(inView view: UIView) {
+        guard let text = toastTitleLabel.text else { return }
+        
         isHidden = false
         translatesAutoresizingMaskIntoConstraints = false
         

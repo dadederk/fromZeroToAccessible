@@ -11,9 +11,9 @@ final class PickerOptionView: UIView, NibLoadable {
     @IBOutlet private weak var selectionIconImageView: UIImageView!
     @IBOutlet private weak var optionLabel: UILabel!
     
-    private var state: Bool = false {
+    private var isToggled: Bool = false {
         didSet {
-            if state {
+            if isToggled {
                 selectionIconImageView.image = UIImage(systemName: "checkmark.circle.fill")
             } else {
                 selectionIconImageView.image = UIImage(systemName: "circle")
@@ -33,11 +33,11 @@ final class PickerOptionView: UIView, NibLoadable {
     func configureWith(option: String, state: Bool, toggled: @escaping (PickerOptionView) -> Void) {
         optionLabel.text = option
         self.toggled = toggled
-        self.state = state
+        self.isToggled = state
     }
     
     func configureState(_ state: Bool) {
-        self.state = state
+        self.isToggled = state
     }
     
     @objc

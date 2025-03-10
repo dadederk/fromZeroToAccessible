@@ -44,6 +44,17 @@
         }
       }
     },
+    "cart" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cart"
+          }
+        }
+      }
+    },
     "chaiDescription" : {
       "localizations" : {
         "en" : {
@@ -124,6 +135,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Concentrated form of coffee produced by forcing hot water under high pressure through finely ground coffee beans."
+          }
+        }
+      }
+    },
+    "extraShots" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extra Shots"
           }
         }
       }
@@ -215,34 +237,22 @@
         }
       }
     },
+    "rateDrink" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rate your Drink"
+          }
+        }
+      }
+    },
     "spanishLatteDescription" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Coffee drink made with espresso, milk, and sweetened condensed milk."
-          }
-        }
-      }
-    },
-    "thumbsUp.%lld" : {
-      "localizations" : {
-        "en" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "%lld thumb up"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "%lld thumbs up"
-                }
-              }
-            }
           }
         }
       }
