@@ -35,7 +35,6 @@ struct BasketRow: View {
         HStack {
             VStack(alignment: .leading) {
                 Text(order.drink.name)
-                    .foregroundStyle(.white)
 
                 if !(order.extras?.isEmpty ?? true) {
                     Text(extras)

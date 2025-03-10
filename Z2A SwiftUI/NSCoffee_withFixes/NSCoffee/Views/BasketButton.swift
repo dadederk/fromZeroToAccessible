@@ -18,6 +18,7 @@ struct BasketButton: View {
                 }
             } label: {
                 ZStack(alignment: .topTrailing) {
+                    
                     /* Fix: Using the same icon here as the
                      detail screen is important for consistency
                      */

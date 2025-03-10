@@ -215,6 +215,9 @@
         }
       }
     },
+    "Done" : {
+
+    },
     "espressoDescription" : {
       "extractionState" : "manual",
       "localizations" : {
