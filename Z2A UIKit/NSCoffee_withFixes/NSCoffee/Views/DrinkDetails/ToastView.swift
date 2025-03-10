@@ -15,6 +15,21 @@ final class ToastView: UIView, NibLoadable {
         super.awakeFromNib()
         translatesAutoresizingMaskIntoConstraints = false
         backgroundView.layer.cornerRadius = 10.0
+        
+        /* Fix: If the user configures Reduce
+         Transparency, we make the view's
+         background opaque.
+         */
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBackground), name: UIAccessibility.reduceTransparencyStatusDidChangeNotification, object: nil)
+        
+        updateBackground()
+    }
+    
+    @objc
+    private func updateBackground() {
+        let opacity = UIAccessibility.isReduceTransparencyEnabled ? 1.0 : 0.9
+        backgroundView.layer.backgroundColor = UIColor.secondarySystemBackground.withAlphaComponent(opacity).cgColor
     }
     
     func configureWithTitle(_ title: String) {
