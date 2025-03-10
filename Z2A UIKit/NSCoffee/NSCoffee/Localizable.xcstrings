@@ -1,0 +1,273 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "addedToCart.%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ added to cart"
+          }
+        }
+      }
+    },
+    "addToCart" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add to Cart"
+          }
+        }
+      }
+    },
+    "appName" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NSCoffee"
+          }
+        }
+      }
+    },
+    "buy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buy"
+          }
+        }
+      }
+    },
+    "cart" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cart"
+          }
+        }
+      }
+    },
+    "chaiDescription" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Drink made with black tea, spices, milk, and sweetener, topped with foam."
+          }
+        }
+      }
+    },
+    "chocolateDescription" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hot drink made with melted or shaved chocolate, milk or water, and sweetener"
+          }
+        }
+      }
+    },
+    "coffee" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Coffees"
+          }
+        }
+      }
+    },
+    "coldBrewDescription" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cold brew coffee is coffee that's steeped in cold or room temperature water for a long time, usually 12–24 hours."
+          }
+        }
+      }
+    },
+    "coldDrink" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cold Drinks"
+          }
+        }
+      }
+    },
+    "cortadoDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A cortado is a Spanish beverage consisting of espresso mixed with a roughly equal amount of warm milk to reduce the acidity."
+          }
+        }
+      }
+    },
+    "emptyBasket" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Basket empty"
+          }
+        }
+      }
+    },
+    "espressoDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Concentrated form of coffee produced by forcing hot water under high pressure through finely ground coffee beans."
+          }
+        }
+      }
+    },
+    "extraShots" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extra Shots"
+          }
+        }
+      }
+    },
+    "flatWhiteDescription" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A flat white is a blend of micro-foamed milk poured over a single or double shot of espresso."
+          }
+        }
+      }
+    },
+    "frappeDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Greek iced coffee drink generally made from spray-dried instant coffee, water, sugar, and milk."
+          }
+        }
+      }
+    },
+    "hotDrink" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hot Drinks"
+          }
+        }
+      }
+    },
+    "latteDescription" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A latte is a coffee drink made with espresso, steamed milk, and a thin layer of foam."
+          }
+        }
+      }
+    },
+    "macchiatoDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Espresso coffee drink with a small amount of milk, usually foamed."
+          }
+        }
+      }
+    },
+    "numberShots.%lld" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld shot"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld shots"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "orxataDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sweet, refreshing drink from Valencia, Spain, made from tiger nuts, water, and sugar. It's often served cold in the summer. "
+          }
+        }
+      }
+    },
+    "rateDrink" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rate your Drink"
+          }
+        }
+      }
+    },
+    "spanishLatteDescription" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Coffee drink made with espresso, milk, and sweetened condensed milk."
+          }
+        }
+      }
+    },
+    "typeOfMilk" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Type of Milk"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
