@@ -2,12 +2,24 @@ import UIKit
 
 class RaterView: UIView {
     private let stackView = UIStackView()
+    
+    /* Fix: Setting the image configuration to
+     be a symbol configuration with a text style
+     will make that symbol scale at the same size
+     of a text with that style.
+     */
+    
     private var icon = UIImage(systemName: "hand.thumbsup", withConfiguration: UIImage.SymbolConfiguration(textStyle: .body))
     private var iconSelected = UIImage(systemName: "hand.thumbsup.fill", withConfiguration: UIImage.SymbolConfiguration(textStyle: .body))
+    
     private var maxRate: UInt = 5
 
     var rating: Int = 0 {
         didSet {
+            
+            /* Fix: And report the value in a meaningful way
+             */
+            
             accessibilityValue = String(localized: "thumbsUp.\(rating + 1)")
         }
     }
@@ -42,16 +54,36 @@ class RaterView: UIView {
             ratingButton.setImage(icon, for: .normal)
             ratingButton.setImage(iconSelected, for: .selected)
             ratingButton.addTarget(self, action: #selector(ratingButtonPressed(_:)), for: .touchUpInside)
-            ratingButton.titleLabel?.adjustsFontForContentSizeCategory = true
-            ratingButton.imageView?.adjustsImageSizeForAccessibilityContentSizeCategory = true
             stackView.addArrangedSubview(ratingButton)
         }
 
         pressButton(at: 0)
 
+        /* Fix: Grouping these buttons together as a single
+         element for assistive technologies makes the control
+         easier to understand and interact with
+         */
+        
         isAccessibilityElement = true
+        
+        /* Fix: We need to add an accessible label to our new
+         grouped control
+         */
+        
         accessibilityLabel = String(localized: "rating")
+        
+        /* Fix: Adding the adjustable trait allows assistive
+         technologies to interact directly with the control.
+         In UIKit it requires implementing accessibilityIncrement
+         and accessibilityDecrement
+         */
+        
         accessibilityTraits = UIAccessibilityTraits.adjustable
+        
+        /* Fix: Hints are optional extra pieces of information
+         that can help describe the action of unusual controls
+         */
+        
         accessibilityHint = String(localized: "ratingHint")
 
         backgroundColor = .systemBackground
@@ -77,6 +109,11 @@ class RaterView: UIView {
             }
         }
     }
+    
+    /* Fix: Telling assistive technologies what to do
+     when the user increments or decrements the value.
+     of the adjustable component.
+     */
 
     override func accessibilityIncrement() {
         guard rating < maxRate - 1 else { return }

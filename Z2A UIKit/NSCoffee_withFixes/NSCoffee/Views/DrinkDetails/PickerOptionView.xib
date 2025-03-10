@@ -21,9 +21,8 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="anO-1M-XvM">
-                    <rect key="frame" x="348" y="19" width="25" height="25"/>
+                    <rect key="frame" x="350" y="20" width="23" height="23"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="25" id="18b-yV-UB3"/>
                         <constraint firstAttribute="width" secondItem="anO-1M-XvM" secondAttribute="height" multiplier="1:1" id="6BR-IK-2hk"/>
                     </constraints>
                 </imageView>
@@ -32,9 +31,11 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="uWY-TY-ITZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" symbolic="YES" id="0QK-h3-aR1"/>
+                <constraint firstItem="anO-1M-XvM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" symbolic="YES" id="BKM-8C-Qqm"/>
                 <constraint firstItem="anO-1M-XvM" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Tsz-QA-Rdg"/>
                 <constraint firstAttribute="trailing" secondItem="anO-1M-XvM" secondAttribute="trailing" constant="20" symbolic="YES" id="gJM-Dj-rNN"/>
                 <constraint firstItem="uWY-TY-ITZ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="m4f-ZP-g40"/>
+                <constraint firstItem="anO-1M-XvM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="uWY-TY-ITZ" secondAttribute="trailing" constant="8" symbolic="YES" id="ma6-r6-PoY"/>
                 <constraint firstItem="uWY-TY-ITZ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="sfE-AM-xaC"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
