@@ -11,6 +11,7 @@ struct ContentView: View {
     private var drinks = Drinks()
     @ObservedObject private var basket = Basket()
     @State private var showBasket = false
+    @AccessibilityFocusState var basketButtonFocus
 
     var body: some View {
         NavigationStack {
@@ -37,6 +38,11 @@ struct ContentView: View {
 
                 if showBasket {
                     BasketView(basket: basket)
+                        .accessibilityFocused($basketButtonFocus)
+                        .accessibilityAction(.escape) {
+                            showBasket = false
+                            basketButtonFocus = true
+                        }
                 }
             }
             .navigationTitle("NSCoffee")
