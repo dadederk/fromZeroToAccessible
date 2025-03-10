@@ -93,31 +93,7 @@ final class DrinkDetailsViewViewController: UIViewController {
         
         toastView?.configureWithTitle(String(localized: "addedToCart.\(drink.name)"))
         
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(adaptUI),
-                                               name: UIAccessibility.reduceTransparencyStatusDidChangeNotification,
-                                               object: nil)
-        
         updateExtraPrice()
-    }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        adaptUI()
-    }
-    
-    @objc
-    private func adaptUI() {
-        let accessibilitySize = traitCollection.preferredContentSizeCategory.isAccessibilityCategory
-        let reducedTransparency = UIAccessibility.isReduceTransparencyEnabled
-        
-        if accessibilitySize || reducedTransparency {
-            leadingView.configure(imageName: drink.imageName, description: nil)
-            mainStackView.insertArrangedSubview(descriptionView, at: 1)
-        } else {
-            leadingView.configure(imageName: drink.imageName, description: drink.description)
-            mainStackView.removeArrangedSubview(descriptionView)
-            descriptionView.removeFromSuperview()
-        }
     }
     
     @objc private func toggleTypesOfMilk() {

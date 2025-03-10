@@ -26,7 +26,6 @@ final class ToastView: UIView, NibLoadable {
     
     func configureWithTitle(_ title: String) {
         toastTitleLabel.text = title
-        accessibilityLabel = toastTitleLabel.accessibilityLabel
     }
     
     func present(inView view: UIView) {

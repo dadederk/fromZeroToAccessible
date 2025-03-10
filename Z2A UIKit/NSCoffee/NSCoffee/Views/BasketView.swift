@@ -110,8 +110,6 @@ final class BasketView: UIView, NibLoadable {
             completion: { _ in
                 self.heightConstraint?.constant = 0.0
                 self.widthConstraint?.constant = 0.0
-                
-                UIAccessibility.post(notification: .screenChanged, argument: self.superview)
             }
         )
     }
