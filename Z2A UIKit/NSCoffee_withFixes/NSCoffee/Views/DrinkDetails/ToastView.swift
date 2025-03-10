@@ -47,7 +47,7 @@ final class ToastView: UIView, NibLoadable {
             completion: { _ in
                 
                 /* Fix: Because toasts auto dismiss, it
-                 is very unlikely VoiceOver useres will
+                 is very unlikely VoiceOver users will
                  get to it. One option is to announce
                  the message in the toast.
                  

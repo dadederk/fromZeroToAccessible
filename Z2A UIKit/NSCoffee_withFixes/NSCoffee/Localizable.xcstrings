@@ -135,6 +135,9 @@
         }
       }
     },
+    "collapsed" : {
+
+    },
     "cortadoDescription" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -163,6 +166,20 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Concentrated form of coffee produced by forcing hot water under high pressure through finely ground coffee beans."
+          }
+        }
+      }
+    },
+    "expanded" : {
+
+    },
+    "extraShots" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extra Shots"
           }
         }
       }
@@ -250,6 +267,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sweet, refreshing drink from Valencia, Spain, made from tiger nuts, water, and sugar. It's often served cold in the summer. "
+          }
+        }
+      }
+    },
+    "rateDrink" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rate your Drink"
           }
         }
       }
