@@ -44,6 +44,46 @@
         }
       }
     },
+    "cart" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cart"
+          }
+        }
+      }
+    },
+    "cartButtonTitle.%llu" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Cart (1 drink)"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Cart (%llu drinks)"
+                }
+              },
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Empty cart"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "chaiDescription" : {
       "localizations" : {
         "en" : {
@@ -124,6 +164,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Concentrated form of coffee produced by forcing hot water under high pressure through finely ground coffee beans."
+          }
+        }
+      }
+    },
+    "extraShots" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Extra Shots"
           }
         }
       }
@@ -215,6 +266,38 @@
         }
       }
     },
+    "rateDrink" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rate your Drink"
+          }
+        }
+      }
+    },
+    "rating" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rating"
+          }
+        }
+      }
+    },
+    "ratingHint" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rates your drink from 1 to 5 thumbs up"
+          }
+        }
+      }
+    },
     "spanishLatteDescription" : {
       "localizations" : {
         "en" : {
@@ -226,6 +309,7 @@
       }
     },
     "thumbsUp.%lld" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "variations" : {

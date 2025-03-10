@@ -11,10 +11,14 @@ final class OrderButtonView: UIView, NibLoadable {
     @IBOutlet private weak var orderButton: UIButton!
     @IBOutlet private weak var numberOfItemsLabel: UILabel!
     
+    private var numberOfItems: UInt = 0
+    
     var buttonPressed: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        numberOfItems = 0
         
         numberOfItemsLabel.textColor = .white
         numberOfItemsLabel.isHidden = true
@@ -31,7 +35,10 @@ final class OrderButtonView: UIView, NibLoadable {
     }
     
     func configureWith(numberOfItems: UInt) {
-        numberOfItemsLabel.text = "\(numberOfItems)"
+        self.numberOfItems = numberOfItems
+        
+        let numberOfItemsText = "\(numberOfItems)"
+        numberOfItemsLabel.text = numberOfItemsText
         
         if numberOfItems == 0 {
             numberOfItemsLabel.isHidden = true

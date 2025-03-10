@@ -73,6 +73,7 @@
                 <outlet property="disclosureIndicatorImageView" destination="vI2-KS-OcC" id="jg1-WI-8xX"/>
                 <outlet property="drinkImageView" destination="EBQ-sa-VdG" id="5d8-pA-sGp"/>
                 <outlet property="drinkNameLabel" destination="R6Y-Bs-Fbb" id="gJi-wp-5kq"/>
+                <outlet property="imageHeightConstraint" destination="q3T-C6-5oK" id="yTY-6F-CgZ"/>
                 <outlet property="outerStackView" destination="Wvz-pu-S8S" id="cNS-gE-pVf"/>
                 <outlet property="priceLabel" destination="d9W-cU-fS8" id="crF-El-ckk"/>
             </connections>

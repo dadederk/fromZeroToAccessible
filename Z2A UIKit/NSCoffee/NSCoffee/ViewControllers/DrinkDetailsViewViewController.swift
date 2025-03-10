@@ -8,21 +8,26 @@
 import UIKit
 
 final class DrinkDetailsViewViewController: UIViewController {
-    @IBOutlet private weak var drinkImageView: UIImageView!
-    @IBOutlet private weak var extraShotStackView: UIStackView!
-    @IBOutlet private weak var removeShotButton: UIButton!
-    @IBOutlet private weak var addShotButton: UIButton!
-    @IBOutlet private weak var numberOfShotsLabel: UILabel!
-    @IBOutlet private weak var extraPriceLabel: UILabel!
-    @IBOutlet private weak var typeOfMilkStackView: UIStackView!
-    @IBOutlet private weak var typeOfMilkView: UIView!
-    @IBOutlet private weak var typeOfMilkLabel: UILabel!
-    @IBOutlet private weak var typeOfMilkIcon: UIImageView!
-    @IBOutlet private weak var drinkDescriptionLabel: UILabel!
+    @IBOutlet private weak var mainStackView: UIStackView!
     @IBOutlet private weak var toolBar: UIToolbar!
     
+    private let leadingView = DrinkLeadingView.loadFromNib()!
+    private let descriptionView = DescriptionView.loadFromNib()!
+    private let extraShotsHeaderView = SectionHeaderView.loadFromNib()!
+    private let extraShotsView = ExtraShotsView.loadFromNib()!
+    private let rateDrinkHeaderView = SectionHeaderView.loadFromNib()!
+    private let rateDrinkView = RaterView()
+    private let typeOfMilkHeaderView = SectionHeaderView.loadFromNib()!
+    private let typeOfMilkStackView = UIStackView()
     private let toastView = ToastView.loadFromNib()
     private let buyButton = UIButton(type: .system)
+    private var buyButtonConfiguration: UIButton.Configuration = {
+        var configuration = UIButton.Configuration.borderedProminent()
+        configuration.title = String(localized: "buy")
+        configuration.image = UIImage(systemName: "cart.fill.badge.plus")
+        return configuration
+    }()
+    
     private let drink: any Drink
     private var extraPrice: Double = 0.0
     private var numberOfShots: Int = 0 {
@@ -47,25 +52,34 @@ final class DrinkDetailsViewViewController: UIViewController {
         super.viewDidLoad()
         
         title = drink.name
-        drinkDescriptionLabel.text = drink.description
-        typeOfMilkLabel.text = String(localized: "typeOfMilk")
         
-        var buyButtonConfiguration = UIButton.Configuration.borderedProminent()
-        buyButtonConfiguration.title = String(localized: "buy")
-        buyButtonConfiguration.subtitle = CurrencyFormatter.format(drink.basePrice)
-        buyButtonConfiguration.image = UIImage(systemName: "cart.fill.badge.plus")
-        buyButton.configuration = buyButtonConfiguration
-        buyButton.addTarget(self, action: #selector(buyDrink), for: .touchUpInside)
+        mainStackView.addArrangedSubview(leadingView)
+        mainStackView.addArrangedSubview(extraShotsHeaderView)
+        mainStackView.addArrangedSubview(extraShotsView)
+        mainStackView.addArrangedSubview(rateDrinkHeaderView)
+        mainStackView.addArrangedSubview(rateDrinkView)
+        mainStackView.addArrangedSubview(typeOfMilkHeaderView)
         
-        toolBar.items = [UIBarButtonItem(customView: buyButton)]
+        leadingView.configure(imageName: drink.imageName, description: drink.description)
+        descriptionView.configureWith(description: drink.description)
         
-        if let imageName = drink.imageName {
-            drinkImageView.image = UIImage(named: imageName)
-            drinkImageView.contentMode = .scaleAspectFill
+        extraShotsHeaderView.configure(title: String(localized: "extraShots"))
+        extraShotsView.extraShotsUpdated = { [weak self] newValue in
+            self?.numberOfShots = newValue
         }
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(toggleTypesOfMilk))
-        typeOfMilkView.addGestureRecognizer(tapGestureRecognizer)
+        rateDrinkHeaderView.configure(title: String(localized: "rateDrink"))
+        
+        typeOfMilkHeaderView.configure(title: String(localized: "typeOfMilk"), state: .collapsed(toggleTypesOfMilk))
+        typeOfMilkStackView.axis = .vertical
+        
+        buyButtonConfiguration.subtitle = CurrencyFormatter.format(drink.basePrice)
+        buyButton.configuration = buyButtonConfiguration
+        buyButton.addTarget(self, action: #selector(buyDrink), for: .touchUpInside)
+        buyButton.showsLargeContentViewer = true
+        buyButton.addInteraction(UILargeContentViewerInteraction())
+        
+        toolBar.items = [UIBarButtonItem(customView: buyButton)]
         
         for (index, option) in MilkOptions.allCases.enumerated() {
             guard let view = PickerOptionView.loadFromNib() else { return }
@@ -75,34 +89,44 @@ final class DrinkDetailsViewViewController: UIViewController {
                 }
             }
             typeOfMilkStackView.addArrangedSubview(view)
-            view.isHidden = true
-            view.alpha = 0
         }
         
         toastView?.configureWithTitle(String(localized: "addedToCart.\(drink.name)"))
         
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(adaptUI),
+                                               name: UIAccessibility.reduceTransparencyStatusDidChangeNotification,
+                                               object: nil)
+        
         updateExtraPrice()
     }
     
-    @objc private func toggleTypesOfMilk() {
-        guard let isExpanded = typeOfMilkStackView.arrangedSubviews.last?.isHidden else { return }
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        adaptUI()
+    }
+    
+    @objc
+    private func adaptUI() {
+        let accessibilitySize = traitCollection.preferredContentSizeCategory.isAccessibilityCategory
+        let reducedTransparency = UIAccessibility.isReduceTransparencyEnabled
         
-        UIView.animate(withDuration: 0.3, animations: {
-            self.typeOfMilkIcon.transform = isExpanded
-            ? CGAffineTransform(rotationAngle: .pi / 2)
-            : CGAffineTransform.identity
-        })
-        
-        UIView.animate(withDuration: 0.3) {
-            for view in self.typeOfMilkStackView.arrangedSubviews.dropFirst() {
-                view.isHidden.toggle()
-            }
+        if accessibilitySize || reducedTransparency {
+            leadingView.configure(imageName: drink.imageName, description: nil)
+            mainStackView.insertArrangedSubview(descriptionView, at: 1)
+        } else {
+            leadingView.configure(imageName: drink.imageName, description: drink.description)
+            mainStackView.removeArrangedSubview(descriptionView)
+            descriptionView.removeFromSuperview()
         }
-        
-        UIView.animate(withDuration: 0.2, delay: isExpanded ? 0.2 : 0.0) {
-            for view in self.typeOfMilkStackView.arrangedSubviews.dropFirst() {
-                view.alpha = isExpanded ? 1 : 0
-            }
+    }
+    
+    @objc private func toggleTypesOfMilk() {
+        if case .expanded = self.typeOfMilkHeaderView.state {
+            self.mainStackView.addArrangedSubview(self.typeOfMilkStackView)
+            self.typeOfMilkStackView.isHidden = false
+        } else if case .collapsed = self.typeOfMilkHeaderView.state {
+            self.mainStackView.removeArrangedSubview(self.typeOfMilkStackView)
+            self.typeOfMilkStackView.isHidden = true
         }
     }
     
@@ -113,7 +137,7 @@ final class DrinkDetailsViewViewController: UIViewController {
         buyButton.configuration = configuration
         
         Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { timer in
-            let numberOfShotsText = self.numberOfShotsText(self.numberOfShots)
+            let numberOfShotsText = String(localized: "numberShots.\(self.numberOfShots)")
             
             configuration.showsActivityIndicator = false
             self.buyButton.configuration = configuration
@@ -122,26 +146,16 @@ final class DrinkDetailsViewViewController: UIViewController {
         }
     }
     
-    @IBAction func removeShotPressed(_ sender: Any) {
-        guard numberOfShots > 0 else { return }
-        numberOfShots -= 1
-    }
-    
-    @IBAction func addShotPressed(_ sender: Any) {
-        guard numberOfShots < 4 else { return }
-        numberOfShots += 1
-    }
-    
     private func updateExtraPrice() {
         var buttonConfiguration = buyButton.configuration
         extraPrice = drink.shotPrice * Double(numberOfShots)
-        numberOfShotsLabel.text = numberOfShotsText(numberOfShots)
-        extraPriceLabel.text = "+ \(CurrencyFormatter.format(extraPrice))"
+        extraShotsView.configure(numberOfShots: numberOfShots, price: extraPrice)
+        
         buttonConfiguration?.subtitle = CurrencyFormatter.format(drink.basePrice + extraPrice)
         buyButton.configuration = buttonConfiguration
-    }
-    
-    private func numberOfShotsText(_ numberOfShots: Int) -> String {
-        return String(localized: "numberShots.\(numberOfShots)")
+        
+        buyButton.largeContentTitle = [buttonConfiguration?.title, buttonConfiguration?.subtitle]
+            .compactMap { $0 }
+            .formatted(.list(type: .and, width: .narrow))
     }
 }

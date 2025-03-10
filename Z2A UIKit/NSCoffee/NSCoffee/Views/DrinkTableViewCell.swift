@@ -20,6 +20,7 @@ final class DrinkTableViewCell: UITableViewCell {
     @IBOutlet private weak var priceLabel: UILabel!
     @IBOutlet private weak var disclosureIndicatorImageView: UIImageView!
     @IBOutlet private weak var buyButton: UIButton!
+    @IBOutlet private weak var imageHeightConstraint: NSLayoutConstraint!
     
     private var drink: (any Drink)?
     

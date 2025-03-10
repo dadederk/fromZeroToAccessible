@@ -25,9 +25,8 @@ final class BasketView: UIView, NibLoadable {
         super.awakeFromNib()
         let orderNib = UINib(nibName: OrderTableViewCell.identifier, bundle: nil)
         
-        backgroundColor = UIColor.darkGray.withAlphaComponent(0.95)
         layer.cornerRadius = 10.0
-
+        
         basketTableView.dataSource = self
         basketTableView.register(orderNib, forCellReuseIdentifier: OrderTableViewCell.identifier)
         
@@ -45,6 +44,8 @@ final class BasketView: UIView, NibLoadable {
             heightConstraint,
             widthConstraint
         ])
+        
+        updateBackground()
     }
     
     @objc
@@ -52,14 +53,21 @@ final class BasketView: UIView, NibLoadable {
         dismiss()
     }
     
+    @objc
+    private func updateBackground() {
+        backgroundColor = UIColor.darkGray.withAlphaComponent(0.95)
+    }
+    
     func configure(withBasket basket: Basket) {
         self.basket = basket
         
         if basket.orders.isEmpty {
             messageLabel.isHidden = false
+            basketTableView.isHidden = true
             buyButton.setTitle(String(localized: "buy"), for: .normal)
         } else {
             messageLabel.isHidden = true
+            basketTableView.isHidden = false
             buyButton.alpha = 1.0
             buyButton.isUserInteractionEnabled = true
             buyButton.setTitle("\(CurrencyFormatter.format(basket.totalPrice)) \(String(localized: "buy"))", for: .normal)
@@ -78,10 +86,11 @@ final class BasketView: UIView, NibLoadable {
             options: .curveEaseIn,
             animations: {
                 self.alpha = 1.0
+                
                 self.layoutIfNeeded()
             },
             completion: { _ in
-                // Presented
+                // Completed
             }
             
         )
@@ -101,6 +110,8 @@ final class BasketView: UIView, NibLoadable {
             completion: { _ in
                 self.heightConstraint?.constant = 0.0
                 self.widthConstraint?.constant = 0.0
+                
+                UIAccessibility.post(notification: .screenChanged, argument: self.superview)
             }
         )
     }

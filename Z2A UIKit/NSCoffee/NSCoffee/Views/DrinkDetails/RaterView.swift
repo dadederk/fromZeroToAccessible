@@ -2,16 +2,13 @@ import UIKit
 
 class RaterView: UIView {
     private let stackView = UIStackView()
+
     private var icon = UIImage(systemName: "hand.thumbsup")
     private var iconSelected = UIImage(systemName: "hand.thumbsup.fill")
-
+    
     private var maxRate: UInt = 5
 
-    var rating: Int = 0 {
-        didSet {
-            accessibilityValue = String(localized: "thumbsUp.\(rating + 1)")
-        }
-    }
+    var rating: Int = 0
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,7 +40,6 @@ class RaterView: UIView {
             ratingButton.setImage(icon, for: .normal)
             ratingButton.setImage(iconSelected, for: .selected)
             ratingButton.addTarget(self, action: #selector(ratingButtonPressed(_:)), for: .touchUpInside)
-
             stackView.addArrangedSubview(ratingButton)
         }
 
