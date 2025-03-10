@@ -76,6 +76,11 @@ final class DrinkDetailsViewViewController: UIViewController {
         buyButtonConfiguration.subtitle = CurrencyFormatter.format(drink.basePrice)
         buyButton.configuration = buyButtonConfiguration
         buyButton.addTarget(self, action: #selector(buyDrink), for: .touchUpInside)
+        buyButton.showsLargeContentViewer = true
+        buyButton.largeContentTitle = [buyButtonConfiguration.title, buyButtonConfiguration.subtitle]
+            .compactMap { $0 }
+            .formatted(.list(type: .and, width: .narrow))
+        buyButton.addInteraction(UILargeContentViewerInteraction())
         
         toolBar.items = [UIBarButtonItem(customView: buyButton)]
         
