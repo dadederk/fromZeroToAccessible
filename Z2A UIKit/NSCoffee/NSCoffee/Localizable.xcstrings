@@ -55,35 +55,6 @@
         }
       }
     },
-    "cartButtonTitle.%llu" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Cart (1 drink)"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Cart (%llu drinks)"
-                }
-              },
-              "zero" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Empty cart"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "chaiDescription" : {
       "localizations" : {
         "en" : {
@@ -276,57 +247,12 @@
         }
       }
     },
-    "rating" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rating"
-          }
-        }
-      }
-    },
-    "ratingHint" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rates your drink from 1 to 5 thumbs up"
-          }
-        }
-      }
-    },
     "spanishLatteDescription" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Coffee drink made with espresso, milk, and sweetened condensed milk."
-          }
-        }
-      }
-    },
-    "thumbsUp.%lld" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "%lld thumb up"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "%lld thumbs up"
-                }
-              }
-            }
           }
         }
       }
