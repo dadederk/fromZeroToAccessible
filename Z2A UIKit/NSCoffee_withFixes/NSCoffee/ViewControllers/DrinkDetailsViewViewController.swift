@@ -77,9 +77,6 @@ final class DrinkDetailsViewViewController: UIViewController {
         buyButton.configuration = buyButtonConfiguration
         buyButton.addTarget(self, action: #selector(buyDrink), for: .touchUpInside)
         buyButton.showsLargeContentViewer = true
-        buyButton.largeContentTitle = [buyButtonConfiguration.title, buyButtonConfiguration.subtitle]
-            .compactMap { $0 }
-            .formatted(.list(type: .and, width: .narrow))
         buyButton.addInteraction(UILargeContentViewerInteraction())
         
         toolBar.items = [UIBarButtonItem(customView: buyButton)]
@@ -153,7 +150,12 @@ final class DrinkDetailsViewViewController: UIViewController {
         var buttonConfiguration = buyButton.configuration
         extraPrice = drink.shotPrice * Double(numberOfShots)
         extraShotsView.configure(numberOfShots: numberOfShots, price: extraPrice)
+        
         buttonConfiguration?.subtitle = CurrencyFormatter.format(drink.basePrice + extraPrice)
         buyButton.configuration = buttonConfiguration
+        
+        buyButton.largeContentTitle = [buttonConfiguration?.title, buttonConfiguration?.subtitle]
+            .compactMap { $0 }
+            .formatted(.list(type: .and, width: .narrow))
     }
 }
