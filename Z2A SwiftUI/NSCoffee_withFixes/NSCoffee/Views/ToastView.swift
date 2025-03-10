@@ -15,10 +15,13 @@ struct ToastView: View {
     @State var opacity = 0.0
     @State var toastDelay: Task<Void, Never>?
     @State var visibleMessage: String?
+    @Environment(\.accessibilityReduceTransparency) var reduceTransparency
 
     private var removeAfterDelay: Task<Void, Never>? {
         Task {
             do {
+                voiceOverAnnouncement(visibleMessage!)
+                
                 try await Task.sleep(for: .seconds(3.0))
 
                 withAnimation(.linear(duration: 0.2)) {
@@ -29,6 +32,24 @@ struct ToastView: View {
                 }
             } catch {}
         }
+    }
+
+    @MainActor
+    func voiceOverAnnouncement(_ message: String) {
+        /* Fix: Because toasts auto dismiss, it
+         is very unlikely VoiceOver users will
+         get to it. One option is to announce
+         the message in the toast.
+
+         Note: But there are more issues with
+         this UI pattern. It is very challenging
+         to make toasts accessible and we'd
+         encourage you to explore other options
+         if possible.
+         */
+        var highPriorityAnnouncement = AttributedString(message)
+        highPriorityAnnouncement.accessibilitySpeechAnnouncementPriority = .high
+        AccessibilityNotification.Announcement(highPriorityAnnouncement).post()
     }
 
     func animateToast(_ direction: AnimationDirection, completion: (() -> Void)? = nil) {
@@ -51,8 +72,23 @@ struct ToastView: View {
                 Text(visibleMessage ?? "")
                     .padding()
             }
-            .background(.gray
-                .opacity(0.90))
+
+            /* Fix: Using semantic colors, instead of
+             specifying the exact color, will lots
+             of times make easier to have good color
+             contrast ratios. And at the very least, you'll
+             get support for Light/Dark modes, and Increase
+             Contrast On/Off (in all four combinations), for
+             free.
+             */
+            .background(Color(UIColor.secondarySystemBackground)
+
+                        /* Fix: When the user has enabled reduce transparency
+                         we'll respect the users choice and remove the
+                         transparency from the toast background
+                         */
+                .opacity(reduceTransparency ? 1.0 : 0.90))
+
             .cornerRadius(20)
             .opacity(opacity)
             .padding(.top)
