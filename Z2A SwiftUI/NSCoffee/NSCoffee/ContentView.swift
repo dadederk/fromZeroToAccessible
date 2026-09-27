@@ -41,6 +41,14 @@ struct ContentView: View {
             }
             .navigationTitle("NSCoffee")
             .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    NavigationLink {
+                        AboutView()
+                    } label: {
+                        Image(systemName: "info.circle")
+                    }
+                }
+
                 ToolbarItem(placement: .topBarTrailing) {
                     BasketButton(showBasket: $showBasket, basket: basket)
                 }

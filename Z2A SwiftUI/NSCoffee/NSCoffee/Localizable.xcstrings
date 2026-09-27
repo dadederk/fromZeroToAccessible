@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    " for directions" : {
+
+    },
     "%@ Buy" : {
 
     },
@@ -8,6 +11,12 @@
 
     },
     "+ %@" : {
+
+    },
+    "123 Bean Street, Brewford" : {
+
+    },
+    "About" : {
 
     },
     "Add" : {
@@ -39,6 +48,9 @@
       }
     },
     "Basket empty" : {
+
+    },
+    "Beans are roasted at 200°C for 12-15 minutes depending on origin, then rested for 48 hours before grinding. This brings out the natural sweetness without any bitterness." : {
 
     },
     "buy" : {
@@ -135,6 +147,9 @@
     "Extra Shots" : {
 
     },
+    "Find Us" : {
+
+    },
     "flatWhiteDescription" : {
       "localizations" : {
         "en" : {
@@ -155,6 +170,9 @@
           }
         }
       }
+    },
+    "here" : {
+
     },
     "Hot Drinks" : {
 
@@ -217,6 +235,12 @@
         }
       }
     },
+    "Once Dani & Rob have completed making all iOS apps accessible, they will open NSCoffee, a specialist coffee roasters sourcing beans from small farms across Colombia, Ethiopia and Sumatra. We'll roast in small batches every week to keep things fresh, and work directly with growers to make sure they're paid fairly for their harvest." : {
+
+    },
+    "Organic Status" : {
+
+    },
     "orxataDescription" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -228,7 +252,16 @@
         }
       }
     },
+    "Our Coffee" : {
+
+    },
+    "Our roastery has been running since 2014 and now supplies over 40 independent cafes." : {
+
+    },
     "Rate your drink" : {
+
+    },
+    "Roasting Process" : {
 
     },
     "spanishLatteDescription" : {
@@ -240,6 +273,9 @@
           }
         }
       }
+    },
+    "Tap " : {
+
     },
     "thumbsUp.%lld" : {
       "extractionState" : "stale",
